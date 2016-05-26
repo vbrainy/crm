@@ -1,0 +1,9 @@
+[26-Feb-2016 05:17:47 America/Chicago] PHP Warning:  mysqli::mysqli(): (HY000/2005): Unknown MySQL server host 'db_host_name' (2) in /home4/noemdek/public_html/madnpark.co.uk/airtel/public/assets/export.php on line 14
+[26-Feb-2016 05:20:20 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home4/noemdek/public_html/madnpark.co.uk/airtel/public/assets/export.php on line 17
+[26-Feb-2016 05:21:50 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home4/noemdek/public_html/madnpark.co.uk/airtel/public/assets/export.php on line 17
+[26-Feb-2016 05:22:06 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home4/noemdek/public_html/madnpark.co.uk/airtel/public/assets/export.php on line 17
+[26-Feb-2016 05:33:51 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home4/noemdek/public_html/madnpark.co.uk/airtel/public/assets/export.php on line 17
+[28-Feb-2016 13:55:40 America/Chicago] PHP Warning:  require_once(/airtel/public/assets/import_functions.php): failed to open stream: No such file or directory in /home/airtelcrm/public_html/airtel/public/assets/import.php on line 17
+[28-Feb-2016 13:55:40 America/Chicago] PHP Fatal error:  require_once(): Failed opening required '/airtel/public/assets/import_functions.php' (include_path='.:/opt/php54/lib/php') in /home/airtelcrm/public_html/airtel/public/assets/import.php on line 17
+[28-Feb-2016 13:56:12 America/Chicago] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'noemdek_airtelcr'@'localhost' (using password: YES) in /home/airtelcrm/public_html/airtel/public/assets/import_functions.php on line 6
+[28-Feb-2016 13:56:41 America/Chicago] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'noemdek_airtelcrm'@'localhost' (using password: YES) in /home/airtelcrm/public_html/airtel/public/assets/import_functions.php on line 6
