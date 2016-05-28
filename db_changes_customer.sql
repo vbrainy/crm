@@ -1,5 +1,16 @@
 -- DB Changes Customer Module
 
+
+-- ADD PRIMARY KEY TO CUSTOMER TABLE 
+
 ALTER TABLE customer MODIFY COLUMN id INT auto_increment PRIMARY KEY;
 
 ALTER TABLE  `customer` CHANGE  `company`  `company` INT( 11 ) NULL;
+
+-- ADD PRIMARY KEY AUTO INCRIMENT TO COMPANY TABLE 
+
+ALTER TABLE `company` MODIFY COLUMN id INT auto_increment PRIMARY KEY;
+
+-- ADD FORIGN KEY RELATION TO FOR COMPANY TO CUSTOMER TABLE
+ALTER TABLE  `customer` ADD INDEX (  `company` )
+

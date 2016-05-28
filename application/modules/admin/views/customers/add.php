@@ -4,7 +4,6 @@
     $(document).ready(function () {
         $("form[name='add_customer']").submit(function (e) {
             var formData = new FormData($(this)[0]);
-
             $.ajax({
                 url: "<?php echo base_url('admin/customers/add_process'); ?>",
                 type: "POST",
@@ -14,7 +13,6 @@
                     $('body,html').animate({scrollTop: 0}, 200);
                     $("#customer_ajax").html(msg);
                     $("#customer_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
-
                     // $("form[name='add_customer']").find("input[type=text], textarea").val("");
 
 
@@ -23,16 +21,13 @@
                 contentType: false,
                 processData: false
             });
-
             e.preventDefault();
         });
     });
-
 //Contact Person
     $(document).ready(function () {
         $("form[name='add_contact_person']").submit(function (e) {
             var formData = new FormData($(this)[0]);
-
             $.ajax({
                 url: "<?php echo base_url('admin/contact_persons/add_process_ajax'); ?>",
                 type: "POST",
@@ -41,34 +36,32 @@
                 async: false,
                 success: function (data) {
                     $('body,html').animate({scrollTop: 0}, 200);
-
+                    $('#modal-create_contact_person').modal('hide');
                     //Add to dropdown
-                    $("#main_contact_person option:first").after($('<option>', {
+                    //$("#main_contact_person").append($('<option>').attr("value", data.co_person_id).text(data.co_person_name));
+                    // $('#main_contact_person option[value=' + data.co_person_id + ']').attr('selected', 'selected');
+                    $('#main_contact_person').append($('<option>', {
                         value: data.co_person_id,
                         text: data.co_person_name,
-                        selected: true
                     }));
-
-                    if (data.co_person_id)
-                    {
-                        $("#contact_person_ajax").html("Contact person create succesful");
-                    }
-
-                    $("#contact_person_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
-
-                    $("form[name='add_contact_person']").find("input[type=text], textarea").val("");
+                    $("#main_contact_person").select2("val", data.co_person_id);
+//                     if (data.co_person_id)
+//                    {
+//                        $("#contact_person_ajax").html("Contact person create succesful");
+//                    }
+//
+//                    $("#contact_person_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
+//
+//                    $("form[name='add_contact_person']").find("input[type=text], textarea").val("");
 
                 },
                 cache: false,
                 contentType: false,
                 processData: false
             });
-
             e.preventDefault();
         });
     });
-
-
     function getstatedetails(id)
     {
         //alert('this id value :'+id);
