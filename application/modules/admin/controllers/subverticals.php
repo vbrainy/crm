@@ -23,10 +23,10 @@ class Subverticals extends CI_Controller {
 	function index()
 	{
 				//checking permission for staff
-			if (!check_staff_permission('subverticals_read'))	
+			/*if (!check_staff_permission('subverticals_read'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 		    	$data['subverticals'] = $this->subverticals_model->subverticals_list();
 		    			    	 
@@ -38,10 +38,10 @@ class Subverticals extends CI_Controller {
 	function add()
 	{
 				//checking permission for staff
-			if (!check_staff_permission('subverticals_write'))	
+			/*if (!check_staff_permission('subverticals_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 				$data['verticals'] = $this->vertical_model->vertical_list();
 		    	 
@@ -53,10 +53,10 @@ class Subverticals extends CI_Controller {
 	function add_process()
 	{
 		//checking permission for staff
-			if (!check_staff_permission('subverticals_write'))	
+			/*if (!check_staff_permission('subverticals_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 		     
 		$this->form_validation->set_rules('subvertical_name', 'Vertical Name', 'required');
 		 
@@ -82,10 +82,10 @@ class Subverticals extends CI_Controller {
 	function view($subvertical_id)
 	{	
 			//checking permission for staff
-			if (!check_staff_permission('subverticals_read'))	
+			/*if (!check_staff_permission('subverticals_read'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 		    	  
 				$data['subvertical'] = $this->subverticals_model->get_subverticals( $subvertical_id );	 
 		    	 
@@ -98,10 +98,10 @@ class Subverticals extends CI_Controller {
 	function update($subvertical_id)
 	{
 				//checking permission for staff
-			if (!check_staff_permission('subverticals_write'))	
+			/*if (!check_staff_permission('subverticals_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 				$data['verticals'] = $this->vertical_model->vertical_list();
 				 
@@ -117,10 +117,10 @@ class Subverticals extends CI_Controller {
 	function update_process()
 	{
 		//checking permission for staff
-			if (!check_staff_permission('subverticals_write'))	
+			/*if (!check_staff_permission('subverticals_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			} 
+			} */
 		
 		$this->form_validation->set_rules('subvertical_name', 'Subvertical Name', 'required');
 		

@@ -25,9 +25,9 @@
         	<div class="row">
             <h2 class="col-md-6"><strong>Subverticals</strong></h2> 
             <div style="float:right; padding-top:10px;">
-               <?php if (check_staff_permission('subverticals_write')){?>
+               <?php /*if (check_staff_permission('subverticals_write')){*/?>
 			  <a href="<?php echo base_url('admin/subverticals/add/'); ?>" class="btn btn-primary btn-embossed"> Create New</a> 
-			  <?php }?>	
+			  <?php /*}*/?>	
             </div>           
           </div>
              
@@ -57,13 +57,13 @@
 	                        <td><?php if($subvertical->vertical_id){echo $this->vertical_model->get_vertical($subvertical->vertical_id)->vertical_name;} ?></td>
 	                        <td><?php echo $subvertical->status; ?></td>
 	                        <td style="width: 12%;">
-	                        <?php if (check_staff_permission('subverticals_write')){?>
+	                        <?php /*if (check_staff_permission('subverticals_write')){?>
 	                        <a href="<?php echo base_url('admin/subverticals/update/'.$subvertical->id); ?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 
-	                        <?php }?>
+	                        <?php }*/?>
 	                        
-	                        <?php if (check_staff_permission('subverticals_delete')){?>
+	                        <?php /*if (check_staff_permission('subverticals_delete')){?>
 	                        <a href="javascript:void(0)" class="delete btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#modal-basic<?php echo $subvertical->id; ?>"><i class="glyphicon glyphicon-trash"></i></a>
-	                        <?php }?>
+	                        <?php }*/?>
 	                        
 	                        </td> 
 	                      </tr>

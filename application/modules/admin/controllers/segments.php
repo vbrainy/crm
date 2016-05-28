@@ -24,10 +24,10 @@ class Segments extends CI_Controller {
 	function index()
 	{
 				//checking permission for staff
-			if (!check_staff_permission('segment_read'))	
+			/*if (!check_staff_permission('segment_read'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 		    	$data['segments'] = $this->segments_model->segments_list();
 		    			    	 
@@ -39,10 +39,10 @@ class Segments extends CI_Controller {
 	function add()
 	{
 				//checking permission for staff
-			if (!check_staff_permission('segment_write'))	
+			/*if (!check_staff_permission('segment_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 		    	$data['staffs'] = $this->staff_model->staff_list();
 		    	$data['regions'] = $this->regions_model->regions_list();
@@ -56,10 +56,10 @@ class Segments extends CI_Controller {
 	{
 			  
 		//checking permission for staff
-			if (!check_staff_permission('sales_team_write'))	
+			/*if (!check_staff_permission('sales_team_write'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 		  
 		$this->form_validation->set_rules('segment', 'Segment', 'required');
 		$this->form_validation->set_rules('sales_target', 'Sales Target', 'required');
@@ -91,10 +91,10 @@ class Segments extends CI_Controller {
 	function view($segment_id)
 	{
 		    	//checking permission for staff
-			if (!check_staff_permission('segment_read'))	
+			/*if (!check_staff_permission('segment_read'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			  
 				$data['segments'] = $this->segments_model->get_segment( $segment_id );	 
 		    	 

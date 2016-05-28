@@ -59,9 +59,11 @@
             <li class="nav-parent">
               <a href="#"><i class="fa fa-cubes"></i><span>Admin</span> <span class="fa arrow"></span></a>
               <ul class="children collapse">
-                <li class="<?php echo is_active_menu('segments'); ?>"><a href="<?php echo base_url('admin/products'); ?>"> Segments</a></li>
-                <li class="<?php echo is_active_menu('regions'); ?>"><a href="<?php echo base_url('admin/category'); ?>"> Regions</a></li>                
-                <li class="<?php echo is_active_menu('regions'); ?>"><a href="<?php echo base_url('admin/category'); ?>"> Users</a></li>                
+                <li class="<?php echo is_active_menu('segments'); ?>"><a href="<?php echo base_url('admin/segments'); ?>"> Segments</a></li>
+                <li class="<?php echo is_active_menu('regions'); ?>"><a href="<?php echo base_url('admin/regions'); ?>"> Regions</a></li>                
+                <li class="<?php echo is_active_menu('verticals'); ?>"><a href="<?php echo base_url('admin/vertical'); ?>"> Verticals</a></li>                
+                <li class="<?php echo is_active_menu('subverticals'); ?>"><a href="<?php echo base_url('admin/subverticals'); ?>"> Sub Verticals</a></li>                
+                <li class="<?php echo is_active_menu('users_management'); ?>"><a href="<?php echo base_url('admin/staff'); ?>"> User Management</a></li>                
               </ul>
             </li>
                

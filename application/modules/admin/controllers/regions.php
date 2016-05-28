@@ -23,10 +23,10 @@ class Regions extends CI_Controller {
 	function index()
 	{
 				//checking permission for staff
-			if (!check_staff_permission('region_read'))	
+			/*if (!check_staff_permission('region_read'))	
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
-			}
+			}*/
 			
 		    	$data['regions'] = $this->regions_model->regions_list();
 		    			    	 

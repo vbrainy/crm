@@ -3,6 +3,7 @@
 
 $(document).ready(function() {
 	$("form[name='add_staff']").submit(function(e) {
+
         var formData = new FormData($(this)[0]);
 
         $.ajax({
@@ -203,8 +204,49 @@ $(document).ready(function() {
 										<div class="row">
 					                    
 					                    	 <div class="panel-content">
+					                    	 	<h3><i class="icon-check"></i> <strong>Permissions</strong></h3> 
+                   						   <div class="row">		
+               				 				<div class="col-md-2">
+               				 				<p><strong>Admin </strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="admin_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="admin_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="admin_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
+                               					 </div>
+                    				          </div>		
+                   							</div>
+                   						
+                   							
+               				 				<div class="col-md-2">
+               				 				<p><strong>Customers</strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="customers_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="customers_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="customers_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
+                               					 </div>
+                    				          </div>		
+                   							</div>
+                   							
+                   							
+	</div>
+
+											</div>	
+                   							</div>
+
+
+                   								<div class="row">
+					                    
+					                    	 <div class="panel-content">
                    									
-                   								<h3><i class="icon-check"></i> <strong>Permissions</strong></h3> 
+                   								
                    						   <div class="row">		
                				 				<div class="col-md-2">
                				 				<p><strong>Sales Teams</strong></p>	
