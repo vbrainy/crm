@@ -46,7 +46,19 @@
 
 
 		    <div class="row">
-			<div class="col-sm-6">
+			<div class="col-sm-1">
+			    <div class="form-group">
+				<label class="control-label">Title</label>
+				<div class="append-icon">
+				    <select name="title">
+					<option value="Mr">Mr</option>
+					<option value="Mrs">Mrs</option>
+					<option value="Miss">Miss</option>
+				    </select>
+				</div>
+			    </div>
+			</div> 
+			<div class="col-sm-5">
 			    <div class="form-group">
 				<label class="control-label">First Name</label>
 				<div class="append-icon">
@@ -65,64 +77,33 @@
 			    </div>
 			</div>
 		    </div>
-
 		    <div class="row">
 			<div class="col-sm-6">
 			    <div class="form-group">
 				<label class="control-label">Job Position</label>
 				<div class="append-icon">
 				    <input type="text" name="job_position" value="" class="form-control">
-
 				</div>
 			    </div>
 			</div>
 			<div class="col-sm-6">
 			    <div class="form-group">
-				<label class="control-label">Phone</label>
+				<label class="control-label">Email</label>
 				<div class="append-icon">
-				    <input type="text" name="phone" value="" class="form-control">
-				    <i class="icon-screen-smartphone"></i>
+				    <input type="email" name="email" value="" class="form-control">
+				    <i class="icon-envelope"></i>
 				</div>
 			    </div>
 			</div>
 		    </div>
 		    <div class="row">
-			<div class="col-sm-6">
-			    <div class="form-group">
-				<label class="control-label">Mobile</label>
-				<div class="append-icon">
-				    <input type="text" name="mobile" value="" class="form-control">
-				    <i class="icon-screen-smartphone"></i>
-				</div>
-			    </div>
-			</div>
-			<div class="col-sm-6">
-			    <div class="form-group">
-				<label class="control-label">Fax</label>
-				<div class="append-icon">
-				    <input type="text" name="fax" value="" class="form-control">
-				    <i class="icon-screen-smartphone"></i>
-				</div>
-			    </div>
-			</div>
-		    </div>
-		    <div class="row">
-			<div class="col-sm-6">
-			    <div class="form-group">
-				<label class="control-label">Title</label>
-				<div class="append-icon">
-				    <input type="text" name="title" value="" class="form-control">
-
-				</div>
-			    </div>
-			</div>
 			<div class="col-sm-6">
 			    <div class="form-group">
 				<label class="control-label">Company</label>
 				<div class="append-icon">
 
 				    <select name="company" class="form-control" data-search="true">
-					<option value=""></option>
+					<option value="">Select Company</option>
 					<?php
 					foreach($companies as $company)
 					{
@@ -133,20 +114,6 @@
 				</div>
 			    </div>
 			</div>
-		    </div>
-		    <div class="row">
-			<div class="col-sm-6">
-			    <div class="form-group">
-				<label class="control-label">Email</label>
-				<div class="append-icon">
-				    <input type="email" name="email" value="" class="form-control">
-				    <i class="icon-envelope"></i>
-				</div>
-			    </div>
-			</div>
-
-		    </div>
-		    <div class="row">
 			<div class="col-sm-6">
 			    <div class="form-group">
 				<label class="control-label">Upload your avatar</label>

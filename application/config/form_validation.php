@@ -323,9 +323,49 @@ $config = array(
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
 	),
 	array(
+	    'field' => 'address',
+	    'label' => 'Street # and Name',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'city',
+	    'label' => 'City',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'state_id',
+	    'label' => 'State',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'phone',
+	    'label' => 'Phone',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'fax',
+	    'label' => 'Fax',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
 	    'field' => 'email',
 	    'label' => 'Email',
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email'
+	),
+	array(
+	    'field' => 'regions',
+	    'label' => 'Region',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
+	),
+	array(
+	    'field' => 'vertical',
+	    'label' => 'Vertical',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
+	),
+	array(
+	    'field' => 'subverticals',
+	    'label' => 'Subvertical',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
 	),
 	array(
 	    'field' => 'main_contact_person',
@@ -345,9 +385,49 @@ $config = array(
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
 	),
 	array(
+	    'field' => 'address',
+	    'label' => 'Street # and Name',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'city',
+	    'label' => 'City',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'state_id',
+	    'label' => 'State',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'phone',
+	    'label' => 'Phone',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'fax',
+	    'label' => 'Fax',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
 	    'field' => 'email',
 	    'label' => 'Email',
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email'
+	),
+	array(
+	    'field' => 'regions',
+	    'label' => 'Region',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
+	),
+	array(
+	    'field' => 'vertical',
+	    'label' => 'Vertical',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
+	),
+	array(
+	    'field' => 'subverticals',
+	    'label' => 'Subvertical',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
 	),
 	array(
 	    'field' => 'main_contact_person',
@@ -362,6 +442,11 @@ $config = array(
     ),
     'admin_create_contact_person' => array(
 	array(
+	    'field' => 'title',
+	    'label' => 'Title',
+	    'rules' => 'required'
+	),
+	array(
 	    'field' => 'first_name',
 	    'label' => 'First Name',
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
@@ -375,6 +460,11 @@ $config = array(
 	    'field' => 'email',
 	    'label' => 'Email',
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email'
+	),
+	array(
+	    'field' => 'job_position',
+	    'label' => 'Job Position',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|max_length[50]'
 	),
 	array(
 	    'field' => 'company',

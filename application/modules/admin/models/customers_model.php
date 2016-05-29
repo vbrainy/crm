@@ -20,52 +20,25 @@ class Customers_model extends CI_Model
 
     function add_company()
     {
-	if(!empty($_FILES['company_attachment']['name']))
-	{
-
-	    $config['upload_path']	 = './uploads/company/';
-	    $config['allowed_types'] = config('allowed_extensions');
-	    $config['max_size']	 = config('max_upload_file_size');
-	    $config['encrypt_name']	 = TRUE;
-
-	    $this->load->library('upload', $config);
-
-	    if(!$this->upload->do_upload('company_attachment'))
-	    {
-
-		echo $this->upload->display_errors();
-	    }
-	    else
-	    {
-		$company_data = $this->upload->data();
-
-		$company_attachment = $company_data['file_name'];
-	    }
-	}
-	else
-	{
-	    $company_attachment = '';
-	}
-
 	if(empty($_FILES['company_avatar']['name']))
 	{
 
 	    $company_details = array(
 		'name' => $this->input->post('name'),
 		'address' => $this->input->post('address'),
-		'country_id' => $this->input->post('country_id'),
+		//'country_id' => $this->input->post('country_id'),
 		'state_id' => $this->input->post('state_id'),
-		'city_id' => $this->input->post('city_id'),
+		'city' => $this->input->post('city'),
 		'annual_turnover' => $this->input->post('annual_turnover'),
 		'number_employees' => $this->input->post('number_employees'),
 		'domestic_branches' => $this->input->post('domestic_branches'),
 		'int_branches' => $this->input->post('int_branches'),
 		'website' => $this->input->post('website'),
 		'phone' => $this->input->post('phone'),
-		'mobile' => $this->input->post('mobile'),
+		//'mobile' => $this->input->post('mobile'),
 		'fax' => $this->input->post('fax'),
 		'email' => $this->input->post('email'),
-		'company_attachment' => $company_attachment,
+		//'company_attachment' => $company_attachment,
 		'main_contact_person' => $this->input->post('main_contact_person'),
 		'contact_person' => $this->input->post('contact_person'),
 		'regions' => $this->input->post('regions'),
@@ -103,18 +76,17 @@ class Customers_model extends CI_Model
 		    'address' => $this->input->post('address'),
 		    'website' => $this->input->post('website'),
 		    'phone' => $this->input->post('phone'),
-		    'mobile' => $this->input->post('mobile'),
+		    //'mobile' => $this->input->post('mobile'),
 		    'fax' => $this->input->post('fax'),
-		    'country_id' => $this->input->post('country_id'),
+		    //'country_id' => $this->input->post('country_id'),
 		    'state_id' => $this->input->post('state_id'),
-		    'city_id' => $this->input->post('city_id'),
+		    'city' => $this->input->post('city'),
 		    'annual_turnover' => $this->input->post('annual_turnover'),
 		    'number_employees' => $this->input->post('number_employees'),
 		    'domestic_branches' => $this->input->post('domestic_branches'),
 		    'int_branches' => $this->input->post('int_branches'),
 		    'email' => $this->input->post('email'),
 		    'company_avatar' => $img_data['file_name'],
-		    'company_attachment' => $company_attachment,
 		    'main_contact_person' => $this->input->post('main_contact_person'),
 		    'contact_person' => $this->input->post('contact_person'),
 		    'vertical' => $this->input->post('vertical'),

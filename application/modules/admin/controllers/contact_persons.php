@@ -104,9 +104,13 @@ class Contact_persons extends CI_Controller
     {
 	check_login();
 
-	if($this->form_validation->set_rules('email', 'Email', 'required') == FALSE)
+	if($this->form_validation->run('admin_create_contact_person') == FALSE)
 	{
-	    echo '<div class="alert error"><ul>' . validation_errors('<li>', '</li>') . '</ul></div>';
+	    echo '<div class="alert error"><ul>' . validation_errors('<li style="color:red">', '</li>') . '</ul></div>';
+	}
+	elseif($this->contact_persons_model->exists_email($this->input->post('email')) > 0)
+	{
+	    echo '<div class="alert error"><ul><li style="color:red">Email already used.</li></ul></div>';
 	}
 	else
 	{

@@ -39,8 +39,8 @@ class Customers extends CI_Controller
 
     function add()
     {
-
 	$data['contact_persons'] = $this->customers_model->contact_persons_list();
+	$data['states']		 = $this->customers_model->state_list(160);
 	$data['regions']	 = $this->regions_model->regions_list();
 	$data['verticals']	 = $this->vertical_model->vertical_list();
 	$data['subverticals']	 = $this->subverticals_model->subverticals_list();
@@ -61,13 +61,12 @@ class Customers extends CI_Controller
 	{
 	    echo '<div class="alert error"><ul><li style="color:red">Email already used.</li></ul></div>';
 	}
-	else if($this->input->post('main_contact_person') == $this->input->post('contact_person'))
+	else if(!empty($this->input->post('main_contact_person')) && !empty($this->input->post('contact_person')) && ($this->input->post('main_contact_person') == $this->input->post('contact_person')))
 	{
 	    echo '<div class="alert error"><ul><li style="color:red">Contact person should not be the same.</li></ul></div>';
 	}
 	else
 	{
-
 	    if($this->customers_model->add_company())
 	    {
 		$subject = 'Customer login details';
@@ -119,14 +118,13 @@ class Customers extends CI_Controller
 
     function update($company_id)
     {
-
-
 	$data['customer']	 = $this->customers_model->get_company($company_id);
 	$data['contact_persons'] = $this->customers_model->contact_persons_list();
 	$data['regions']	 = $this->regions_model->regions_list();
 	$data['verticals']	 = $this->vertical_model->vertical_list();
 	$data['subverticals']	 = $this->subverticals_model->subverticals_list();
 	$data['countries']	 = $this->customers_model->country_list();
+	$data['states']		 = $this->customers_model->state_list(160);
 
 	$this->load->view('header');
 	$this->load->view('customers/update', $data);
@@ -135,11 +133,9 @@ class Customers extends CI_Controller
 
     function update_process()
     {
-
-
 	if($this->form_validation->run('admin_update_company') == FALSE)
 	{
-	    echo '<div class="alert error red"><ul>' . validation_errors('<li>', '</li>') . '</ul></div>';
+	    echo '<div class="alert error red"><ul>' . validation_errors('<li style="color:red">', '</li>') . '</ul></div>';
 	}
 	else
 	{
