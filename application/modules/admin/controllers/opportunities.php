@@ -17,6 +17,8 @@ class Opportunities extends CI_Controller {
 		 $this->load->model("meetings_model"); 
 		  $this->load->model("sources_model");
 		  $this->load->model("contact_persons_model");
+		  $this->load->model("products_model");
+		  $this->load->model("category_model");
 		 
 				
          $this->load->library('form_validation');
@@ -66,7 +68,8 @@ class Opportunities extends CI_Controller {
 		    	$data['regions'] = $this->regions_model->regions_list();
 		    	$data['sources'] = $this->sources_model->sources_list();
 		    	$data['contact_persons'] = $this->contact_persons_model->contact_persons_list();
-		    	
+		    	$data['products'] = $this->products_model->products_list();
+		    	$data['categories'] = $this->category_model->category_list();
 				$this->load->view('header');
 				$this->load->view('opportunities/add',$data);
 				$this->load->view('footer');

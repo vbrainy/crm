@@ -39,10 +39,11 @@ var services = [
  
 
 //If parent option is changed
-$("#parent_selection").change(function() {
+$("#product_id").change(function() {
         var parent = $(this).val(); //get option value from parent 
-        
-        switch(parent){ //using switch compare selected option and populate child
+        getProductCategories(parent);
+
+        /*switch(parent){ //using switch compare selected option and populate child
                case 'gsm':
                 list(gsm);
                 break;
@@ -58,8 +59,21 @@ $("#parent_selection").change(function() {
             default: //default child option is blank
                 $("#child_selection").html('');  
                 break;
-           }
+           }*/
 });
+
+function getProductCategories(product_id){
+	var url = "<?php echo base_url() ?>"+'admin/category/get_prod_cat';
+
+	$.ajax({
+		url: url, 
+		method: 'post',
+		data: {'product_id': product_id},
+		success: function(result){
+			$('#category_id').html(result);
+    }});
+}
+
 
 //function to populate child select box
 function list(array_list)
@@ -271,15 +285,22 @@ $('.prod_options').hide();
 <div class="form-group">
 <label class="control-label">Product</label>
 <div class="append-icon">
+										<select name="product_id" id="product_id" class="form-control" data-search="true">
+                                          <option value="" selected="selected"></option>
+                                          <?php foreach($products as $key=>$value) { ?>
+
+                                          <option value="<?php echo $value->id ?>"><?php echo $value->product_name ?></option>
+                                          <?php } ?>
+                                          </select>
 
                                        
-                                            <select name="parent_selection" id="parent_selection" class="form-control" data-search="true">
+                                            <!--select name="parent_selection" id="parent_selection" class="form-control" data-search="true">
                                                     <option value="">-- Please Select --</option>
                                                     <option value="gsm">GSM</option>
                                                     <option value="solutions">Solutions</option>
                                                     <option value="device">Device</option>
                                                     <option value="services">Value Added Services</option>
-                                                </select>
+                                                </select-->
              </div>
                                                 </div>	
                                             </div>	
@@ -290,7 +311,7 @@ $('.prod_options').hide();
 <label class="control-label">Product categories</label>
 <div class="append-icon">
 
-                                                 <select name="child_selection" id="child_selection" class="form-control" data-search="true">
+                                                 <select name="category_id" id="category_id" class="form-control" data-search="true">
                                                     </select>
 					                          </div>
                                                 </div>	
@@ -298,65 +319,389 @@ $('.prod_options').hide();
                                             </div>
                                  <div class="row">
 					                    	 <div class="col-sm-12">                                            
-<div id="activations-pre-paid"  style="display: none;" class="prod_options">
+<div id="activations-pre-paid" class="prod_options">
 <h3>New Activations Pre Paid</h3>
-<table width="100%">
-<tr>
-<th></th>
-<th>Qauntity (Number of Lines)</th>
-<th>One time fee (e.g. SIM cost)</th>
-<th>Annual recurring fee</th>
-</tr>
-<tr>
-<td>Voice</td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-
-<tr>
-<td>Data</td><td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-
-<tr>
-<td>Bundle (Voice + Data)</td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-</table>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+	</div>
 </div>
 
-<div id="activations-post-paid" style="display: none;" class="prod_options">
+</div>
+
+<div id="activations-post-paid" class="prod_options">
 <h3>New Activations Post Paid</h3>
-<table width="100%">
-<tr>
-<th></th>
-<th>Qauntity (Number of Lines)</th>
-<th>One time fee (e.g. SIM cost)</th>
-<th>Annual recurring fee</th>
-</tr>
-<tr>
-<td>Voice</td><td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-
-<tr>
-<td>Data</td><td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-
-<tr>
-<td>Bundle (Voice + Data)</td><td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-<td><input type="text" class="form-control"/></td>
-</tr>
-</table>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+	</div>
 </div>
+</div>
+
+<div id="mnp-pre-paid" class="prod_options">
+<h3>MNP Pre Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="mnp-post-paid" class="prod_options">
+<h3>MNP Post Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+			<div class="col-md-3"><input type="text" class="form-control"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="dedicated-internet" class="prod_options">
+<h3>Dedicated Internet</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity per location</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Value per location</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">End Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">End Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="national_leased" class="prod_options">
+<h3>National Leased Lines/MPLS</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="international_leased" class="prod_options">
+<h3>International Leased Lines/MPLS </h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="pri" class="prod_options">
+<h3>PRI</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Installation location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Installation location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of DOD units</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of DID units</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="apn-over-internet" class="prod_options">
+<h3>APN over internet</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of units</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="apn-over-leased-lines" class="prod_options">
+<h3>APN over leased lines </h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="devices" class="prod_options">
+<h3>Devices</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Device Type</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of units</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total value</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="value-added-services" class="prod_options">
+<h3>Value Added Services</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Quantity</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">One-time cost</div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+</div>
+
 </div>
 </div>
 					                      

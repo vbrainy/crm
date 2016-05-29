@@ -88,7 +88,7 @@ class Category extends CI_Controller {
 		 
 		
 		$this->form_validation->set_rules('category_name', 'Category Name', 'required');
-		
+		$this->form_validation->set_rules('product_id', 'Product Name', 'required');
 		if( $this->form_validation->run() == FALSE )
         {
             echo '<div class="alert error" style="color:red"> ' . validation_errors() . '</div>';
@@ -119,5 +119,20 @@ class Category extends CI_Controller {
 			}
 		
 	}
+
+	/*
+	Ajax method to get categories based on the selected product
+	*/
+	function get_prod_cat()
+	{
+		$productId = $this->input->post('product_id');
+		$categories = $this->category_model->get_product_category($productId);
+		$tempStr='';
+		foreach ($categories as $key => $value) {
+			$tempStr .= "<option value='".$value['id']."'>".$value['category_name']."</option>";
+		}
+		echo $tempStr;exit;
+	}
+
 	 
 }

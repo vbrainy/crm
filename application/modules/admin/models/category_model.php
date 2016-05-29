@@ -45,6 +45,13 @@ class Category_model extends CI_Model {
 		return $this->db->get_where('category',array('id' => $category_id))->row();
 	}
 	
+	function get_product_category( $product_id )
+	{
+		$query = $this->db->get_where('category',array('product_id' => $product_id));
+		return $query->result_array();
+	}
+
+
 	function delete( $category_id )
 	{
 		if( $this->db->delete('category',array('id' => $category_id)) )  // Delete customer

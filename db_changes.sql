@@ -11,6 +11,12 @@ ALTER TABLE `category`  ADD `product_id` INT NOT NULL  AFTER `id`;
 ALTER TABLE `category` ADD INDEX(`product_id`);
 ALTER TABLE `category` ADD  FOREIGN KEY (`product_id`) REFERENCES `airtelcr_airtelcrm`.`products`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
+ALTER TABLE `opportunities`  ADD `product_id` INT NOT NULL  AFTER `id`,  ADD `category_id` INT NOT NULL  AFTER `product_id`;
+ALTER TABLE `opportunities` ADD INDEX(`product_id`);
+ALTER TABLE `opportunities` ADD INDEX(`category_id`);
+ALTER TABLE `opportunities` ADD  FOREIGN KEY (`product_id`) REFERENCES `airtelcr_airtelcrm`.`products`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+ALTER TABLE `opportunities` ADD  FOREIGN KEY (`category_id`) REFERENCES `airtelcr_airtelcrm`.`category`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
 
 
 
