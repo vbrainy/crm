@@ -77,3 +77,13 @@ INSERT INTO  `airtelcrm`.`vertical` (`id` ,`vertical_name`)
 VALUES (NULL ,  'Carrier'), (NULL ,  'Financial'), (NULL ,  'Manufacturing'), (NULL ,  'Oil & Gas'), (
 NULL ,  'Public Sector'), (NULL ,  'Services');
 
+
+CREATE TABLE IF NOT EXISTS `reports_errors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `module_title` varchar(255) NOT NULL,
+  `comment` text NOT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0-Pending,1-Resolved',
+  `created_datetime` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT;

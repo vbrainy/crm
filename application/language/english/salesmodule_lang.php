@@ -1,5 +1,5 @@
 <?php
- 
+
 // User
 
 $lang['sign_in_title'] = 'Sign In';
@@ -53,22 +53,23 @@ $lang['new_password'] = 'New Password';
 $lang['retype_new_password'] = 'Repeat your password';
 
 
-//General 
+//General
 $lang['options'] = 'Options';
 
- 
+
 // Controller Messages
 
 
 $lang['already_exists_dep'] = 'Department name is already exists.';
 
-$lang['create_succesful'] = 'Create Successful';
+$lang['create_succesful']	 = 'Create Successful';
+$lang['report_create_succesful'] = 'Report created successfully. We will get back to you soon.';
 
 $lang['technical_problem'] = 'Technical Problem';
 
 $lang['update_succesful'] = 'Update Successful';
 
-$lang['already_account'] = 'You already have an account. <a href="'.base_url('member/login').'">Login here</a>';
+$lang['already_account'] = 'You already have an account. <a href="' . base_url('member/login') . '">Login here</a>';
 
 $lang['invalid_pass'] = 'Invalid Password';
 
@@ -95,7 +96,4 @@ $lang['allowed_files'] = 'Allowed file extensions';
 $lang['max_upload_files'] = 'Maximum upload files';
 
 $lang['max_upload_file_size'] = 'Maximum upload file size';
-
-
- 
 ?>

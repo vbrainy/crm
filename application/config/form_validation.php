@@ -299,6 +299,18 @@ $config = array(
 	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[2]|max_length[20]'
 	)
     ),
+    'create_report_errors' => array(
+	array(
+	    'field' => 'module_name',
+	    'label' => 'Module Name',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	),
+	array(
+	    'field' => 'comment',
+	    'label' => 'Comment',
+	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[150]'
+	),
+    ),
     'admin_update_customers' => array(
 	array(
 	    'field' => 'first_name',
