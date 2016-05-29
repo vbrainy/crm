@@ -13,7 +13,8 @@ class Category_model extends CI_Model {
     {
     		 
 			$category_details = array(
-	            'category_name' => $this->input->post('category_name'),	             
+	            'category_name' => $this->input->post('category_name'),	    
+	            'product_id' => $this->input->post('product_id')	             
 	            );
 	                                    
 	       	 return $this->db->insert('category',$category_details);
@@ -25,6 +26,7 @@ class Category_model extends CI_Model {
     {
     	$category_details = array(
 	            'category_name' => $this->input->post('category_name'),	             
+	            'product_id' => $this->input->post('product_id')
 	            );
 	           
 		 return $this->db->update('category',$category_details,array('id' => $this->input->post('category_id')));

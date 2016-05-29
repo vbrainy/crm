@@ -44,9 +44,9 @@ class Products extends CI_Controller {
 			
 	
 		    	 
-				$this->load->view('header');
-				$this->load->view('products/add',$data);
-				$this->load->view('footer');
+			$this->load->view('header');
+			$this->load->view('products/add');
+			$this->load->view('footer');
 			 
 	}
 	function add_process()

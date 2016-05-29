@@ -9,7 +9,8 @@ class Dashboard extends CI_Controller {
 		 $this->load->model("dashboard_model");
 		 $this->load->model("invoices_model");
 		 $this->load->model("staff_model");
-		  
+         $this->load->model("segments_model");
+    	  $this->load->model("regions_model");
          $this->load->library('form_validation');
          
          
@@ -28,7 +29,10 @@ class Dashboard extends CI_Controller {
     	$data['leads']=$this->dashboard_model->total_leads();		    	
     	$data['opportunities']=$this->dashboard_model->total_opportunities();
     	$data['customers']=$this->dashboard_model->total_customers();
-    	//$data['staff'] = $this->staff_model->get_user($this->session->userdata['id']);
+    	$data['staff'] = $this->staff_model->get_user($this->session->userdata['id']);
+        $data['staff_segment'] = $this->segments_model->get_segment($data['staff']->segment_id);
+        $data['staff_region'] = $this->regions_model->get_region($data['staff']->region_id);
+        $data['staff_supervisor'] = $this->staff_model->get_user($data['staff']->supervisor_id);
 		$this->load->view('header');			 
 		$this->load->view('dashboard/index',$data);
 		$this->load->view('footer');	

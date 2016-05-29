@@ -7,6 +7,7 @@ class Category extends CI_Controller {
          parent::__construct();
 		 $this->load->database();
 		 $this->load->model("category_model");
+		 $this->load->model("products_model");
 		  
          $this->load->library('form_validation');
          
@@ -22,7 +23,6 @@ class Category extends CI_Controller {
 	function index()
 	{
 		    	$data['categories'] = $this->category_model->category_list();
-		    			    	 
 				$this->load->view('header');
 				$this->load->view('category/index',$data);
 				$this->load->view('footer');
@@ -30,9 +30,9 @@ class Category extends CI_Controller {
 	}
 	function add()
 	{
-		    	 
-				$this->load->view('header');
-				$this->load->view('category/add');
+	    	 	$data['products'] = $this->products_model->products_list();
+	    	 	$this->load->view('header');
+				$this->load->view('category/add', $data);
 				$this->load->view('footer');
 			 
 	}
@@ -40,6 +40,7 @@ class Category extends CI_Controller {
 	{
 		     
 		$this->form_validation->set_rules('category_name', 'Category Name', 'required');
+		$this->form_validation->set_rules('product_id', 'Product Name', 'required');
 		 
 		if( $this->form_validation->run() == FALSE )
         {
@@ -75,7 +76,7 @@ class Category extends CI_Controller {
 	{
 				 
 		    	$data['category'] = $this->category_model->get_category( $category_id );	 
-		    	 
+	    	 	$data['products'] = $this->products_model->products_list();
 				$this->load->view('header');
 				$this->load->view('category/update',$data);
 				$this->load->view('footer');

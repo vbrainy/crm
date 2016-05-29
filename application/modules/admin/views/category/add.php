@@ -61,7 +61,24 @@ $(document).ready(function() {
 					                          </div>
 					                          
 					                        </div>
-					                    
+					                    <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Product</label>
+                                        <div class="append-icon">
+                                          <select name="product_id" id="product_id" class="form-control" data-search="true">
+                                          <option value="" selected="selected"></option>
+                                          <?php foreach($products as $key=>$value) { ?>
+
+                                          <option value="<?php echo $value->id ?>"><?php echo $value->product_name ?></option>
+                                          <?php } ?>
+                                          </select>
+                                           
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
                         				  
 					                     
 					                    

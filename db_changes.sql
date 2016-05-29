@@ -7,6 +7,10 @@ ALTER TABLE `account_permission` CHANGE `region_team_delete` `region_delete` INT
 ALTER TABLE `account_permission`  ADD `admin_read` INT NOT NULL DEFAULT '0' ,  ADD `admin_write` INT NOT NULL DEFAULT '0' ,  ADD `admin_delete` INT NOT NULL DEFAULT '0' ,  ADD `customers_read` INT NOT NULL DEFAULT '0' ,  ADD `customers_write` INT NOT NULL DEFAULT '0' ,  ADD `customers_delete` INT NOT NULL DEFAULT '0' ;
 ALTER TABLE `users`  ADD `job_title` VARCHAR(255) NOT NULL ,  ADD `segment_id` INT NOT NULL ,  ADD `region_id` INT NOT NULL ,  ADD `supervisor_id` INT NOT NULL ;
 
+ALTER TABLE `category`  ADD `product_id` INT NOT NULL  AFTER `id`;
+ALTER TABLE `category` ADD INDEX(`product_id`);
+ALTER TABLE `category` ADD  FOREIGN KEY (`product_id`) REFERENCES `airtelcr_airtelcrm`.`products`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
 
 
 

@@ -96,15 +96,18 @@ The tool allows you to handle the following primary tasks:
   </tr>
   <tr>
     <td class="tg-ejgj">Segment</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"><?php echo isset($staff_segment->segment) ? $staff_segment->segment : '' ; ?></td>
   </tr>
   <tr>
     <td class="tg-y4nq">Region</td>
-    <td class="tg-j2zy"></td>
+    <td class="tg-j2zy"><?php echo isset($staff_region->region) ? $staff_region->region : '' ; ?></td>
   </tr>
   <tr>
     <td class="tg-ejgj">Supervisor name</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">
+      <?php echo isset($staff_supervisor->first_name) ? $staff_supervisor->first_name : '' ; ?>
+      <?php echo isset($staff_supervisor->last_name) ? $staff_supervisor->last_name : '' ; ?>
+    </td>
   </tr>
   <tr>
     <td class="tg-ejgj">Opportunity (achieved)</td>
