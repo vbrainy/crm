@@ -109,6 +109,7 @@ class Admin extends MX_Controller {
             $userdata = $this->user_model->user_data( $this->input->post('email') );
             
             $session_data = array(
+            						"id" => $userdata->id,
                                       "username"   => $userdata->email,
                                       "userhash"   => md5( $userdata->password.$this->config->item('password_hash')  ) 
                                       );

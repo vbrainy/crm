@@ -51,8 +51,9 @@
                       
                       <?php if( ! empty($regions) ){?>
 					    <?php foreach( $regions as $region){ ?>
+              <?php //print_r($region);exit; ?>
 	                      <tr id="region_id_<?php echo $region->id; ?>">	                        
-	                        <td><a href="<?php echo base_url('admin/regions/update/'.$region>id); ?>"><?php echo $region->region; ?></a></td>
+	                        <td><a href="<?php echo base_url('admin/regions/update/'.$region->id); ?>"><?php echo $region->region; ?></a></td>
 	                        <td><?php echo $region->sales_target;?></td>
 	                        <td><?php echo $region->sales_forecast;?></td>
 	                        <td><?php echo $region->actual_sales;?></td>	                        

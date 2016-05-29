@@ -14,7 +14,7 @@ $(document).ready(function() {
             success: function (msg) {
 			$('body,html').animate({ scrollTop: 0 }, 200);
             $("#staff_ajax").html(msg); 
-			$("#staff_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
+			//$("#staff_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
 			 
             $("form[name='add_staff']").find("input[type=text], input[type=checkbox]").val("");
         },
@@ -151,7 +151,57 @@ $(document).ready(function() {
 				                            </div>
 				                          </div>
 
-
+<div class="row">				                         
+				                          <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Job Title</label>
+				                              <div class="append-icon">
+				                                <input type="text" name="job_title" value="" class="form-control">
+				                              </div>
+				                            </div>
+				                          </div>
+				                           <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Segment</label>
+				                              <div class="append-icon">
+				                                <select name="segment_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($segments as $key => $value) { ?>
+					                              		<option value="<?php echo $value->id ?>"><?php echo $value->segment ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </div>
+				                        <div class="row">				                         
+				                          <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Region</label>
+				                              <div class="append-icon">
+				                                <select name="region_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($regions as $key => $value) { ?>
+					                              		<option value="<?php echo $value->id ?>"><?php echo $value->region ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                           <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Supervisor</label>
+				                              <div class="append-icon">
+				                                <select name="supervisor_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($staffs as $key => $value) { ?>
+					                              		<option value="<?php echo $value->id ?>"><?php echo $value->first_name .' '.$value->last_name; ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </div>
 <div class="row">
      <div class="header">
             <h5>Targets Settings</h5>            

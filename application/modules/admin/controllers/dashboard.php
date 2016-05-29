@@ -27,17 +27,8 @@ class Dashboard extends CI_Controller {
     
     	$data['leads']=$this->dashboard_model->total_leads();		    	
     	$data['opportunities']=$this->dashboard_model->total_opportunities();
-    	
     	$data['customers']=$this->dashboard_model->total_customers();
-    	
-    		
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+    	//$data['staff'] = $this->staff_model->get_user($this->session->userdata['id']);
 		$this->load->view('header');			 
 		$this->load->view('dashboard/index',$data);
 		$this->load->view('footer');	

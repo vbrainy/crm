@@ -25,7 +25,6 @@
         	<div class="row">
             <h2 class="col-md-6"><strong>Vertical</strong></h2> 
             <div style="float:right; padding-top:10px;">
-               
 			  <a href="<?php echo base_url('admin/vertical/add/'); ?>" class="btn btn-primary btn-embossed"> Create New</a> 	
             </div>           
           </div>

@@ -92,7 +92,7 @@ The tool allows you to handle the following primary tasks:
   </tr>
   <tr>
     <td class="tg-f6j5">Job Title</td>
-    <td class="tg-z2zr"></td>
+    <td class="tg-z2zr"><?php echo userdata('job_title'); ?></td>
   </tr>
   <tr>
     <td class="tg-ejgj">Segment</td>
@@ -105,10 +105,6 @@ The tool allows you to handle the following primary tasks:
   <tr>
     <td class="tg-ejgj">Supervisor name</td>
     <td class="tg-yw4l"></td>
-  </tr>
-  <tr>
-    <td class="tg-y4nq">Supervisor name</td>
-    <td class="tg-j2zy"></td>
   </tr>
   <tr>
     <td class="tg-ejgj">Opportunity (achieved)</td>

@@ -47,9 +47,10 @@ class Staff extends CI_Controller {
 			}   
 				$data['segments'] = $this->segments_model->segments_list(); 
 		    	$data['regions'] = $this->regions_model->regions_list();
-
+		    	$data['staffs'] = $this->staff_model->staff_list();
+ 		    	//print_R($data);exit;
 				$this->load->view('header');
-				$this->load->view('staff/add_staff');
+				$this->load->view('staff/add_staff', $data);
 				$this->load->view('footer');
 			 
 	}

@@ -50,6 +50,10 @@ class Staff_model extends CI_Model {
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
  'devices' => $this->input->post('devices'),
+ 'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 	                                    'status' => '1'
 	                                    );
 	                                    
@@ -89,6 +93,10 @@ class Staff_model extends CI_Model {
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
  'devices' => $this->input->post('devices'),
+  'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 	                                    'status' => '1'
 	                                    );
 	                                    
