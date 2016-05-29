@@ -43,7 +43,7 @@ class Customers extends CI_Controller
 	$data['states']		 = $this->customers_model->state_list(160);
 	$data['regions']	 = $this->regions_model->regions_list();
 	$data['verticals']	 = $this->vertical_model->vertical_list();
-	$data['subverticals']	 = $this->subverticals_model->subverticals_list();
+	//$data['subverticals']	 = $this->subverticals_model->subverticals_list();
 
 	$data['countries'] = $this->customers_model->country_list();
 	$this->load->view('header');
@@ -139,7 +139,6 @@ class Customers extends CI_Controller
 	}
 	else
 	{
-
 	    if($this->customers_model->update_company())
 	    {
 		echo '<div class="alert alert-success">' . $this->lang->line('update_succesful') . '</div>';
@@ -196,6 +195,12 @@ class Customers extends CI_Controller
     {
 	$data['state'] = $this->customers_model->state_list($country_id);
 	$this->load->view('ajax_get_state', $data);
+    }
+
+    function ajax_subvertical_list($vertical_id)
+    {
+	$data['subverticals'] = $this->customers_model->subvertical_list_by_vertical_id($vertical_id);
+	$this->load->view('ajax_get_subverticals', $data);
     }
 
     function ajax_city_list($state_id)

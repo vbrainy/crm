@@ -340,12 +340,12 @@ $config = array(
 	array(
 	    'field' => 'phone',
 	    'label' => 'Phone',
-	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	    'rules' => 'required|valid_phone'
 	),
 	array(
 	    'field' => 'fax',
 	    'label' => 'Fax',
-	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	    'rules' => 'required|numeric'
 	),
 	array(
 	    'field' => 'email',
@@ -402,12 +402,12 @@ $config = array(
 	array(
 	    'field' => 'phone',
 	    'label' => 'Phone',
-	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	    'rules' => 'required|valid_phone'
 	),
 	array(
 	    'field' => 'fax',
 	    'label' => 'Fax',
-	    'rules' => 'required|trim|xss_clean|htmlspecialchars|min_length[3]|max_length[50]'
+	    'rules' => 'required|numeric'
 	),
 	array(
 	    'field' => 'email',

@@ -10,10 +10,10 @@ ALTER TABLE customer MODIFY COLUMN id INT auto_increment PRIMARY KEY;
 ALTER TABLE `company` MODIFY COLUMN id INT auto_increment PRIMARY KEY;
 
 -- ADD FORIGN KEY RELATION TO FOR COMPANY TO CUSTOMER TABLE
-ALTER TABLE  `customer` ADD INDEX (  `company` )
+ALTER TABLE  `customer` ADD INDEX (  `company` );
 
 -- ADD NEW FIELD CITY FOR COMPANY TABLE 
-ALTER TABLE  `company` ADD  `city` VARCHAR( 255 ) NOT NULL AFTER  `address`
+ALTER TABLE  `company` ADD  `city` VARCHAR( 255 ) NOT NULL AFTER  `address`;
 
 ALTER TABLE `regions` MODIFY COLUMN id INT auto_increment PRIMARY KEY;
 

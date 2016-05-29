@@ -57,7 +57,7 @@
 				    </select>
 				</div>
 			    </div>
-			</div> 
+			</div>
 			<div class="col-sm-5">
 			    <div class="form-group">
 				<label class="control-label">First Name</label>

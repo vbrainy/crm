@@ -58,32 +58,15 @@
             e.preventDefault();
         });
     });
-    function getstatedetails(id)
+    function getsubverticals(id)
     {
         $.ajax({
             type: "POST",
-            url: '<?php echo base_url('admin/customers/ajax_state_list') . '/'; ?>' + id,
-            data: id = 'cat_id',
+            url: '<?php echo base_url('admin/customers/ajax_subvertical_list') . '/'; ?>' + id,
+            //data: id = 'cat_id',
             success: function (data) {
-                //alert(data);
-                $("#state_id").html(data);
-                $('#loader').slideUp(200, function () {
-                    $(this).remove();
-                });
-            },
-        });
-    }
-
-    function getcitydetails(id)
-    {
-        //alert('this id value :'+id);
-        $.ajax({
-            type: "POST",
-            url: '<?php echo base_url('admin/customers/ajax_city_list') . '/'; ?>' + id,
-            data: id = 'cat_id',
-            success: function (data) {
-                //alert(data);
-                $("#city_id").html(data);
+                console.log(data);
+                $("#subverticals").html(data);
                 $('#loader').slideUp(200, function () {
                     $(this).remove();
                 });
@@ -276,8 +259,8 @@
 				    <label class="control-label">Vertical</label>
 				    <div class="append-icon">
 
-					<select name="vertical" class="form-control" data-search="true">
-					    <option value=""></option>
+					<select name="vertical" class="form-control" data-search="true"  onChange="getsubverticals(this.value)">
+					    <option value="">Select Vertical</option>
 					    <?php
 					    foreach($verticals as $vertical)
 					    {
@@ -291,17 +274,11 @@
 			    </div>
 			    <div class="col-sm-6">
 				<div class="form-group">
-				    <label class="control-label">SubVertical</label>
+				    <label class="control-label">Sub Vertical</label>
 				    <div class="append-icon">
 
-					<select name="subverticals" class="form-control" data-search="true">
-					    <option value=""></option>
-					    <?php
-					    foreach($subverticals as $subvertical)
-					    {
-						?>
-    					    <option value="<?php echo $subvertical->id; ?>"><?php echo $subvertical->subvertical_name; ?></option>
-					    <?php } ?>
+					<select name="subverticals" id="subverticals" class="form-control" data-search="true">
+					    <option value="">Select Subverticals</option>
 					</select>
 				    </div>
 				</div>

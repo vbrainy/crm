@@ -373,6 +373,16 @@ class Customers_model extends CI_Model
 	return $this->db->get()->result();
     }
 
+    function subvertical_list_by_vertical_id($vertical_id)
+    {
+	$this->db->order_by("subvertical_name", "asc");
+	$this->db->select('subverticals.*');
+	$this->db->from('subverticals');
+	$this->db->where('vertical_id', $vertical_id);
+
+	return $this->db->get()->result();
+    }
+
     function city_list($state_id)
     {
 
