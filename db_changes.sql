@@ -18,5 +18,9 @@ ALTER TABLE `opportunities` ADD  FOREIGN KEY (`product_id`) REFERENCES `airtelcr
 ALTER TABLE `opportunities` ADD  FOREIGN KEY (`category_id`) REFERENCES `airtelcr_airtelcrm`.`category`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 
+ALTER TABLE `opportunity_product_options` ADD INDEX(`opportunity_id`); 
+ALTER TABLE `opportunity_product_options` ADD  FOREIGN KEY (`opportunity_id`) REFERENCES `airtelcr_airtelcrm`.`opportunities`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+
 
 

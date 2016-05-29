@@ -127,7 +127,7 @@ class Category extends CI_Controller {
 	{
 		$productId = $this->input->post('product_id');
 		$categories = $this->category_model->get_product_category($productId);
-		$tempStr='';
+		$tempStr='<option value="" selected="selected"></option>';
 		foreach ($categories as $key => $value) {
 			$tempStr .= "<option value='".$value['id']."'>".$value['category_name']."</option>";
 		}
