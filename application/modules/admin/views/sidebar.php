@@ -25,11 +25,12 @@
 
 
 
-	    <?php if(check_staff_permission('opportunities_read'))
+	    <?php
+	    if(check_staff_permission('opportunities_read'))
 	    {
 		?>
     	    <li class=" nav-active <?php echo is_active_menu('opportunities'); ?>"><a href="<?php echo base_url('admin/opportunities'); ?>"><i class="icon-key"></i><span>Opportunities</span></a></li>
-<?php } ?>
+	    <?php } ?>
 
 
 
@@ -44,7 +45,8 @@
 		</ul>
             </li>
 
-	    <?php if(check_staff_permission('products_read'))
+	    <?php
+	    if(check_staff_permission('products_read'))
 	    {
 		?>
 
@@ -55,9 +57,9 @@
     		    <li class="<?php echo is_active_menu('category'); ?>"><a href="<?php echo base_url('admin/category'); ?>"> Category</a></li>
     		</ul>
     	    </li>
-<?php } ?>
+	    <?php } ?>
 	    <li class=""><a href="#"><i class="fa fa-bar-chart"></i><span>Statistics</span></a></li>
-	    <li class="<?php echo is_active_menu('help'); ?>"><a href="<?php echo base_url('admin/help/add'); ?>"><i class="fa fa-life-ring"></i><span>Help</span></a></li>
+	    <li class="<?php echo is_active_menu('help'); ?>"><a href="<?php echo base_url('admin/reports/add'); ?>"><i class="fa fa-life-ring"></i><span>Help</span></a></li>
 
 
             <li class="nav-parent">
@@ -68,6 +70,7 @@
 		    <li class="<?php echo is_active_menu('verticals'); ?>"><a href="<?php echo base_url('admin/vertical'); ?>"> Verticals</a></li>
 		    <li class="<?php echo is_active_menu('subverticals'); ?>"><a href="<?php echo base_url('admin/subverticals'); ?>"> Sub Verticals</a></li>
 		    <li class="<?php echo is_active_menu('users_management'); ?>"><a href="<?php echo base_url('admin/staff'); ?>"> User Management</a></li>
+		    <li class="<?php echo is_active_menu('reports'); ?>"><a href="<?php echo base_url('admin/reports'); ?>"> Reports Management</a></li>
 		</ul>
             </li>
 

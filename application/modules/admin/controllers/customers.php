@@ -61,7 +61,7 @@ class Customers extends CI_Controller
 	{
 	    echo '<div class="alert error"><ul><li style="color:red">Email already used.</li></ul></div>';
 	}
-	else if(!empty($this->input->post('main_contact_person')) && !empty($this->input->post('contact_person')) && ($this->input->post('main_contact_person') == $this->input->post('contact_person')))
+	else if($this->input->post('main_contact_person') == $this->input->post('contact_person'))
 	{
 	    echo '<div class="alert error"><ul><li style="color:red">Contact person should not be the same.</li></ul></div>';
 	}

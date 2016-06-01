@@ -64,8 +64,8 @@ $lang['already_exists_dep'] = 'Department name is already exists.';
 
 $lang['create_succesful']	 = 'Create Successful';
 $lang['report_create_succesful'] = 'Report created successfully. We will get back to you soon.';
-
-$lang['technical_problem'] = 'Technical Problem';
+$lang['report_status_updated']	 = 'Report status updated successfully';
+$lang['technical_problem']	 = 'Technical Problem';
 
 $lang['update_succesful'] = 'Update Successful';
 
