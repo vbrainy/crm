@@ -84,12 +84,12 @@ class Opportunities extends CI_Controller {
 				}   
 				 
 				$this->form_validation->set_rules('opportunity', 'Opportunity', 'required');
-				$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
+				//$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
 				
 				$this->form_validation->set_rules('customer', 'Customer', 'required'); 
 	
 				$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
-				$this->form_validation->set_rules('segments_id', 'Segment', 'required');				
+				//$this->form_validation->set_rules('segments_id', 'Segment', 'required');				
 				$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
 				$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
 				$this->form_validation->set_rules('identified_date', 'Identified Date', 'required'); 
