@@ -125,7 +125,9 @@ class Customers extends CI_Controller
 	$data['subverticals']	 = $this->subverticals_model->subverticals_list();
 	$data['countries']	 = $this->customers_model->country_list();
 	$data['states']		 = $this->customers_model->state_list(160);
-
+//	echo "<pre>";
+//	print_r($data);
+//	exit;
 	$this->load->view('header');
 	$this->load->view('customers/update', $data);
 	$this->load->view('footer');

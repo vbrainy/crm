@@ -372,7 +372,7 @@
 				    <select name="subverticals" id="subverticals" class="form-control" data-search="true">
 					<option value="">Select Subvertical</option>
 					<?php
-					$subverticals = $this->customers_model->subvertical_list_by_vertical_id($customer->vertical_id);
+					$subverticals = $this->customers_model->subvertical_list_by_vertical_id($customer->vertical);
 					foreach($subverticals as $subvertical)
 					{
 					    ?>
