@@ -39,17 +39,11 @@ class Opportunities extends CI_Controller {
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
 			} 
-			
-		    	$data['opportunities'] = $this->opportunities_model->opportunities_list(userdata('id'));
-		    
-		    	
-		    	
-
-		    	
-		    			    	 
-				$this->load->view('header');
-				$this->load->view('opportunities/index',$data);
-				$this->load->view('footer');
+	    	$data['opportunities'] = $this->opportunities_model->opportunities_list(userdata('id'));
+			//print_r($data);		    exit;
+			$this->load->view('header');
+			$this->load->view('opportunities/index',$data);
+			$this->load->view('footer');
 			 
 	}
 	function add()
@@ -84,27 +78,29 @@ class Opportunities extends CI_Controller {
 				}   
 				 
 				$this->form_validation->set_rules('opportunity', 'Opportunity', 'required');
+				$this->form_validation->set_rules('next_action_title', 'Next Action', 'required'); 		
+				$this->form_validation->set_rules('identified_date', 'Identified Date', 'required'); 
+				$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
+				$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
+				$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
 				//$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
 				
 				$this->form_validation->set_rules('customer', 'Customer', 'required'); 
-	
-				$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
-				//$this->form_validation->set_rules('segments_id', 'Segment', 'required');				
-				$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
-				$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
-				$this->form_validation->set_rules('identified_date', 'Identified Date', 'required'); 
+				//$this->form_validation->set_rules('segments_id', 'Segment', 'required');		
+				$this->form_validation->set_rules('product_id', 'Product', 'required'); 
+				$this->form_validation->set_rules('category_id', 'Category', 'required'); 
 				
 				if( $this->form_validation->run() == FALSE )
 		        {
 		            echo '<div class="alert"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';
 		        }
-		        elseif( $this->opportunities_model->exists_email( $this->input->post('email') ) > 0)
+		        /*elseif( $this->opportunities_model->exists_email( $this->input->post('email') ) > 0)
 		        {
 		            echo '<div class="alert alert-danger">Email already used.</div>';
-		        }
+		        }*/
 		        else
 		        {
-		            
+
 		            if( $this->opportunities_model->add_opportunities())
 		            { 
 		            
@@ -112,8 +108,8 @@ class Opportunities extends CI_Controller {
               
              			 add_notifications($this->input->post('salesperson_id'),'New Opportunities Added',$opportunity_id,'opportunities');
               	
-		                echo 'yes_'.$opportunity_id;
-		                //echo '<div class="alert ok">'.$this->lang->line('create_succesful').'</div>';
+		                //echo 'yes_'.$opportunity_id;
+		                echo  '<div class="alert alert-success">'.$this->lang->line('create_succesful').'</div>';
 		            }
 		            else
 		            {
@@ -181,7 +177,9 @@ class Opportunities extends CI_Controller {
 		    	$data['regions'] = $this->regions_model->regions_list();	
 		    	 $data['sources'] = $this->sources_model->sources_list();
 		    	$data['contact_persons'] = $this->contact_persons_model->contact_persons_list();
-		    	 
+		    	 $data['products'] = $this->products_model->products_list();
+		    	$data['categories'] = $this->category_model->get_product_category($data['opportunity']->product_id);
+		    	//print_r($data['opportunity']);exit;
 				$this->load->view('header');
 				$this->load->view('opportunities/update',$data);
 			    $this->load->view('footer');
@@ -197,10 +195,10 @@ class Opportunities extends CI_Controller {
 			}		   
 		
 		$this->form_validation->set_rules('opportunity', 'Opportunity', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
+		//$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
 		$this->form_validation->set_rules('customer', 'Customer', 'required'); 
 		$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');
-		$this->form_validation->set_rules('segment_id', 'Segment', 'required');  
+		//$this->form_validation->set_rules('segment_id', 'Segment', 'required');  
 		$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
 		$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
 		

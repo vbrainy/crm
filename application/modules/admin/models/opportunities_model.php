@@ -26,9 +26,157 @@ class opportunities_model extends CI_Model {
 			{
 				$tags=$tags_value;
 			}
-    		 
+
+			$product = $this->input->post('product');
+			//echo "<br/>";
+			$category = strtolower($this->input->post('category'));
+			//exit;
+			$productOptions = [];
+			//print_R($_POST);
+			switch ($product) {
+				case 'gsm':
+                	if($category == 'new activations pre-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('new_act_pre_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('new_act_pre_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('new_act_pre_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('new_act_pre_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('new_act_pre_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('new_act_pre_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('new_act_pre_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('new_act_pre_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('new_act_pre_paid_bundle_annual_rec_fee');
+                	}
+					else if($category == 'new activations post-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('new_act_post_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('new_act_post_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('new_act_post_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('new_act_post_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('new_act_post_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('new_act_post_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('new_act_post_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('new_act_post_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('new_act_post_paid_bundle_annual_rec_fee');
+                	}
+                	else if($category == 'mnp pre-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('mnp_pre_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('mnp_pre_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('mnp_pre_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('mnp_pre_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('mnp_pre_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('mnp_pre_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('mnp_pre_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('mnp_pre_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('mnp_pre_paid_bundle_annual_rec_fee');
+                	}
+                	else if($category == 'mnp post-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('mnp_post_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('mnp_post_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('mnp_post_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('mnp_post_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('mnp_post_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('mnp_post_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('mnp_post_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('mnp_post_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('mnp_post_paid_bundle_annual_rec_fee');
+                	}
+                break;
+              	case 'solutions':
+                	if($category == 'dedicated internet')
+                	{
+                		$productOptions['capacity_per_location'] = $this->input->post('dedi_int_capacity_per_location');
+                		$productOptions['number_of_locations'] = $this->input->post('dedi_int_number_of_location');
+                		$productOptions['value_per_location'] = $this->input->post('dedi_int_value_per_location');
+
+                		$productOptions['end_location_city'] = $this->input->post('dedi_int_end_location_city');
+                		$productOptions['end_location_state'] = $this->input->post('dedi_int_end_location_state');
+                		$productOptions['total_installation_cost'] = $this->input->post('dedi_int_total_installation_cost');
+
+                		$productOptions['annual_rec_fee'] = $this->input->post('dedi_int_annual_rec_fee');
+                	}
+                	else if($category == 'national leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('national_leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('national_leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('national_leased_lines_a_point_location_state');
+                		$productOptions['b_point_location_city'] = $this->input->post('national_leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('national_leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('national_leased_lines_capacity_required');
+                		$productOptions['total_installation_cost'] = $this->input->post('national_leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('national_leased_lines_annual_rec_fee');
+                		
+                	}
+                	else if($category == 'inter leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('inter_leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('inter_leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('inter_leased_lines_a_point_location_state');
+
+                		$productOptions['b_point_location_city'] = $this->input->post('inter_leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('inter_leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('inter_leased_lines_capacity_required');
+
+                		$productOptions['total_installation_cost'] = $this->input->post('inter_leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('inter_leased_lines_annual_rec_fee');
+                	}
+                	else if($category == 'pri')
+                	{
+                		$productOptions['installation_location_city'] = $this->input->post('pri_installation_location_city');
+                		$productOptions['installation_location_state'] = $this->input->post('pri_installation_location_state');
+                		$productOptions['number_of_dod_units'] = $this->input->post('pri_number_of_dod_units');
+
+                		$productOptions['number_of_did_units'] = $this->input->post('pri_number_of_did_units');
+                		$productOptions['total_installation_cost'] = $this->input->post('pri_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('pri_annual_rec_fee');
+                	}
+					else if($category == 'apn over internet')
+                	{
+                		$productOptions['number_of_units'] = $this->input->post('over_internet_number_of_units');
+                		$productOptions['total_installation_cost'] = $this->input->post('over_internet_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('over_internet_annual_rec_fee');
+                	}
+                	else if($category == 'apn over leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('leased_lines_a_point_location_state');
+
+                		$productOptions['b_point_location_city'] = $this->input->post('leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('leased_lines_capacity_required');
+
+                		$productOptions['total_installation_cost'] = $this->input->post('leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('leased_lines_annual_rec_fee');
+                	}
+                break;              
+              	case 'devices':
+          			$productOptions['device_type'] = $this->input->post('dev_device_type');
+            		$productOptions['number_of_units'] = $this->input->post('dev_number_of_units');
+            		$productOptions['total_value'] = $this->input->post('dev_total_value');
+                break;  
+              	case 'valueaddedservices':
+                	$productOptions['services_qty'] = $this->input->post('ser_services_qty');
+            		$productOptions['services_one_time_cost'] = $this->input->post('ser_services_one_time_cost');
+            		$productOptions['total_value'] = $this->input->post('ser_annual_rec_fee');
+                break; 
+			}
+
+			//print_R($productOptions);    		exit;
 			$opportunity_details = array(
 	            'opportunity' => $this->input->post('opportunity'),
+	            'product_id' => $this->input->post('product_id'),
+	            'category_id' => $this->input->post('category_id'),
 	            'stages' => $this->input->post('stages'),
 	            //'expected_revenue' => $this->input->post('expected_revenue'),
 	            //'probability' => $this->input->post('probability'),
@@ -41,7 +189,7 @@ class opportunities_model extends CI_Model {
 	            //'vertical_id' => $this->input->post('vertical_id'),
 	            //'subvertical_id' => $this->input->post('subvertical_id'),
 	            'next_action' => date('Y-m-d', strtotime($this->input->post('next_action'))),
-	            //'next_action_title' => $this->input->post('next_action_title'),
+	            'next_action_title' => $this->input->post('next_action_title'),
 	            'expected_closing' => date('Y-m-d', strtotime($this->input->post('expected_closing'))),
 	            'identified_date' => date('Y-m-d', strtotime($this->input->post('identified_date'))),
 	            'closed_date' => date('Y-m-d', strtotime($this->input->post('closed_date'))),
@@ -53,16 +201,169 @@ class opportunities_model extends CI_Model {
 	             //'sources' => $this->input->post('sources'),
 	            //'contact_name' => $this->input->post('contact_name'),
 	            'register_time' => strtotime( date('d F Y g:i a') ),
-	            'ip_address' => $this->input->server('REMOTE_ADDR')
+	            //'ip_address' => $this->input->server('REMOTE_ADDR')
 	            );
-	                                   
-	       	 return $this->db->insert('opportunities',$opportunity_details);
+				$this->db->insert('opportunities',$opportunity_details);
+				$productOptions['opportunity_id'] = $this->db->insert_id();
+				//$this->db->insert('opportunity_product_options',$productOptions);
+				//echo $this->db->last_query();exit;
+				return $this->db->insert('opportunity_product_options',$productOptions);
+				
+       	 		//return $this->db->insert('opportunities',$opportunity_details);
 		 
 		  
 	}
 	
 	function update_opportunities()
     {
+
+
+    		$product = strtolower($this->input->post('product'));
+			//echo "<br/>";
+			$category = strtolower($this->input->post('category'));
+
+			$productOptions = [];
+			//print_R($_POST);
+			switch ($product) {
+				case 'gsm':
+                	if($category == 'new activations pre-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('new_act_pre_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('new_act_pre_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('new_act_pre_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('new_act_pre_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('new_act_pre_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('new_act_pre_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('new_act_pre_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('new_act_pre_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('new_act_pre_paid_bundle_annual_rec_fee');
+                	}
+					else if($category == 'new activations post-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('new_act_post_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('new_act_post_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('new_act_post_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('new_act_post_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('new_act_post_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('new_act_post_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('new_act_post_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('new_act_post_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('new_act_post_paid_bundle_annual_rec_fee');
+                	}
+                	else if($category == 'mnp pre-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('mnp_pre_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('mnp_pre_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('mnp_pre_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('mnp_pre_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('mnp_pre_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('mnp_pre_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('mnp_pre_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('mnp_pre_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('mnp_pre_paid_bundle_annual_rec_fee');
+                	}
+                	else if($category == 'mnp post-paid')
+                	{
+                		$productOptions['voice_qty'] = $this->input->post('mnp_post_paid_voice_qty');
+                		$productOptions['voice_one_time_fee'] = $this->input->post('mnp_post_paid_voice_one_time_fee');
+                		$productOptions['voice_annual_rec_fee'] = $this->input->post('mnp_post_paid_voice_annual_rec_fee');
+
+                		$productOptions['data_qty'] = $this->input->post('mnp_post_paid_data_qty');
+                		$productOptions['data_one_time_fee'] = $this->input->post('mnp_post_paid_data_one_time_fee');
+                		$productOptions['data_annual_rec_fee'] = $this->input->post('mnp_post_paid_data_annual_rec_fee');
+
+                		$productOptions['bundle_qty'] = $this->input->post('mnp_post_paid_bundle_qty');
+                		$productOptions['bundle_one_time_fee'] = $this->input->post('mnp_post_paid_bundle_one_time_fee');
+                		$productOptions['bundle_annual_rec_fee'] = $this->input->post('mnp_post_paid_bundle_annual_rec_fee');
+                	}
+                break;
+              	case 'solutions':
+                	if($category == 'dedicated internet')
+                	{
+                		$productOptions['capacity_per_location'] = $this->input->post('dedi_int_capacity_per_location');
+                		$productOptions['number_of_locations'] = $this->input->post('dedi_int_number_of_location');
+                		$productOptions['value_per_location'] = $this->input->post('dedi_int_value_per_location');
+
+                		$productOptions['end_location_city'] = $this->input->post('dedi_int_end_location_city');
+                		$productOptions['end_location_state'] = $this->input->post('dedi_int_end_location_state');
+                		$productOptions['total_installation_cost'] = $this->input->post('dedi_int_total_installation_cost');
+
+                		$productOptions['annual_rec_fee'] = $this->input->post('dedi_int_annual_rec_fee');
+                	}
+                	else if($category == 'national leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('national_leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('national_leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('national_leased_lines_a_point_location_state');
+                		$productOptions['b_point_location_city'] = $this->input->post('national_leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('national_leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('national_leased_lines_capacity_required');
+                		$productOptions['total_installation_cost'] = $this->input->post('national_leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('national_leased_lines_annual_rec_fee');
+                		
+                	}
+                	else if($category == 'inter leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('inter_leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('inter_leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('inter_leased_lines_a_point_location_state');
+
+                		$productOptions['b_point_location_city'] = $this->input->post('inter_leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('inter_leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('inter_leased_lines_capacity_required');
+
+                		$productOptions['total_installation_cost'] = $this->input->post('inter_leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('inter_leased_lines_annual_rec_fee');
+                	}
+                	else if($category == 'pri')
+                	{
+                		$productOptions['installation_location_city'] = $this->input->post('pri_installation_location_city');
+                		$productOptions['installation_location_state'] = $this->input->post('pri_installation_location_state');
+                		$productOptions['number_of_dod_units'] = $this->input->post('pri_number_of_dod_units');
+
+                		$productOptions['number_of_did_units'] = $this->input->post('pri_number_of_did_units');
+                		$productOptions['total_installation_cost'] = $this->input->post('pri_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('pri_annual_rec_fee');
+                	}
+					else if($category == 'apn over internet')
+                	{
+                		$productOptions['number_of_units'] = $this->input->post('over_internet_number_of_units');
+                		$productOptions['total_installation_cost'] = $this->input->post('over_internet_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('over_internet_annual_rec_fee');
+                	}
+                	else if($category == 'apn over leased lines')
+                	{
+                		$productOptions['number_of_locations'] = $this->input->post('leased_lines_number_of_locations');
+                		$productOptions['a_point_location_city'] = $this->input->post('leased_lines_a_point_location_city');
+                		$productOptions['a_point_location_state'] = $this->input->post('leased_lines_a_point_location_state');
+
+                		$productOptions['b_point_location_city'] = $this->input->post('leased_lines_b_point_location_city');
+                		$productOptions['b_point_location_state'] = $this->input->post('leased_lines_b_point_location_state');
+                		$productOptions['capacity_required'] = $this->input->post('leased_lines_capacity_required');
+
+                		$productOptions['total_installation_cost'] = $this->input->post('leased_lines_total_installation_cost');
+                		$productOptions['annual_rec_fee'] = $this->input->post('leased_lines_annual_rec_fee');
+                	}
+                break;              
+              	case 'devices':
+          			$productOptions['device_type'] = $this->input->post('dev_device_type');
+            		$productOptions['number_of_units'] = $this->input->post('dev_number_of_units');
+            		$productOptions['total_value'] = $this->input->post('dev_total_value');
+                break;  
+              	case 'valueaddedservices':
+                	$productOptions['services_qty'] = $this->input->post('ser_services_qty');
+            		$productOptions['services_one_time_cost'] = $this->input->post('ser_services_one_time_cost');
+            		$productOptions['total_value'] = $this->input->post('ser_annual_rec_fee');
+                break; 
+			}
+
+
     	$opportunity_details = array(
 	            'opportunity' => $this->input->post('opportunity'),
 	            'stages' => $this->input->post('stages'),
@@ -89,26 +390,34 @@ class opportunities_model extends CI_Model {
 	            'sources' => $this->input->post('sources'),
 	            'contact_name' => $this->input->post('contact_name'),
 	            );
-	            	
+	     
+	     		$productOptions['opportunity_id'] = $this->input->post('opportunity_id');
+	     		//print_r($productOptions);exit;
+				//$this->db->insert('opportunity_product_options',$productOptions);
+				//echo $this->db->last_query();exit;
+				$this->db->update('opportunity_product_options',$productOptions);       	
+				//echo $this->db->last_query();exit;
 		 return $this->db->update('opportunities',$opportunity_details,array('id' => $this->input->post('opportunity_id')));
 	}
     
 	function opportunities_list($staff_id)
 	{
-		if($staff_id!='1')
+		/*if($staff_id!='1')
 		{
-			$this->db->where('salesperson_id', $staff_id);
-		}
+			$this->db->where('salesperson_id', (int) $staff_id);
+		}*/
 		
 		$this->db->order_by("id", "desc");		
         $this->db->from('opportunities');
-         
         return $this->db->get()->result();
 	} 
 	
     function get_opportunities( $opportunity_id )
-	{
-		return $this->db->get_where('opportunities',array('id' => $opportunity_id))->row();
+	{	
+		return $this->db->join('category', 'category.id = opportunities.category_id')->join('products', 'products.id = opportunities.product_id')->join('opportunity_product_options', 'opportunities.id = opportunity_product_options.opportunity_id')->get_where('opportunities',array('opportunities.id' => $opportunity_id))->row();
+		// print_R($query);
+		// echo $this->db->last_query();exit;
+		// return $this->db->join('opportunity_product_options as opo', 'opo.opportunity_id = opportunities.id')->where('opportunities',array('id' => $opportunity_id))->row();
 	}
 	
 	function delete( $opportunity_id )

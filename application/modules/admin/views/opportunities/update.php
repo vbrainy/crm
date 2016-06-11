@@ -209,11 +209,12 @@ function delete_meeting( meeting_id )
         <div class="row">
             <h2 class="col-md-6"><strong>Update Opportunities</strong></h2>  
               
-            <div style="float:right; padding-top:10px;">
+            <?php /*<div style="float:right; padding-top:10px;">
                 <?php if (check_staff_permission('opportunities_write')){?>
                 <a href="<?php echo base_url('admin/opportunities/convert_to_quotation/'.$opportunity->id); ?>" class="btn btn-primary" target="">Convert to Quotation</a>
                 <?php }?>
-            </div>          
+            </div>  
+            */ ?>        
           </div>
            <div class="row">
            	 
@@ -225,7 +226,8 @@ function delete_meeting( meeting_id )
 				                      </div>
 				         
 				            <form id="update_opportunities" name="update_opportunities" class="form-validation" accept-charset="utf-8" enctype="multipart/form-data" method="post">
- 
+ 							<input type="hidden" name="product" id="product" value="<?= isset($opportunity->product_name) ? $opportunity->product_name : '' ?>"/>
+ 							<input type="hidden" name="category" id="category" value="<?= isset($opportunity->category_name) ? $opportunity->category_name : '' ?>"/>
                         		<input  type="hidden" name="opportunity_id" value="<?php echo $opportunity->id;?>"/>		                        				 
                         				<div class="row">
                           					<div class="col-sm-6">
@@ -237,7 +239,16 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>
-					                          <div class="col-sm-6">
+					                          	 <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Next Action</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="next_action_title" value="<?php echo $opportunity->next_action_title;?>" class="form-control">
+					                                 
+					                              </div>
+					                            </div>
+					                          </div>
+					                          <!-- <div class="col-sm-6">
 					                             <div class="row m-t-10">
       											  <div class="widget-infobox">
                             	<a href="#" data-toggle="modal" data-target="#modal-all_calls">
@@ -275,8 +286,55 @@ function delete_meeting( meeting_id )
                                 
                             </div>
 												</div>
-					                          </div>   
+					                          </div>    -->
 					                    </div>
+
+					                    <div class="row">
+                          					<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Identified Date</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="identified_date" value="<?php echo $opportunity->identified_date ?>" class="date-picker form-control">
+                                                      <i class="icon-calendar"></i> 
+					                              </div>
+					                            </div>
+					                          </div>
+					                          	 <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Next Action Date</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="next_action" value="<?php echo $opportunity->next_action;?>" class="form-control">
+					                                 
+					                              </div>
+					                            </div>
+					                          </div>
+					                      </div>
+<div class="row">
+                          					<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Expected Closing</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="expected_closing" value="<?php echo date('m/d/Y', strtotime($opportunity->expected_closing));?>" class="date-picker form-control">
+					                             <i class="icon-calendar"></i>    
+					                              </div>
+					                            </div>
+					                          </div>
+					                          	 <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Salesperson</label>
+					                              <div class="append-icon">
+					                                <select name="salesperson_id" id="salesperson_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                                <?php foreach( $staffs as $staff){ ?>
+					                                <option value="<?php echo $staff->id;?>" <?php if($opportunity->salesperson_id==$staff->id){?> selected="selected"<?php }?>><?php echo $staff->first_name.' '.$staff->last_name;?></option>
+					                                <?php }?> 
+					                                </select>
+					                                
+					                              </div>
+					                            </div>
+					                          </div>
+					                      </div>
+
 					                    <div class="row">
 					                    <div class="col-sm-6">
 					                            <div class="form-group">
@@ -297,8 +355,17 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div> 
+					                          <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Internal Notes</label>
+				                              <div class="append-icon">
+				                                 
+				                                <textarea name="internal_notes" rows="4" class="form-control"><?php echo $opportunity->internal_notes;?></textarea> 
+				                              </div>
+				                            </div>
+				                          </div> 
 					                    </div>
-					                    <div class="row">
+					                    <!-- <div class="row">
                           					<div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Expected Revenue</label>
@@ -318,7 +385,7 @@ function delete_meeting( meeting_id )
 					                            </div>
 					                          </div>
 					                          
-					                        </div> 
+					                        </div>  -->
 					                    <div class="row">
                           					 <div class="col-sm-6">
 					                            <div class="form-group">
@@ -334,7 +401,23 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>
-                          					<div class="col-sm-6">
+					                          <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Tags</label>
+					                              <div class="append-icon">
+					                                 
+					                                <?php $options = array(
+									                  'Product'  => 'Product',
+									                  'Software'    => 'Software',
+									                  'Design'   => 'Design',
+									                  'Training' => 'Training',
+									                  'Other' => 'Other',
+									                ); 
+													echo form_dropdown('tags[]', $options,explode(',',$opportunity->tags),'class="form-control" multiple');?>
+					                              </div>
+					                            </div>
+					                          </div>    	  
+                          					<!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Email</label>
 					                              <div class="append-icon">
@@ -342,10 +425,10 @@ function delete_meeting( meeting_id )
 					                                <i class="icon-screen-smartphone"></i>
 					                              </div>
 					                            </div>
-					                          </div>
+					                          </div> -->
                           					 	
 					                    </div>
-					                    <div class="row">
+					                    <!-- <div class="row">
                           					<div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Phone</label>
@@ -370,8 +453,8 @@ function delete_meeting( meeting_id )
 					                            </div>
 					                          </div>
 					                         
-					                    </div>
-					                    <div class="row">
+					                    </div> -->
+					                    <!-- <div class="row">
 					                     <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Sales Team</label>
@@ -396,7 +479,7 @@ function delete_meeting( meeting_id )
 					                            </div>
 					                          </div>
 					                    </div>
-					                    <div class="row">
+					        --><!--              <div class="row">
 					                    	 <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Next Action</label>
@@ -415,7 +498,7 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>
-					                    </div>
+					                    </div> -->
 					                    <div class="row">
                           				<div class="col-sm-6">
 					                            <div class="form-group">
@@ -431,7 +514,23 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>	
-					                      <div class="col-sm-6">
+					                          <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Lost Reason</label>
+					                              <div class="append-icon">
+					                                 
+					                                <?php $options = array(
+									                  ''  => '',
+									                  'Too expensive'  => 'Too expensive',
+									                  'We don\'t have people/skills'    => 'We don\'t have people/skills',
+									                  'Not enough stock'   => 'Not enough stock',
+									                   
+									                ); 
+													echo form_dropdown('lost_reason', $options,$opportunity->lost_reason,'class="form-control"');?>
+					                              </div>
+					                            </div>
+					                          </div>    
+					                      <!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Tags</label>
 					                              <div class="append-icon">
@@ -446,9 +545,43 @@ function delete_meeting( meeting_id )
 													echo form_dropdown('tags[]', $options,explode(',',$opportunity->tags),'class="form-control" multiple');?>
 					                              </div>
 					                            </div>
-					                          </div>    	  
+					                          </div>    	   -->
 					                    </div>    
-				                        <div class="row">
+					                    <div class="row">
+                          				<div class="col-sm-6">
+<div class="form-group">
+<label class="control-label">Product</label>
+<div class="append-icon">
+										<select name="product_id" id="product_id" class="form-control" data-search="true">
+                                          <!-- <option value="" selected="selected"></option> -->
+                                          <?php foreach($products as $key=>$value) { ?>
+                                          <?php $selected = ($value->id == $opportunity->product_id) ? "selected='selected'" : '';  ?>
+                                          <option value="<?php echo $value->id ?>" <?= $selected ?>><?php echo $value->product_name ?></option>
+                                          <?php } ?>
+                                          </select>
+
+                                       
+             </div>
+                                                </div>	
+                                            </div>	
+					                   
+
+<div class="col-sm-6">
+<div class="form-group">
+<label class="control-label">Product categories</label>
+<div class="append-icon">
+<?php //echo $opportunity->product_id; print_r($categories); exit;?>
+                                                 <select name="category_id" id="category_id" class="form-control" data-search="true">
+										<?php foreach($categories as $key=>$value) { ?>
+                                          <?php $selected = ($value['id'] == $opportunity->category_id) ? "selected='selected'" : '';  ?>
+                                          <option value="<?php echo $value['id'] ?>" <?= $selected ?>><?php echo $value['category_name'] ?></option>
+                                          <?php } ?>
+                                                    </select>
+					                          </div>
+                                                </div>	
+                                            </div>	
+                                            </div>
+				                        <!-- <div class="row">
 				                        	
 				                        	<div class="col-sm-6">
 					                            <div class="form-group">
@@ -466,17 +599,9 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>    
-					                        <div class="col-sm-6">
-				                            <div class="form-group">
-				                              <label class="control-label">Internal Notes</label>
-				                              <div class="append-icon">
-				                                 
-				                                <textarea name="internal_notes" rows="4" class="form-control"><?php echo $opportunity->internal_notes;?></textarea> 
-				                              </div>
-				                            </div>
-				                          </div>    
-				                        </div>
-				                         <div class="row">                          					 
+					                           
+				                        </div> -->
+				                         <!-- <div class="row">                          					 
 					                          <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Assigned Partner</label>
@@ -491,7 +616,412 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>
-					                    </div> 
+					                    </div>  -->
+
+<?php 
+$selCategory = strtolower($opportunity->category_name); 
+$selProduct = strtolower($opportunity->product_name); 
+
+?>
+<div class="row">
+ <div class="col-sm-12">                                            
+<div id="activations-pre-paid" class="prod_options" style="display:<?= ($selCategory == 'new activations pre-paid') ? ''  : none ?>">
+<h3>New Activations Pre Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<div id="activations-post-paid" class="prod_options" style="display:<?= ($selCategory == 'new activations post-paid') ?  '' : none ?>">
+<h3>New Activations Post Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+				<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>" /></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="nmp-pre-paid" class="prod_options" style="display:<?= ($selCategory == 'mnp pre-paid') ? 'display' : none ?>">
+<h3>MNP Pre Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+				<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : ''?>" /></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : ''?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : ''?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : ''?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : ''?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : ''?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="nmp-post-paid" class="prod_options" style="display:<?= ($selCategory == 'mnp post-paid') ? '' : none ?>">
+<h3>MNP Post Paid</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">Qauntity (Number of Lines)</div>
+			<div class="col-md-3">One time fee (e.g. SIM cost)</div>
+			<div class="col-md-3">Annual recurring fee</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Voice</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Data</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Bundle (Voice + Data)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="dedicated-internet" class="prod_options" style="display:<?= ($selCategory == 'dedicated internet') ? '' : none ?>">
+<h3>Dedicated Internet</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity per location</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_capacity_per_location" value="<?= isset($opportunity->capacity_per_location) ? $opportunity->capacity_per_location : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_number_of_location" value="<?= isset($opportunity->number_of_location) ? $opportunity->number_of_location : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Value per location</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_value_per_location" value="<?= isset($opportunity->value_per_location) ? $opportunity->value_per_location : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">End Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_end_location_city" value="<?= isset($opportunity->end_location_city) ? $opportunity->end_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">End Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_end_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="national-leased-lines" class="prod_options" style="display:<?= ($selCategory == 'national leased lines') ? '' : none ?>">
+<h3>National Leased Lines/MPLS</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_a_point_location_city" value="<?= isset($opportunity->a_point_location_city) ? $opportunity->a_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_a_point_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_b_point_location_city"  value="<?= isset($opportunity->b_point_location_city) ? $opportunity->b_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_b_point_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="inter-leased-lines" class="prod_options" style="display:<?= ($selCategory == 'inter leased lines') ? '' : none ?>">
+<h3>International Leased Lines/MPLS </h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_a_point_location_city" value="<?= isset($opportunity->a_point_location_city) ? $opportunity->a_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_a_point_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_b_point_location_city"  value="<?= isset($opportunity->b_point_location_city) ? $opportunity->b_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_b_point_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="pri" class="prod_options" style="display:<?= ($selCategory == 'pri') ? '' : none ?>">
+<h3>PRI</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Installation location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_installation_location_city" value="<?= isset($opportunity->installation_location_city) ? $opportunity->installation_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Installation location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_installation_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of DOD units</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_dod_units" value="<?= isset($opportunity->number_of_dod_units) ? $opportunity->number_of_dod_units : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of DID units</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_did_units" value="<?= isset($opportunity->number_of_did_units) ? $opportunity->number_of_did_units : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="pri_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="over-internet" class="prod_options" style="display:<?= ($selCategory == 'apn over internet') ? '' : none ?>">
+<h3>APN over internet</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of units</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="leased-lines" class="prod_options" style="display:<?= ($selCategory == 'apn over leased lines') ? '' : none ?>">
+<h3>APN over leased lines </h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of locations</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_a_point_location_city" value="<?= isset($opportunity->a_point_location_city) ? $opportunity->a_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">A-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_a_point_location_state" /></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (City)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_b_point_location_city" value="<?= isset($opportunity->b_point_location_city) ? $opportunity->b_point_location_city : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">B-point Location (State)</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_b_point_location_state"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Capacity required</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total installation cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<?php 
+$devices = ['Samsung', 'iPhone', 'Techno'];
+?>
+<div id="devices" class="prod_options" style="display:<?= ($selProduct == 'devices') ? '' : none ?>">
+<h3>Devices</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Device Type</div>
+			<div class="col-md-3">
+				<select name="dev_device_type">
+					<?php foreach ($devices as $key => $value) { ?>
+						<?php $selected = ($value == $opportunity->device_type) ? 'selected=selected' : '' ?>
+						<option value="<?= $value ?>" <?= $selected ?>><?= $value ?></option>
+					<?php } ?>
+				</select>
+			</div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Number of units</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dev_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Total value</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="dev_total_value" value="<?= isset($opportunity->total_value) ? $opportunity->total_value : '' ?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div id="value-added-services" class="prod_options" style="display:<?= ($selProduct == 'value added services') ? '' : none ?>">
+<h3>Value Added Services</h3>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row margin-top-5">
+			<div class="col-md-3">Quantity</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_qty" value="<?= isset($opportunity->services_qty) ? $opportunity->services_qty : ''?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">One-time cost</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_one_time_cost" value="<?= isset($opportunity->services_one_time_cost) ? $opportunity->services_one_time_cost : ''?>"/></div>
+		</div>
+		<div class="row margin-top-5">
+			<div class="col-md-3">Annual recurring fee</div>
+			<div class="col-md-3"><input type="text" class="form-control" name="ser_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : ''?>"/></div>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
                         				<div class="text-left  m-t-20">
                          				 <div id="opportunities_submitbutton"><button type="submit" class="btn btn-embossed btn-primary">Update</button></div>
                            
@@ -521,6 +1051,7 @@ function delete_meeting( meeting_id )
 				  </div>
 				         
 				 <form id="add_call" name="add_call" class="form-validation" accept-charset="utf-8" enctype="multipart/form-data" method="post">
+				 	
                	 <input type="hidden" name="call_type_id" value="<?php echo $opportunity->id;?>"/>
                	 <input type="hidden" name="call_type" value="opportunities"/>	                        	
                	 <div class="modal-body">

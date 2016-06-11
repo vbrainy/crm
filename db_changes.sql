@@ -21,6 +21,16 @@ ALTER TABLE `opportunities` ADD  FOREIGN KEY (`category_id`) REFERENCES `airtelc
 ALTER TABLE `opportunity_product_options` ADD INDEX(`opportunity_id`); 
 ALTER TABLE `opportunity_product_options` ADD  FOREIGN KEY (`opportunity_id`) REFERENCES `airtelcr_airtelcrm`.`opportunities`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
-
+ALTER TABLE `opportunities` CHANGE `sources` `sources` INT(11) NULL;
+ALTER TABLE `opportunities` CHANGE `contact_name` `contact_name` INT(11) NULL;
+ALTER TABLE `opportunities` CHANGE `next_action` `next_action` DATE NULL;
+ALTER TABLE `opportunities` CHANGE `internal_notes` `internal_notes` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `tags` `tags` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `lost_reason` `lost_reason` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `priority` `priority` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `expected_revenue` `expected_revenue` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `probability` `probability` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `email` `email` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `opportunities` CHANGE `phone` `phone` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 
 
