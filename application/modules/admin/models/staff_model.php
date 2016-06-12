@@ -105,7 +105,7 @@ class Staff_model extends CI_Model {
 				}
 			
 		}
-		
+		//print_r($_POST);exit;
 		$user_res = $this->db->insert('users',$staff_details);
 		
 		$user_id = $this->db->insert_id();
@@ -156,9 +156,11 @@ class Staff_model extends CI_Model {
 				'admin_delete' => $this->input->post('admin_delete'),
 				'customers_read' => $this->input->post('customers_read'),
 				'customers_write' => $this->input->post('customers_write'),
-				'customers_delete' => $this->input->post('customers_delete')
+				'customers_delete' => $this->input->post('customers_delete'),
+				'statistics'=> $this->input->post('statistics')
 						
 								);	
+		//print_r($permission_details);exit;
 		$add_permission = $this->db->insert('account_permission',$permission_details);
 		return  $user_res;
 		
@@ -206,6 +208,13 @@ class Staff_model extends CI_Model {
 				'staff_read' => $this->input->post('staff_read'),
 				'staff_write' => $this->input->post('staff_write'),
 				'staff_delete' => $this->input->post('staff_delete'),
+				'statistics'=> $this->input->post('statistics'),
+				'admin_read' => $this->input->post('admin_read'),
+				'admin_write' => $this->input->post('admin_write'),
+				'admin_delete' => $this->input->post('admin_delete'),
+				'customers_read' => $this->input->post('customers_read'),
+				'customers_write' => $this->input->post('customers_write'),
+				'customers_delete' => $this->input->post('customers_delete'),
 									
 									);	
 	

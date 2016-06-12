@@ -25,6 +25,33 @@ $(document).ready(function() {
 
         e.preventDefault();
     });
+
+	//POPULATE THE ACCESS AS PER THE SELECTED ROLE
+	$('#roles').change(function(){
+		var url = "<?php echo base_url() ?>"+'admin/staff/get_user_rights';
+		var role_id = $(this).val();
+		$.ajax({
+			url: url, 
+			method: 'post',
+			dataType : 'json',
+			data: {'role_id': role_id},
+			success: function(result){
+				$.each($("input[type='checkbox']"), function(k, v){
+					$(this).parent('div').removeClass('checked');
+				});
+
+				$.each( result, function( key, value ) {
+  					if($("input[name="+key+"").length && value == 1)
+  					{
+  						$("input[name="+key+"").parent('div').addClass('checked');
+  						$("input[name="+key+"").attr('checked', 'checked');
+  					}
+				});
+				
+	    	}});
+	
+		});
+
 });
  
 
@@ -133,19 +160,18 @@ $(document).ready(function() {
 				                             <div class="append-icon">
 					                                <select name="roles" id="roles" class="form-control" data-search="true">
 					                                <option value="" selected="selected"></option>
-					                              
-					                                <option value="director">Director</option>
+					                              	<?php foreach ($roles as $key => $value) { ?>
+														<option value="<?= $value['id'] ?>"><?= $value['role'] ?></option>					                              		
+					                              	<?php } ?>
+					                                </select>
+					                                <!-- <option value="director">Director</option>
 					                                <option value="general">General Manager</option>
 					                                <option value="managerone">Senior Manager One</option>
 					                                <option value="managertwo">Senior Manager Two</option>
 					                                <option value="managerthree">Manager</option>
 					                                <option value="amanager">Assistance Manager</option>
 					                                <option value="support">Support Manager</option>
-					                                <option value="stake">Stake Holder</option>
-
-					                              
-					                                </select>
-					                                
+					                                <option value="stake">Stake Holder</option> -->
 					                              </div>
 				                              </div>
 				                            </div>
@@ -282,17 +308,70 @@ $(document).ready(function() {
 					                                  <label>
 					                                  <input type="checkbox" name="customers_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
                                					 </div>
+                    				          </div>
                     				          </div>		
+                    				          <div class="col-md-2">
+               				 					<p><strong>Staff</strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="staff_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="staff_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="staff_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
+                               					 </div>
+                    				          </div>		
+                   							</div>
+                   							<div class="col-md-2">
+               				 				<p><strong>Opportunities</strong></p>	
+               				               	 	<div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="opportunities_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="opportunities_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="opportunities_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
+                               					 </div>
+                    				          </div>	
+                   							</div>		 
+                   							
+                   						
+                   							
+                   							<div class="col-md-2">
+               				 				<p><strong>Products</strong></p>	
+               				               	 	<div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="products_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="products_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="products_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
+                               					 </div>
+                    				          </div>	
+                   							</div>
+											<div class="col-md-2">
+               				 				<p><strong>Statistics</strong></p>	
+               				               	 	<div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="statistics" value="1" data-checkbox="icheckbox_square-blue">Statistics</label>
+                               					 </div>
+                    				          </div>	
+                   							</div>
+
                    							</div>
                    							
                    							
 	</div>
 
 											</div>	
-                   							</div>
+                   							
 
 
-                   								<div class="row">
+                   						<!-- <div class="row">
 					                    
 					                    	 <div class="panel-content">
                    									
@@ -327,45 +406,9 @@ $(document).ready(function() {
                     				          </div>		
                    							</div>
                    							
-                   							<div class="col-md-2">
-               				 				<p><strong>Opportunities</strong></p>	
-               				               	 	<div class="input-group">
-                               					 <div class="icheck-list">
-					                                  <label>
-					                                  <input type="checkbox" name="opportunities_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
-					                                  <label>
-					                                  <input type="checkbox" name="opportunities_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
-					                                  <label>
-					                                  <input type="checkbox" name="opportunities_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
-                               					 </div>
-                    				          </div>	
-                   							</div>		 
                    							
-                   						
-                   							
-                   							<div class="col-md-2">
-               				 				<p><strong>Products</strong></p>	
-               				               	 	<div class="input-group">
-                               					 <div class="icheck-list">
-					                                  <label>
-					                                  <input type="checkbox" name="products_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
-					                                  <label>
-					                                  <input type="checkbox" name="products_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
-					                                  <label>
-					                                  <input type="checkbox" name="products_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
-                               					 </div>
-                    				          </div>	
-                   							</div>
 
-										
-											
-										
-               				 					
-
-											
-                   								
-                   							
-                   								<div class="col-md-2">
+										<div class="col-md-2">
                				 					<p><strong>Pricelists</strong></p>	
                				               	 <div class="input-group">
                                					 <div class="icheck-list">
@@ -377,28 +420,13 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="pricelists_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
                                					 </div>
                     				          </div>		
-                   							</div>
+                   							</div> 
                    								
-                   							
-                   								
-                   								<div class="col-md-2">
-               				 					<p><strong>Staff</strong></p>	
-               				               	 <div class="input-group">
-                               					 <div class="icheck-list">
-					                                  <label>
-					                                  <input type="checkbox" name="staff_read" value="1" data-checkbox="icheckbox_square-blue">Read</label>
-					                                  <label>
-					                                  <input type="checkbox" name="staff_write" value="1" data-checkbox="icheckbox_square-blue">Write</label>
-					                                  <label>
-					                                  <input type="checkbox" name="staff_delete" value="1" data-checkbox="icheckbox_square-blue">Delete</label>
-                               					 </div>
-                    				          </div>		
-                   							</div>
 	</div>
 
 											</div>	
-                   							</div>
-                   						</div>
+                   							</div> 
+                   						</div> -->
                         				<div class="text-left  m-t-20">
                          				 <div id="staff_submitbutton"><button type="submit" class="btn btn-embossed btn-primary">Create</button></div>
                            

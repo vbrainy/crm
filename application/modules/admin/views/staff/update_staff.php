@@ -144,6 +144,48 @@ $(document).ready(function() {
                    								<h3><i class="icon-check"></i> <strong>Permissions</strong></h3> 
                    							<div class="row">	
                    							<div class="col-md-2">
+               				 				<p><strong>Admin </strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="admin_read" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'admin_read')) echo 'checked';?>>Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="admin_write" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'admin_write')) echo 'checked';?>>Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="admin_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'admin_delete')) echo 'checked';?>>Delete</label>
+                               					 </div>
+                    				          </div>		
+                   							</div>	
+
+                   							<div class="col-md-2">
+               				 				<p><strong>Customers</strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="customers_read" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'customers_read')) echo 'checked';?>>Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="customers_write" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'customers_write')) echo 'checked';?>>Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="customers_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'customers_delete')) echo 'checked';?>>Delete</label>
+                               					 </div>
+                    				          </div>
+                    				          </div>			
+
+                    				         <div class="col-md-2">
+               				 					<p><strong>Staff</strong></p>	
+               				               	 <div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="staff_read" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_read')) echo 'checked';?>>Read</label>
+					                                  <label>
+					                                  <input type="checkbox" name="staff_write" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_write')) echo 'checked';?>>Write</label>
+					                                  <label>
+					                                  <input type="checkbox" name="staff_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_delete')) echo 'checked';?>>Delete</label>
+                               					 </div>
+                    				          </div>		
+                   							</div> 
+
+                   							<!-- <div class="col-md-2">
                				 				<p><strong>Sales Teams</strong></p>	
                				               	 <div class="input-group">
                                					 <div class="icheck-list">
@@ -155,8 +197,8 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="sales_team_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'sales_team_delete')) echo 'checked';?>>Delete</label>
                                					 </div>
                     				          </div>		
-                   							</div>
-                   							<div class="col-md-2">
+                   							</div> -->
+                   							<!-- <div class="col-md-2">
                				 				<p><strong>Region</strong></p>	
                				               	 <div class="input-group">
                                					 <div class="icheck-list">
@@ -168,9 +210,9 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="region_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'sales_team_delete')) echo 'checked';?>>Delete</label>
                                					 </div>
                     				          </div>		
-                   							</div>
+                   							</div> -->
                    								
-               				 				<div class="col-md-2">
+               				 				<!-- <div class="col-md-2">
                				 				<p><strong>Leads</strong></p>	
                				               	 <div class="input-group">
                                					 <div class="icheck-list">
@@ -182,7 +224,7 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="lead_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'lead_delete')) echo 'checked';?>>Delete</label>
                                					 </div>
                     				          </div>		
-                   							</div>
+                   							</div> -->
                    							
                    							<div class="col-md-2">
                				 				<p><strong>Opportunities</strong></p>	
@@ -198,7 +240,7 @@ $(document).ready(function() {
                     				          </div>	
                    							</div>
                    							
-                   							<div class="col-md-2">
+                   							<!-- <div class="col-md-2">
                				 				<p><strong>Logged Calls</strong></p>	
                				               	 	<div class="input-group">
                                					 <div class="icheck-list">
@@ -210,9 +252,9 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="logged_calls_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'logged_calls_delete')) echo 'checked';?>>Delete</label>
                                					 </div>
                     				          </div>	
-                   							</div>
+                   							</div> -->
                    							
-                   							<div class="col-md-2">
+                   							<!-- <div class="col-md-2">
                				 				<p><strong>Meetings</strong></p>	
                				               	 	<div class="input-group">
                                					 <div class="icheck-list">
@@ -224,7 +266,7 @@ $(document).ready(function() {
 					                                  <input type="checkbox" name="meetings_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'meetings_delete')) echo 'checked';?>>Delete</label>
                                					 </div>
                     				          </div>	
-                   							</div>
+                   							</div> -->
                    							
                    							<div class="col-md-2">
                				 				<p><strong>Products</strong></p>	
@@ -239,11 +281,20 @@ $(document).ready(function() {
                                					 </div>
                     				          </div>	
                    							</div>
+                   							<div class="col-md-2">
+               				 				<p><strong>Statistics</strong></p>	
+               				               	 	<div class="input-group">
+                               					 <div class="icheck-list">
+					                                  <label>
+					                                  <input type="checkbox" name="statistics" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'statistics')) echo 'checked';?>>Statistics</label>
+                               					 </div>
+                    				          </div>	
+                   							</div>
                    							
                    							</div>
                    							<div class="row">&nbsp;</div>
                    							
-                   							<div class="row">		
+                   							<!-- <div class="row">		
                				 					
                				 					<div class="col-md-2">
                				 					<p><strong>Quotations</strong></p>	
@@ -317,21 +368,9 @@ $(document).ready(function() {
 
 											
 											
-											<div class="col-md-2">
-               				 					<p><strong>Staff</strong></p>	
-               				               	 <div class="input-group">
-                               					 <div class="icheck-list">
-					                                  <label>
-					                                  <input type="checkbox" name="staff_read" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_read')) echo 'checked';?>>Read</label>
-					                                  <label>
-					                                  <input type="checkbox" name="staff_write" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_write')) echo 'checked';?>>Write</label>
-					                                  <label>
-					                                  <input type="checkbox" name="staff_delete" value="1" data-checkbox="icheckbox_square-blue" <?php if(get_permission_value($staff->id,'staff_delete')) echo 'checked';?>>Delete</label>
-                               					 </div>
-                    				          </div>		
-                   							</div>
 											
-											</div>
+											
+											</div> -->
                    									 
                    							</div>
                    						</div>			

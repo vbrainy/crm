@@ -24,22 +24,23 @@
 
 <!-- BEGIN PAGE CONTENT -->
     <div class="page-content page-thin">
-    	<div class="header">
-            <h2><strong>Staff</strong></h2>            
+    	<div class="row">
+            <h2 class="col-md-6"><strong>Staff</strong></h2>
+            <div style="float:right; padding-top:10px;">       
+            <?php if (check_staff_permission('staff_write')){?>
+                <a href="<?php echo base_url('admin/staff/add'); ?>" class="btn btn-primary btn-embossed"><i class="fa fa-plus"></i> Add New</a>
+            <?php }?>     
+            </div>
           </div>
          <div class="row">
          	<div class="col-lg-12">
               <div class="panel">
-                <div class="panel-header">
+                <!-- <div class="panel-header">
                   <h3><i class="fa fa-table"></i> <strong>Manage </strong> Staff</h3>
-                </div>
+                </div> -->
                <div class="panel-content"> 
                    <div class="m-b-20">
-                   <?php if (check_staff_permission('staff_write')){?>
-                    <div class="btn-group">
-                      <a href="<?php echo base_url('admin/staff/add'); ?>" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Add New</a>
-                    </div>
-                    <?php }?>
+                   
                     <div> 
                      <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}?>         
 				     </div>

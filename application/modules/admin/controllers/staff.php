@@ -9,7 +9,7 @@ class Staff extends CI_Controller {
 		 $this->load->model("segments_model");
 		 $this->load->model("staff_model");
 		 $this->load->model("regions_model");
-
+		 $this->load->model("roles_model");
 	  
          $this->load->library('form_validation');
          
@@ -48,7 +48,8 @@ class Staff extends CI_Controller {
 				$data['segments'] = $this->segments_model->segments_list(); 
 		    	$data['regions'] = $this->regions_model->regions_list();
 		    	$data['staffs'] = $this->staff_model->staff_list();
- 		    	//print_R($data);exit;
+		    	$data['roles'] = $this->roles_model->roles_list();
+ 		    	//print_R($data['roles']);exit;
 				$this->load->view('header');
 				$this->load->view('staff/add_staff', $data);
 				$this->load->view('footer');
@@ -165,4 +166,13 @@ class Staff extends CI_Controller {
 		
 	}
 	 
+	//GET ACCESS FROM SELECTED ROLE
+	function get_user_rights() 
+	{
+		$roleId = $this->input->post('role_id');
+		$userRights = $this->roles_model->rights_list_by_role($roleId);
+		echo json_encode($userRights);exit;
+		//print_R($userRights);exit;
+
+	}
 }
