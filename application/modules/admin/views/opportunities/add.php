@@ -354,7 +354,7 @@ function list(array_list, dis)
 					                    </div>
 					                    
                                  		<div class="header">
-            								<h2><strong>Select Product</strong></h2>            
+            								<h2><strong>SELECT PRODUCT</strong></h2>            
       									</div> 
 					                   
                                  
