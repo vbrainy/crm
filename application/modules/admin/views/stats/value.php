@@ -9,6 +9,7 @@
             <div class="row">
 	           <div class="panel">		
 	           	<div class="panel-content">
+	           		<form method="post">
            		<div class="row">
 			    	<div class="col-md-3">
 			    		<select name="vertical">
@@ -26,40 +27,46 @@
 			    			<?php } ?>
 			    		</select>
 			    	</div>
+			    	
 			    	<div class="col-md-3">
-			    		<select name="sub_vertical">
+			    		<select name="customer">
 			    			<option value="">Select Customers</option>
 			    			<?php foreach ($customers as $key => $value) { ?>
-			    				<option value="<?= $value->id ?>"><?= $value->name ?></option>
+			    				<?php $selected = ($value->id == $customer) ? 'selected=selected' : '' ?>
+			    				<option value="<?= $value->id ?>" <?= $selected ?>><?= $value->name ?></option>
 			    			<?php } ?>
 			    		</select>
 			    	</div>
+			    	<div class="col-md-3">
+			    		<input type="submit" class="btn btn-primary" value="Query"/>
+			    	</div>
 		    	</div>	
+		    </form>
            
            		<div class="panel-content pagination2 table-responsive">
             	
                   <table class="table table-hover table-dynamic">
                     <thead>
                       <tr>                        
-                        <th>Category</th> 
-                        <th><?php echo $this->lang->line('options'); ?></th>     
+                        <th>Opportunity</th> 
+                        <!-- <th><?php echo $this->lang->line('options'); ?></th>      -->
                       </tr>
                     </thead>
                     
                     <tbody>
-                      
-                      <?php if( ! empty($categories) ){?>
-					    <?php foreach( $categories as $category){ ?>
-	                      <tr id="category_id_<?php echo $category->id; ?>">
+                      <?php //print_r($result); ?>
+                      <?php if(!empty($result)) {?>
+					    <?php foreach($result as $value){ ?>
+	                      <tr id="category_id_<?php echo $value->id; ?>">
 	                       
-	                        <td><?php echo $category->category_name; ?></td>
+	                        <td><?php echo $value['opportunity']; ?></td>
 	                                              
-	                        <td style="width: 12%;">
+	                        <!-- <td style="width: 12%;">
 	                        
 	                        <a href="<?php echo base_url('admin/category/update/'.$category->id); ?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 
 	                        
 	                        <a href="javascript:void(0)" class="delete btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#modal-basic<?php echo $category->id; ?>"><i class="glyphicon glyphicon-trash"></i></a>
-	                        </td> 
+	                        </td>  -->
 	                      </tr>
 	                      <div class="modal fade" id="modal-basic<?php echo $category->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
             				<div class="modal-dialog">

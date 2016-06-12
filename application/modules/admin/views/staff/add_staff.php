@@ -228,7 +228,7 @@ $(document).ready(function() {
 				                            </div>
 				                          </div>
 				                        </div>
-<div class="row">
+<!-- <div class="row">
      <div class="header">
             <h5>Targets Settings</h5>            
           </div>
@@ -276,7 +276,7 @@ $(document).ready(function() {
 					                          </div>
 					                        </div>
 
-										
+ -->										
 										<div class="row">
 					                    
 					                    	 <div class="panel-content">

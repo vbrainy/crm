@@ -139,6 +139,10 @@ class Customers extends CI_Controller
 	{
 	    echo '<div class="alert error red"><ul>' . validation_errors('<li style="color:red">', '</li>') . '</ul></div>';
 	}
+	else if($this->input->post('main_contact_person') == $this->input->post('contact_person'))
+	{
+	    echo '<div class="alert error"><ul><li style="color:red">Contact person should not be the same.</li></ul></div>';
+	}
 	else
 	{
 	    if($this->customers_model->update_company())

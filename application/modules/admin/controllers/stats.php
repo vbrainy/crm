@@ -9,6 +9,8 @@ class Stats extends CI_Controller {
 		 $this->load->model("vertical_model");
 		 $this->load->model("subverticals_model");
 		 $this->load->model("customers_model");
+		 $this->load->model("opportunities_model");
+		 $this->load->model("stats_model");
 		 //$this->load->model("category_model");
 		 //$this->load->model("products_model");
 		  
@@ -28,11 +30,34 @@ class Stats extends CI_Controller {
 		$data['verticals'] = $this->vertical_model->vertical_list();
 		$data['sub_verticals'] = $this->subverticals_model->subverticals_list();
 		$data['customers'] = $this->customers_model->company_list();
+
+		$data['vertical'] = '';
+		$data['sub_vertical'] = '';
+		$data['customer'] = '';
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+		
+			$data['vertical'] = $this->input->post('veritical');
+			$data['sub_vertical'] = $this->input->post('sub_veritical');
+			$data['customer'] = $this->input->post('customer');
+
+			$data['result'] = $this->stats_model->get_value($data);
+			
+		}
+		//echo "<pre>";
 		//print_r($data);exit;
+
 		$this->load->view('header');
 		$this->load->view('stats/value', $data);
 		$this->load->view('footer');
-			 
+	}
+
+	function value_generate()
+	{
+
+		
+		$this->load->view('stats/value', $data);
 	}
 	
 	 
