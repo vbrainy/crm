@@ -31,8 +31,19 @@ $(document).ready(function() {
 $(function() { 
     $('#stages').change(function() {
          
+         $('.stages_div').hide();
          var stage=$(this).val();
           
+         if(stage == 'Lost')
+         {
+         	$('.lost_div').show();
+         }
+
+         if(stage == 'Won')
+         {
+         	$('.won_div').show();
+         }
+
          if(stage=='New' || stage=='Lost' || stage=='Dead')
          {
 		 	 $('#probability').val(0);		 	
@@ -216,7 +227,7 @@ function delete_meeting( meeting_id )
             </div>  
             */ ?>        
           </div>
-           <div class="row">
+                     <div class="row">
            	 
                   <div class="panel">
                      
@@ -228,7 +239,8 @@ function delete_meeting( meeting_id )
 				            <form id="update_opportunities" name="update_opportunities" class="form-validation" accept-charset="utf-8" enctype="multipart/form-data" method="post">
  							<input type="hidden" name="product" id="product" value="<?= isset($opportunity->product_name) ? $opportunity->product_name : '' ?>"/>
  							<input type="hidden" name="category" id="category" value="<?= isset($opportunity->category_name) ? $opportunity->category_name : '' ?>"/>
-                        		<input  type="hidden" name="opportunity_id" value="<?php echo $opportunity->id;?>"/>		                        				 
+
+                        		<input  type="hidden" name="opportunity_id" value="<?php echo $this->uri->segments[4];?>"/>		                        				 
                         				<div class="row">
                           					<div class="col-sm-6">
 					                            <div class="form-group">
@@ -365,6 +377,61 @@ function delete_meeting( meeting_id )
 				                            </div>
 				                          </div> 
 					                    </div>
+
+					                    <div class="row lost_div stages_div" style="display:<?= ($opportunity->stages == 'Lost') ? '' : none ?>">
+					                    	<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Lost Reason</label>
+					                              <div class="append-icon">
+					                                 
+					                                <?php $options = array(
+									                  ''  => '',
+									                  'Too expensive'  => 'Too expensive',
+									                  'We don\'t have people/skills'    => 'We don\'t have people/skills',
+									                  'Not enough stock'   => 'Not enough stock',
+									                   
+									                ); 
+													echo form_dropdown('lost_reason', $options,$opportunity->lost_reason,'class="form-control"');?>
+					                              </div>
+					                            </div>
+					                          </div>   
+					                          <div class="col-md-6">
+									                      <div class="form-group">
+									                        <label for="field-1" class="control-label">Lost Date</label>
+									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
+									                        <input type="text" name="lost_date" class="date-picker form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->lost_date; ?>">
+									                         
+									                      </div>
+									                    </div>  
+					                    </div>
+
+
+					                    <div class="row won_div stages_div" style="display:<?= ($opportunity->stages == 'Won') ? '' : none ?>">
+					                    	<div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Purchase Order Attachement</label>
+				                              <a target="_blank" href="<?= base_url() ?>uploads/opportunity/<?= $opportunity->purchase_order_att; ?>">Attachement</a>
+				                              <div class="append-icon">
+				                                <div class="file">
+					                                <div class="option-group">
+					                                  <span class="file-button btn-primary">Choose File</span>
+					                                  <input type="file" class="custom-file" name="purchase_order_att" onchange="document.getElementById('uploader').value = this.value;">
+					                                  <input type="text" class="form-control" id="uploader" placeholder="no file selected" readonly="">
+					                                </div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                        </div>
+					                          <div class="col-md-6">
+									                      <div class="form-group">
+									                        <label for="field-1" class="control-label">Closing Date</label>
+									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
+									                        <input type="text" name="closed_date" class="date-picker form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->closed_date; ?>">
+									                         
+									                      </div>
+									                    </div>  
+					                    </div>
+					                
 					                    <!-- <div class="row">
                           					<div class="col-sm-6">
 					                            <div class="form-group">
@@ -514,22 +581,7 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>	
-					                          <div class="col-sm-6">
-					                            <div class="form-group">
-					                              <label class="control-label">Lost Reason</label>
-					                              <div class="append-icon">
-					                                 
-					                                <?php $options = array(
-									                  ''  => '',
-									                  'Too expensive'  => 'Too expensive',
-									                  'We don\'t have people/skills'    => 'We don\'t have people/skills',
-									                  'Not enough stock'   => 'Not enough stock',
-									                   
-									                ); 
-													echo form_dropdown('lost_reason', $options,$opportunity->lost_reason,'class="form-control"');?>
-					                              </div>
-					                            </div>
-					                          </div>    
+					                          
 					                      <!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Tags</label>
@@ -552,7 +604,7 @@ function delete_meeting( meeting_id )
 <div class="form-group">
 <label class="control-label">Product</label>
 <div class="append-icon">
-										<select name="product_id" id="product_id" class="form-control" data-search="true">
+										<select name="product_id" id="product_id" class="form-control" data-search="true" disabled="disabled">
                                           <!-- <option value="" selected="selected"></option> -->
                                           <?php foreach($products as $key=>$value) { ?>
                                           <?php $selected = ($value->id == $opportunity->product_id) ? "selected='selected'" : '';  ?>
@@ -571,7 +623,7 @@ function delete_meeting( meeting_id )
 <label class="control-label">Product categories</label>
 <div class="append-icon">
 <?php //echo $opportunity->product_id; print_r($categories); exit;?>
-                                                 <select name="category_id" id="category_id" class="form-control" data-search="true">
+                                                 <select name="category_id" id="category_id" class="form-control" data-search="true"  disabled="disabled">
 										<?php foreach($categories as $key=>$value) { ?>
                                           <?php $selected = ($value['id'] == $opportunity->category_id) ? "selected='selected'" : '';  ?>
                                           <option value="<?php echo $value['id'] ?>" <?= $selected ?>><?php echo $value['category_name'] ?></option>
@@ -831,7 +883,7 @@ $selProduct = strtolower($opportunity->product_name);
 </div>
 
 
-<div id="inter-leased-lines" class="prod_options" style="display:<?= ($selCategory == 'inter leased lines') ? '' : none ?>">
+<div id="inter-leased-lines" class="prod_options" style="display:<?= ($selCategory == 'international leased lines') ? '' : none ?>">
 <h3>International Leased Lines/MPLS </h3>
 <div class="row">
 	<div class="col-md-12">
@@ -966,11 +1018,10 @@ $selProduct = strtolower($opportunity->product_name);
 </div>
 </div>
 
-
 <?php 
 $devices = ['Samsung', 'iPhone', 'Techno'];
 ?>
-<div id="devices" class="prod_options" style="display:<?= ($selProduct == 'devices') ? '' : none ?>">
+<div id="devices" class="prod_options" style="display:<?= (trim($selProduct) == 'devices') ? '' : none ?>">
 <h3>Devices</h3>
 <div class="row">
 	<div class="col-md-12">
@@ -997,8 +1048,8 @@ $devices = ['Samsung', 'iPhone', 'Techno'];
 </div>
 </div>
 
-
-<div id="value-added-services" class="prod_options" style="display:<?= ($selProduct == 'value added services') ? '' : none ?>">
+<?php //echo $selProduct;exit; ?>
+<div id="value-added-services" class="prod_options" style="display:<?= (trim($selProduct) == 'value added services') ? '' : none ?>">
 <h3>Value Added Services</h3>
 <div class="row">
 	<div class="col-md-12">

@@ -179,6 +179,7 @@ class Opportunities extends CI_Controller {
 		    	$data['contact_persons'] = $this->contact_persons_model->contact_persons_list();
 		    	 $data['products'] = $this->products_model->products_list();
 		    	$data['categories'] = $this->category_model->get_product_category($data['opportunity']->product_id);
+		    	//echo "<pre>";
 		    	//print_r($data['opportunity']);exit;
 				$this->load->view('header');
 				$this->load->view('opportunities/update',$data);

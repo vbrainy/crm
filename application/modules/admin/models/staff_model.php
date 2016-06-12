@@ -214,7 +214,7 @@ class Staff_model extends CI_Model {
 				'admin_delete' => $this->input->post('admin_delete'),
 				'customers_read' => $this->input->post('customers_read'),
 				'customers_write' => $this->input->post('customers_write'),
-				'customers_delete' => $this->input->post('customers_delete'),
+				'customers_delete' => $this->input->post('customers_delete')
 									
 									);	
 	

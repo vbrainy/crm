@@ -30,9 +30,10 @@ class opportunities_model extends CI_Model {
 			$product = $this->input->post('product');
 			//echo "<br/>";
 			$category = strtolower($this->input->post('category'));
-			//exit;
+			
 			$productOptions = [];
 			//print_R($_POST);
+            //exit;
 			switch ($product) {
 				case 'gsm':
                 	if($category == 'new activations pre-paid')
@@ -117,7 +118,7 @@ class opportunities_model extends CI_Model {
                 		$productOptions['annual_rec_fee'] = $this->input->post('national_leased_lines_annual_rec_fee');
                 		
                 	}
-                	else if($category == 'inter leased lines')
+                	else if($category == 'international leased lines')
                 	{
                 		$productOptions['number_of_locations'] = $this->input->post('inter_leased_lines_number_of_locations');
                 		$productOptions['a_point_location_city'] = $this->input->post('inter_leased_lines_a_point_location_city');
@@ -168,7 +169,7 @@ class opportunities_model extends CI_Model {
               	case 'valueaddedservices':
                 	$productOptions['services_qty'] = $this->input->post('ser_services_qty');
             		$productOptions['services_one_time_cost'] = $this->input->post('ser_services_one_time_cost');
-            		$productOptions['total_value'] = $this->input->post('ser_annual_rec_fee');
+            		$productOptions['annual_rec_fee'] = $this->input->post('ser_annual_rec_fee');
                 break; 
 			}
 
@@ -223,7 +224,8 @@ class opportunities_model extends CI_Model {
 			$category = strtolower($this->input->post('category'));
 
 			$productOptions = [];
-			//print_R($_POST);
+            //echo "<pre>";
+			//print_R($_POST);exit;
 			switch ($product) {
 				case 'gsm':
                 	if($category == 'new activations pre-paid')
@@ -308,7 +310,7 @@ class opportunities_model extends CI_Model {
                 		$productOptions['annual_rec_fee'] = $this->input->post('national_leased_lines_annual_rec_fee');
                 		
                 	}
-                	else if($category == 'inter leased lines')
+                	else if($category == 'international leased lines')
                 	{
                 		$productOptions['number_of_locations'] = $this->input->post('inter_leased_lines_number_of_locations');
                 		$productOptions['a_point_location_city'] = $this->input->post('inter_leased_lines_a_point_location_city');
@@ -359,10 +361,27 @@ class opportunities_model extends CI_Model {
               	case 'valueaddedservices':
                 	$productOptions['services_qty'] = $this->input->post('ser_services_qty');
             		$productOptions['services_one_time_cost'] = $this->input->post('ser_services_one_time_cost');
-            		$productOptions['total_value'] = $this->input->post('ser_annual_rec_fee');
+            		$productOptions['annual_rec_fee'] = $this->input->post('ser_annual_rec_fee');
                 break; 
 			}
 
+                $config['upload_path'] = './uploads/opportunity';
+                $config['allowed_types'] = config('allowed_extensions');
+                $config['max_size'] = config('max_upload_file_size');
+                $config['encrypt_name'] = TRUE;
+                
+                $this->load->library('upload', $config);
+                
+                if ( ! $this->upload->do_upload('purchase_order_att'))
+                {
+                    echo $this->upload->display_errors();
+                }
+                else
+                { 
+                     
+                    $img_data  = $this->upload->data();
+                }
+                //print_r($img_data);exit;
 
     	$opportunity_details = array(
 	            'opportunity' => $this->input->post('opportunity'),
@@ -382,9 +401,11 @@ class opportunities_model extends CI_Model {
 	            'expected_closing' => date('Y-m-d', strtotime($this->input->post('expected_closing'))),
 	            'identified_date' => date('Y-m-d', strtotime($this->input->post('identified_date'))),
 	            'closed_date' => date('Y-m-d', strtotime($this->input->post('closed_date'))),
+                'purchase_order_att' => $img_data['file_name'],
 	            'priority' => $this->input->post('priority'),
 	            'tags' => implode(',',$this->input->post('tags')),
 	            'lost_reason' =>$this->input->post('lost_reason'),	           
+                'lost_date' => date('Y-m-d', strtotime($this->input->post('lost_date'))),             
 	            'internal_notes' => $this->input->post('internal_notes'),
 	            'assigned_partner_id' => $this->input->post('assigned_partner_id'),
 	            'sources' => $this->input->post('sources'),
@@ -395,7 +416,7 @@ class opportunities_model extends CI_Model {
 	     		//print_r($productOptions);exit;
 				//$this->db->insert('opportunity_product_options',$productOptions);
 				//echo $this->db->last_query();exit;
-				$this->db->update('opportunity_product_options',$productOptions);       	
+				$this->db->update('opportunity_product_options',$productOptions,array('opportunity_id' => $this->input->post('opportunity_id')));       	
 				//echo $this->db->last_query();exit;
 		 return $this->db->update('opportunities',$opportunity_details,array('id' => $this->input->post('opportunity_id')));
 	}
