@@ -146,7 +146,7 @@ class Dashboard_model extends CI_Model {
 		$result = $this->db->query($query);
 		$num_rows = $result->row()->num_rows;
 		$per = 0;
-		if($num_rows > 0)
+		if($num_rows > 0 && $userdata[$productName] <> 0)
 		{
 			$per = (int) ($num_rows * 100) / $userdata[$productName];
 		}

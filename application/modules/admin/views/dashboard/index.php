@@ -119,7 +119,7 @@ The tool allows you to handle the following primary tasks:
   </tr>
   <tr>
     <td class="tg-ejgj">% of Target Achieved</td>
-    <td class="tg-yw4l"><?= (int) ($this->dashboard_model->total_opp_won() * 100 / $staff->opportunity_target)  ?>%</td>
+    <td class="tg-yw4l"><?= if($staff->opportunity_target <> 0) { (int) ($this->dashboard_model->total_opp_won() * 100 / $staff->opportunity_target) } ?>%</td>
   </tr>
 </table>
 </div>
