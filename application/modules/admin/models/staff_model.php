@@ -238,7 +238,7 @@ class Staff_model extends CI_Model {
 					'phone_number' => $this->input->post('phone_number'),
 					'account_role_id' => $this->input->post('account_role_id'),
 
- 'roles' => $this->input->post('roles'),
+ //'roles' => $this->input->post('roles'),
  'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
@@ -260,7 +260,7 @@ class Staff_model extends CI_Model {
 					'phone_number' => $this->input->post('phone_number'),
 					'account_role_id' => $this->input->post('account_role_id'),
 
- 'roles' => $this->input->post('roles'),
+ //'roles' => $this->input->post('roles'),
  'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
@@ -310,7 +310,7 @@ class Staff_model extends CI_Model {
 								'user_avatar' => $img_data['file_name'],
 
 
- 'roles' => $this->input->post('roles'),
+ //'roles' => $this->input->post('roles'),
  'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
@@ -333,7 +333,7 @@ class Staff_model extends CI_Model {
 								'account_role_id' => $this->input->post('account_role_id'),
 								'user_avatar' => $img_data['file_name'],
 
- 'roles' => $this->input->post('roles'),
+ //'roles' => $this->input->post('roles'),
  'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),

@@ -15,6 +15,11 @@ class Roles_model extends CI_Model {
         return $this->db->get()->result_array();
 	} 
 
+    function get_role_level($id)
+    {
+        return $this->db->get_where('user_roles', array('id'=> $id))->row_array();
+    }
+
 	function rights_list_by_role($roleId)
 	{
 		return $this->db->get_where('user_rights', array('role_id'=> $roleId))->row_array();

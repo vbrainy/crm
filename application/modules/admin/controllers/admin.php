@@ -8,7 +8,7 @@ class Admin extends MX_Controller {
 		 $this->load->database();
 		 
          $this->load->model("user_model");
-          
+        $this->load->model("roles_model");
          $this->load->library('form_validation');
          
          /*cache control*/
@@ -108,11 +108,16 @@ class Admin extends MX_Controller {
         {
             $userdata = $this->user_model->user_data( $this->input->post('email') );
             
+            $roleData = $this->roles_model->get_role_level($userdata->roles);
+
             $session_data = array(
             						"id" => $userdata->id,
                                       "username"   => $userdata->email,
-                                      "userhash"   => md5( $userdata->password.$this->config->item('password_hash')  ) 
-                                      );
+                                      "userhash"   => md5( $userdata->password.$this->config->item('password_hash')),
+                                      'role_id' => $userdata->roles,
+                                      'level' => $roleData['level'],
+                                      'supervisor'=> $userdata->supervisor_id
+                                  );
                                       
             $this->session->set_userdata($session_data);
             

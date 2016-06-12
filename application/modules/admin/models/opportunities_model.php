@@ -423,13 +423,22 @@ class opportunities_model extends CI_Model {
     
 	function opportunities_list($staff_id)
 	{
-		/*if($staff_id!='1')
+        $level = $this->session->userdata['level'];
+        
+        if($level == 1)
+        {
+            $this->db->where('salesperson_id', (int) $staff_id);   
+        }
+        else if($staff_id == 2)
 		{
 			$this->db->where('salesperson_id', (int) $staff_id);
-		}*/
+            $this->db->or_where('saleperson_id', (int) userdata('supervisor'));
+		}
 		
 		$this->db->order_by("id", "desc");		
         $this->db->from('opportunities');
+        //$this->db->get()->result();
+        //echo $this->db->last_query();exit;
         return $this->db->get()->result();
 	} 
 	
