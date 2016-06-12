@@ -83,7 +83,7 @@
 		    <li class="<?php echo is_active_menu('subverticals'); ?>"><a href="<?php echo base_url('admin/subverticals'); ?>"> Sub Verticals</a></li>
 		    <li class="<?php echo is_active_menu('users_management'); ?>"><a href="<?php echo base_url('admin/staff'); ?>"> User Management</a></li>
 		    <li class="<?php echo is_active_menu('reports'); ?>"><a href="<?php echo base_url('admin/reports'); ?>"> Reports Management</a></li>
-		    <li class="<?php echo is_active_menu('setting_targets'); ?>"><a href="<?php echo base_url('admin/settings/setting_targets'); ?>">Setting Targets</a></li>
+		    <!-- <li class="<?php echo is_active_menu('setting_targets'); ?>"><a href="<?php echo base_url('admin/settings/setting_targets'); ?>">Setting Targets</a></li> -->
 		</ul>
         </li>
         <?php } ?>

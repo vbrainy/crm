@@ -46,10 +46,11 @@ class Staff_model extends CI_Model {
 	                                    'account_role_id' => $this->input->post('account_role_id'),
 
  'roles' => $this->input->post('roles'),
- //'customer' => $this->input->post('customer'),
- //'gsm' => $this->input->post('gsm'),
- //'solutions' => $this->input->post('solutions'),
- //'devices' => $this->input->post('devices'),
+ 'customer' => $this->input->post('customer'),
+ 'gsm' => $this->input->post('gsm'),
+ 'solutions' => $this->input->post('solutions'),
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
  'job_title' => $this->input->post('job_title'),
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
@@ -89,11 +90,12 @@ class Staff_model extends CI_Model {
 
 
  'roles' => $this->input->post('roles'),
- /*'customer' => $this->input->post('customer'),
+ 'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
- 'devices' => $this->input->post('devices'),*/
-  'job_title' => $this->input->post('job_title'),
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
+ 'job_title' => $this->input->post('job_title'),
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
@@ -237,10 +239,15 @@ class Staff_model extends CI_Model {
 					'account_role_id' => $this->input->post('account_role_id'),
 
  'roles' => $this->input->post('roles'),
- /*'customer' => $this->input->post('customer'),
+ 'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
- 'devices' => $this->input->post('devices'),*/
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
+ 'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 					'status' => $status
 					);	
 			}	
@@ -254,10 +261,15 @@ class Staff_model extends CI_Model {
 					'account_role_id' => $this->input->post('account_role_id'),
 
  'roles' => $this->input->post('roles'),
- /*'customer' => $this->input->post('customer'),
+ 'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
- 'devices' => $this->input->post('devices'),*/
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
+ 'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 					'status' => $status
 
 					);
@@ -299,10 +311,15 @@ class Staff_model extends CI_Model {
 
 
  'roles' => $this->input->post('roles'),
- /*'customer' => $this->input->post('customer'),
+ 'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
- 'devices' => $this->input->post('devices'),*/
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
+ 'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 								'status' => $status
 								);
 					}
@@ -317,10 +334,15 @@ class Staff_model extends CI_Model {
 								'user_avatar' => $img_data['file_name'],
 
  'roles' => $this->input->post('roles'),
- /*'customer' => $this->input->post('customer'),
+ 'customer' => $this->input->post('customer'),
  'gsm' => $this->input->post('gsm'),
  'solutions' => $this->input->post('solutions'),
- 'devices' => $this->input->post('devices'),*/
+ 'devices' => $this->input->post('devices'),
+ 'services' => $this->input->post('services'),
+ 'job_title' => $this->input->post('job_title'),
+ 'segment_id' => $this->input->post('segment_id'),
+ 'region_id' => $this->input->post('region_id'),
+ 'supervisor_id' => $this->input->post('supervisor_id'),
 								'status' => $status
 								);	
 					}

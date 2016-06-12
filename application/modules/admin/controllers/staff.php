@@ -106,7 +106,7 @@ class Staff extends CI_Controller {
         else
         {
 			$data['staff'] = $this->staff_model->get_user( $staff_id );		
-
+			$data['staffs'] = $this->staff_model->staff_list();
 				$data['segments'] = $this->segments_model->segments_list(); 
 		    	$data['regions'] = $this->regions_model->regions_list();
 

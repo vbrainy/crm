@@ -136,6 +136,118 @@ $(document).ready(function() {
 				                            </div>
 				                          </div>
                           				</div>
+<div class="row">				                         
+				                          <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Job Title</label>
+				                              <div class="append-icon">
+				                                <input type="text" name="job_title" value="<?= isset($staff->job_title) ? $staff->job_title : '' ?>" class="form-control">
+				                              </div>
+				                            </div>
+				                          </div>
+				                           <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Segment</label>
+				                              <div class="append-icon">
+				                                <select name="segment_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($segments as $key => $value) { ?>
+					                              	<?php $selected = ($value->id == $staff->segment_id) ? 'selected=selected' : ''?>
+					                              		<option value="<?php echo $value->id ?>" <?= $selected ?>><?php echo $value->segment ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </div>
+				                        <div class="row">				                         
+				                          <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Region</label>
+				                              <div class="append-icon">
+				                                <select name="region_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($regions as $key => $value) { ?>
+					                              	<?php $selected = ($value->id == $staff->region_id) ? 'selected=selected' : ''?>
+					                              		<option value="<?php echo $value->id ?>" <?= $selected ?>><?php echo $value->region ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                           <div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Supervisor</label>
+				                              <div class="append-icon">
+				                                <select name="supervisor_id" class="form-control" data-search="true">
+					                                <option value="" selected="selected"></option>
+					                              	<?php foreach ($staffs as $key => $value) { ?>
+					                              	<?php $selected = ($value->id == $staff->supervisor_id) ? 'selected=selected' : ''?>
+					                              		<option value="<?php echo $value->id ?>" <?= $selected ?>><?php echo $value->first_name .' '.$value->last_name; ?></option>
+					                              	<?php } ?>	
+				                                </select>
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </div>
+
+
+                          				<div class="row">
+     <div class="header">
+            <h5>Targets Settings</h5>            
+          </div>
+     
+
+                          					<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Customer</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="customer"  value="<?= isset($staff->customer) ? $staff->customer : '' ?>" class="form-control">
+					                              </div>
+					                            </div>
+					                          </div>
+					                          <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">GSM</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="gsm" value="<?= isset($staff->gsm) ? $staff->gsm : '' ?>" class="form-control">
+					                              </div>
+					                            </div>
+					                          </div>
+					                        </div>
+
+
+<div class="row">
+<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Devices</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="devices" value="<?= isset($staff->devices) ? $staff->devices : '' ?>" class="form-control">
+					                              </div>
+					                            </div>
+					                          </div>
+					                          <div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Solutions</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="solutions" value="<?= isset($staff->solutions) ? $staff->solutions : '' ?>" class="form-control">
+					                              </div>
+					                            </div>
+					                          </div>
+					                        </div>
+
+
+<div class="row">
+<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Value Added Services</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="services" class="form-control" value="<?= isset($staff->services) ? $staff->services : '' ?>">
+					                              </div>
+					                            </div>
+					                          </div>
+					                      </div>
+
 
 										<div class="row">
 					                    

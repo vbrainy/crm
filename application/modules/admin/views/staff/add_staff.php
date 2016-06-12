@@ -228,7 +228,7 @@ $(document).ready(function() {
 				                            </div>
 				                          </div>
 				                        </div>
-<!-- <div class="row">
+<div class="row">
      <div class="header">
             <h5>Targets Settings</h5>            
           </div>
@@ -239,7 +239,6 @@ $(document).ready(function() {
 					                              <label class="control-label">Customer</label>
 					                              <div class="append-icon">
 					                                <input type="text" name="customer" value="" class="form-control">
-					                                <i class="icon-user"></i>
 					                              </div>
 					                            </div>
 					                          </div>
@@ -248,7 +247,6 @@ $(document).ready(function() {
 					                              <label class="control-label">GSM</label>
 					                              <div class="append-icon">
 					                                <input type="text" name="gsm" value="" class="form-control">
-					                                <i class="icon-user"></i>
 					                              </div>
 					                            </div>
 					                          </div>
@@ -261,7 +259,6 @@ $(document).ready(function() {
 					                              <label class="control-label">Devices</label>
 					                              <div class="append-icon">
 					                                <input type="text" name="devices" value="" class="form-control">
-					                                <i class="icon-user"></i>
 					                              </div>
 					                            </div>
 					                          </div>
@@ -270,13 +267,24 @@ $(document).ready(function() {
 					                              <label class="control-label">Solutions</label>
 					                              <div class="append-icon">
 					                                <input type="text" name="solutions" value="" class="form-control">
-					                                <i class="icon-user"></i>
 					                              </div>
 					                            </div>
 					                          </div>
 					                        </div>
 
- -->										
+
+<div class="row">
+<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Value Added Services</label>
+					                              <div class="append-icon">
+					                                <input type="text" name="services" value="" class="form-control">
+					                              </div>
+					                            </div>
+					                          </div>
+					                      </div>
+
+										
 										<div class="row">
 					                    
 					                    	 <div class="panel-content">

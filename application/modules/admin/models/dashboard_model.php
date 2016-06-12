@@ -135,7 +135,24 @@ class Dashboard_model extends CI_Model {
 		return count($this->db->get()->result());	
 	}
 	
-	
+	function total_opp_won_by_product($product, $productName)	
+	{
+		$query = "";
+		$query = "SELECT customer, gsm, solutions, devices, services FROM users WHERE id=". userdata('id');
+		$result = $this->db->query($query);
+		$userdata = $result->row_array();
+		$query = "";
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) JOIN `products` ON `products`.`id` = `opportunities`.`product_id` and `products`.`id` = $product WHERE `stages` = 'Won' AND `salesperson_id` =".userdata('id');
+		$result = $this->db->query($query);
+		$num_rows = $result->row()->num_rows;
+		$per = 0;
+		if($num_rows > 0)
+		{
+			$per = (int) ($num_rows * $userdata[$productName]) / 100;
+		}
+		//echo (int) ($numOfOpp * $userdata[$product]) / 100 . '%';exit;
+		return $per .'%';
+	}
 
 
 }

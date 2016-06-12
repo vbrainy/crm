@@ -149,19 +149,19 @@ The tool allows you to handle the following primary tasks:
   </tr>
   <tr>
     <td class="tg-jzjz">GSM</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"><?= $this->dashboard_model->total_opp_won_by_product(1, 'gsm') ?></td>
   </tr>
   <tr>
     <td class="tg-4il0">Solutions</td>
-    <td class="tg-j2zy"></td>
+    <td class="tg-j2zy"><?= $this->dashboard_model->total_opp_won_by_product(2, 'solutions') ?></td>
   </tr>
   <tr>
     <td class="tg-jzjz">Devices</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"><?= $this->dashboard_model->total_opp_won_by_product(3, 'devices') ?></td>
   </tr>
   <tr>
     <td class="tg-4il0">Value Added Services</td>
-    <td class="tg-j2zy"></td>
+    <td class="tg-j2zy"><?= $this->dashboard_model->total_opp_won_by_product(4, 'services') ?></td>
   </tr>
   <tr>
     <td class="tg-jzjz">Total</td>
