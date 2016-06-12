@@ -190,7 +190,16 @@ $(document).ready(function() {
 				                            </div>
 				                          </div>
 				                        </div>
-
+<div class="row">
+										<div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Opportunity Target</label>
+				                              <div class="append-icon">
+				                                <input type="text" name="opportunity_target" value="<?= isset($staff->opportunity_target) ? $staff->opportunity_target : '' ?>" class="form-control">
+				                              </div>
+				                            </div>
+				                          </div>
+				                        </div>
 
                           				<div class="row">
      <div class="header">

@@ -55,6 +55,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+ 'opportunity_target' => $this->input->post('opportunity_target'),
 	                                    'status' => '1'
 	                                    );
 	                                    
@@ -99,6 +100,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+  'opportunity_target' => $this->input->post('opportunity_target'),
 	                                    'status' => '1'
 	                                    );
 	                                    
@@ -248,6 +250,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+  'opportunity_target' => $this->input->post('opportunity_target'),
 					'status' => $status
 					);	
 			}	
@@ -270,6 +273,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+  'opportunity_target' => $this->input->post('opportunity_target'),
 					'status' => $status
 
 					);
@@ -320,6 +324,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+  'opportunity_target' => $this->input->post('opportunity_target'),
 								'status' => $status
 								);
 					}
@@ -343,6 +348,7 @@ class Staff_model extends CI_Model {
  'segment_id' => $this->input->post('segment_id'),
  'region_id' => $this->input->post('region_id'),
  'supervisor_id' => $this->input->post('supervisor_id'),
+  'opportunity_target' => $this->input->post('opportunity_target'),
 								'status' => $status
 								);	
 					}

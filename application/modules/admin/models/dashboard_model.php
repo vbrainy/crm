@@ -148,10 +148,18 @@ class Dashboard_model extends CI_Model {
 		$per = 0;
 		if($num_rows > 0)
 		{
-			$per = (int) ($num_rows * $userdata[$productName]) / 100;
+			$per = (int) ($num_rows * 100) / $userdata[$productName];
 		}
 		//echo (int) ($numOfOpp * $userdata[$product]) / 100 . '%';exit;
 		return $per .'%';
+	}
+
+	//GET TOTAL NUMBER OF OPP WON BY USER
+	function total_opp_won()
+	{
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) WHERE `stages` = 'Won' AND `salesperson_id` =".userdata('id');
+		$result = $this->db->query($query);
+		return $result->row()->num_rows;
 	}
 
 

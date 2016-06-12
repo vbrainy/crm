@@ -111,15 +111,15 @@ The tool allows you to handle the following primary tasks:
   </tr>
   <tr>
     <td class="tg-ejgj">Opportunity (achieved)</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"><?= $this->dashboard_model->total_opp_won() ?></td>
   </tr>
   <tr>
     <td class="tg-y4nq">Opportunity (target)</td>
-    <td class="tg-j2zy"></td>
+    <td class="tg-j2zy"><?= isset($staff->opportunity_target) ? $staff->opportunity_target : '' ?></td>
   </tr>
   <tr>
     <td class="tg-ejgj">% of Target Achieved</td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"><?= (int) ($this->dashboard_model->total_opp_won() * 100 / $staff->opportunity_target)  ?>%</td>
   </tr>
 </table>
 </div>
