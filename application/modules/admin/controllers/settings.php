@@ -8,7 +8,7 @@ class Settings extends CI_Controller {
 		 $this->load->database(); 
 		 $this->load->model("user_model");
 		 $this->load->model("settings_model");
-		  
+		 $this->load->model("setting_targets_model");
          $this->load->library('form_validation');
          
          /*cache control*/
@@ -218,7 +218,40 @@ class Settings extends CI_Controller {
 		   }
     }
     
+    //SETTING TARGETS 
+    function setting_targets(){
+    	$data['settings'] = $this->setting_targets_model->get_settings();
+    	//print_r($data);
+		$this->load->view('header');			 
+		$this->load->view('settings/setting_targets', $data);
+		$this->load->view('footer');	    	
+    }
     
-    
-    
+    function setting_targets_add_process()
+    {
+        check_login();   
+        
+         	$this->form_validation->set_rules('customer_acquisition', 'Customer Acquisition', 'required|number|xss_clean');
+         	$this->form_validation->set_rules('gsm', 'GSM', 'required|number|xss_clean');
+         	$this->form_validation->set_rules('solutions', 'Solutions', 'required|number|xss_clean');
+         	$this->form_validation->set_rules('devices', 'Devices', 'required|number|xss_clean');
+         	$this->form_validation->set_rules('services', 'Services', 'required|number|xss_clean');
+
+         	if( $this->form_validation->run() == FALSE )
+	        {
+	            echo '<div class="alert error" style="color:red">' . validation_errors() . '</div>';
+	        } 
+	        else
+	        {
+          
+				if( $this->setting_targets_model->setting_targets_add() )
+				{
+					echo '<div class="alert alert-success">'.$this->lang->line('update_succesful').'</div>';
+				}
+				else
+				{
+					echo '<div class="alert error">'.$this->lang->line('technical_problem').'</div>';
+				}
+		   }
+    }
 }
