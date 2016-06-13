@@ -409,8 +409,8 @@ function delete_meeting( meeting_id )
 					                    <div class="row won_div stages_div" style="display:<?= ($opportunity->stages == 'Won') ? '' : none ?>">
 					                    	<div class="col-sm-6">
 				                            <div class="form-group">
-				                              <label class="control-label">Purchase Order Attachement</label>
-				                              <a target="_blank" href="<?= base_url() ?>uploads/opportunity/<?= $opportunity->purchase_order_att; ?>">Attachement</a>
+				                              <label class="control-label">Purchase Order Attachment</label>
+				                              <!-- <a target="_blank" href="<?= base_url() ?>uploads/opportunity/<?= $opportunity->purchase_order_att; ?>">Attachement</a> -->
 				                              <div class="append-icon">
 				                                <div class="file">
 					                                <div class="option-group">
