@@ -64,7 +64,8 @@
 	                        ?>
 	                        <td>
 	                        	
-	                        	<a href="<?php echo base_url('admin/opportunities/view/'.$opportunity->id); ?>"><?php echo $opportunity->opportunity; ?></a>
+	                        	<!-- <a href="<?php echo base_url('admin/opportunities/view/'.$opportunity->id); ?>"></a> -->
+	                        	<?php echo $opportunity->opportunity; ?>
 	                        	
 	                        </td>	                        
 	                        <td><?php echo customer_name($opportunity->customer)->name; ?>   </td>
