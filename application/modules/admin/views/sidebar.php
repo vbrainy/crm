@@ -53,8 +53,8 @@
     	    <li class="nav-parent <?php echo is_active_menu('category'); ?><?php echo is_active_menu('products'); ?>">
     		<a href="#"><i class="fa fa-cubes"></i><span>Products</span> <span class="fa arrow"></span></a>
     		<ul class="children collapse">
-    		    <li class="<?php echo is_active_menu('products'); ?>"><a href="<?php echo base_url('admin/products'); ?>"> Products</a></li>
-    		    <li class="<?php echo is_active_menu('category'); ?>"><a href="<?php echo base_url('admin/category'); ?>"> Category</a></li>
+    		    <li class="<?php echo is_active_menu('products'); ?>"><a href="<?php echo base_url('admin/products'); ?>"> Product Category</a></li>
+    		    <li class="<?php echo is_active_menu('category'); ?>"><a href="<?php echo base_url('admin/category'); ?>"> Product List</a></li>
     		</ul>
     	    </li>
 	    <?php } ?>
