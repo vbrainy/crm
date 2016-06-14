@@ -90,6 +90,29 @@ class Opportunities extends CI_Controller {
 				$this->form_validation->set_rules('product_id', 'Product', 'required'); 
 				$this->form_validation->set_rules('category_id', 'Category', 'required'); 
 				
+				/*echo $product = $this->input->post('product');
+				$category = strtolower($this->input->post('category'));
+				switch ($product) {
+
+				case 'gsm':
+                	if($category == 'new activations pre-paid')
+                	{
+
+                		//$this->form_validation->set_rules('new_act_pre_paid_voice_qty', 'Voice Qty', 'required'); 
+                		// $productOptions['voice_qty'] = $this->input->post('new_act_pre_paid_voice_qty');
+                		// $productOptions['voice_one_time_fee'] = $this->input->post('new_act_pre_paid_voice_one_time_fee');
+                		// $productOptions['voice_annual_rec_fee'] = $this->input->post('new_act_pre_paid_voice_annual_rec_fee');
+
+                		// $productOptions['data_qty'] = $this->input->post('new_act_pre_paid_data_qty');
+                		// $productOptions['data_one_time_fee'] = $this->input->post('new_act_pre_paid_data_one_time_fee');
+                		// $productOptions['data_annual_rec_fee'] = $this->input->post('new_act_pre_paid_data_annual_rec_fee');
+
+                		// $productOptions['bundle_qty'] = $this->input->post('new_act_pre_paid_bundle_qty');
+                		// $productOptions['bundle_one_time_fee'] = $this->input->post('new_act_pre_paid_bundle_one_time_fee');
+                		// $productOptions['bundle_annual_rec_fee'] = $this->input->post('new_act_pre_paid_bundle_annual_rec_fee');
+                	}
+                }
+*/
 				if( $this->form_validation->run() == FALSE )
 		        {
 		            echo '<div class="alert"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';

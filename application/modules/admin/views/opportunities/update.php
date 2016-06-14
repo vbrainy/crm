@@ -690,21 +690,21 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -723,21 +723,21 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 				<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>" /></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>" /></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -755,21 +755,21 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 				<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : ''?>" /></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : ''?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : ''?>" /></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : ''?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : ''?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : ''?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : ''?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : ''?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : ''?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : ''?>"/></div>
 		</div>
 	</div>
 </div>
@@ -787,21 +787,21 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_qty" value="<?= isset($opportunity->voice_qty) ? $opportunity->voice_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_one_time_fee" value="<?= isset($opportunity->voice_one_time_fee) ? $opportunity->voice_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_annual_rec_fee" value="<?= isset($opportunity->voice_annual_rec_fee) ? $opportunity->voice_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_qty" value="<?= isset($opportunity->data_qty) ? $opportunity->data_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_one_time_fee" value="<?= isset($opportunity->data_one_time_fee) ? $opportunity->data_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_annual_rec_fee" value="<?= isset($opportunity->data_annual_rec_fee) ? $opportunity->data_annual_rec_fee : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_qty" value="<?= isset($opportunity->bundle_qty) ? $opportunity->bundle_qty : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_one_time_fee" value="<?= isset($opportunity->bundle_one_time_fee) ? $opportunity->bundle_one_time_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_annual_rec_fee" value="<?= isset($opportunity->bundle_annual_rec_fee) ? $opportunity->bundle_annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -813,15 +813,15 @@ $selProduct = strtolower($opportunity->product_name);
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity per location</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_capacity_per_location" value="<?= isset($opportunity->capacity_per_location) ? $opportunity->capacity_per_location : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_capacity_per_location" value="<?= isset($opportunity->capacity_per_location) ? $opportunity->capacity_per_location : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_number_of_location" value="<?= isset($opportunity->number_of_location) ? $opportunity->number_of_location : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_number_of_location" value="<?= isset($opportunity->number_of_location) ? $opportunity->number_of_location : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Value per location</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_value_per_location" value="<?= isset($opportunity->value_per_location) ? $opportunity->value_per_location : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_value_per_location" value="<?= isset($opportunity->value_per_location) ? $opportunity->value_per_location : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">End Location (City)</div>
@@ -833,11 +833,11 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -873,11 +873,11 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -890,7 +890,7 @@ $selProduct = strtolower($opportunity->product_name);
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -914,11 +914,11 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -943,15 +943,15 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DID units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_did_units" value="<?= isset($opportunity->number_of_did_units) ? $opportunity->number_of_did_units : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_number_of_did_units" value="<?= isset($opportunity->number_of_did_units) ? $opportunity->number_of_did_units : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -964,15 +964,15 @@ $selProduct = strtolower($opportunity->product_name);
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -985,7 +985,7 @@ $selProduct = strtolower($opportunity->product_name);
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -1009,11 +1009,11 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_total_installation_cost" value="<?= isset($opportunity->total_installation_cost) ? $opportunity->total_installation_cost : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -1039,11 +1039,11 @@ $devices = ['Samsung', 'iPhone', 'Techno'];
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dev_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dev_number_of_units" value="<?= isset($opportunity->number_of_units) ? $opportunity->number_of_units : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total value</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dev_total_value" value="<?= isset($opportunity->total_value) ? $opportunity->total_value : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dev_total_value" value="<?= isset($opportunity->total_value) ? $opportunity->total_value : '' ?>"/></div>
 		</div>
 	</div>
 </div>
@@ -1056,15 +1056,15 @@ $devices = ['Samsung', 'iPhone', 'Techno'];
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Quantity</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_qty" value="<?= isset($opportunity->services_qty) ? $opportunity->services_qty : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_services_qty" value="<?= isset($opportunity->services_qty) ? $opportunity->services_qty : ''?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">One-time cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_one_time_cost" value="<?= isset($opportunity->services_one_time_cost) ? $opportunity->services_one_time_cost : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_services_one_time_cost" value="<?= isset($opportunity->services_one_time_cost) ? $opportunity->services_one_time_cost : ''?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : ''?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_annual_rec_fee" value="<?= isset($opportunity->annual_rec_fee) ? $opportunity->annual_rec_fee : ''?>"/></div>
 		</div>
 	</div>
 </div>

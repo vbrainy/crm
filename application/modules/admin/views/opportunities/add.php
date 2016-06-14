@@ -410,21 +410,21 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_voice_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_voice_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_data_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_data_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_pre_paid_bundle_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_pre_paid_bundle_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -443,21 +443,21 @@ function list(array_list, dis)
 		</div>
 				<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_voice_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_voice_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_data_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_data_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="new_act_post_paid_bundle_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="new_act_post_paid_bundle_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -475,21 +475,21 @@ function list(array_list, dis)
 		</div>
 				<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_voice_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_voice_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_data_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_data_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_pre_paid_bundle_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_pre_paid_bundle_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -507,21 +507,21 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Voice</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_voice_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_voice_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Data</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_data_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_data_annual_rec_fee"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Bundle (Voice + Data)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_qty"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_one_time_fee"/></div>
-			<div class="col-md-3"><input type="text" class="form-control" name="mnp_post_paid_bundle_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_one_time_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="mnp_post_paid_bundle_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -533,15 +533,15 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity per location</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_capacity_per_location"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_capacity_per_location"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_number_of_location"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_number_of_location"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Value per location</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_value_per_location"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_value_per_location"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">End Location (City)</div>
@@ -553,11 +553,11 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -569,7 +569,7 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_number_of_locations"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_number_of_locations"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -593,11 +593,11 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -610,7 +610,7 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_number_of_locations"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_number_of_locations"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -634,11 +634,11 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="inter_leased_lines_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -663,15 +663,15 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DID units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_did_units"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_number_of_did_units"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="pri_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -684,15 +684,15 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_number_of_units"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_number_of_units"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="over_internet_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="over_internet_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -705,7 +705,7 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_number_of_locations"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_number_of_locations"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -729,11 +729,11 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_total_installation_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_total_installation_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="leased_lines_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
@@ -759,11 +759,11 @@ $devices = ['Samsung', 'iPhone', 'Techno'];
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dev_number_of_units"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dev_number_of_units"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total value</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dev_total_value"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="dev_total_value"/></div>
 		</div>
 	</div>
 </div>
@@ -776,15 +776,15 @@ $devices = ['Samsung', 'iPhone', 'Techno'];
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Quantity</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_qty"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_services_qty"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">One-time cost</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_services_one_time_cost"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_services_one_time_cost"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Annual recurring fee</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="ser_annual_rec_fee"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="ser_annual_rec_fee"/></div>
 		</div>
 	</div>
 </div>
