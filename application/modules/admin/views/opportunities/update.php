@@ -829,7 +829,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">End Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_end_location_state"/></div>
+			<div class="col-md-3">
+				<select name="dedi_int_end_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->dedi_int_end_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+				<!-- <input type="text" class="form-control" name="dedi_int_end_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -849,7 +861,7 @@ $selProduct = strtolower($opportunity->product_name);
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
+			<div class="col-md-3"><input type="number" class="form-control" name="national_leased_lines_number_of_locations" value="<?= isset($opportunity->number_of_locations) ? $opportunity->number_of_locations : '' ?>"/></div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (City)</div>
@@ -857,7 +869,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_a_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="national_leased_lines_a_point_location_state"/> -->
+				<select name="national_leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->a_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -865,7 +889,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="national_leased_lines_b_point_location_state"/> -->
+				<select name="national_leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->b_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
@@ -898,7 +934,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_a_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_a_point_location_state"/> -->
+				<select name="inter_leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->a_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -906,7 +954,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_b_point_location_state"/> -->
+				<select name="inter_leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->b_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
@@ -935,7 +995,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Installation location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_installation_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="pri_installation_location_state"/> -->
+<select name="pri_installation_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->installation_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DOD units</div>
@@ -993,7 +1065,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_a_point_location_state" /></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="leased_lines_a_point_location_state" /> -->
+				<select name="leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->a_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -1001,7 +1085,19 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="leased_lines_b_point_location_state"/> -->
+				<select name="leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+						$selected = ($state->id == $opportunity->b_point_location_state) ? 'selected=selected': '';
+					    ?>
+    					<option value="<?php echo $state->id; ?>" <?= $selected ?>><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>

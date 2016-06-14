@@ -549,7 +549,18 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">End Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="dedi_int_end_location_state"/></div>
+			<div class="col-md-3">
+				<select name="dedi_int_end_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+				<!-- <input type="text" class="form-control" name="dedi_int_end_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -577,7 +588,18 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_a_point_location_state"/></div>
+			<div class="col-md-3">
+				<select name="national_leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+				<!-- <input type="text" class="form-control" name="national_leased_lines_a_point_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -585,7 +607,19 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="national_leased_lines_b_point_location_state"/>
+				 -->
+				 <select name="national_leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
@@ -618,7 +652,18 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_a_point_location_state"/></div>
+			<div class="col-md-3">
+				<select name="inter_leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_a_point_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -713,7 +758,18 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">A-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_a_point_location_state"/></div>
+			<div class="col-md-3">
+			<select name="leased_lines_a_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>	
+			<!-- <input type="text" class="form-control" name="leased_lines_a_point_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (City)</div>
@@ -721,7 +777,18 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<select name="leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>	
+				<!-- <input type="text" class="form-control" name="leased_lines_b_point_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>

@@ -64,6 +64,7 @@ class Opportunities extends CI_Controller {
 		    	$data['contact_persons'] = $this->contact_persons_model->contact_persons_list();
 		    	$data['products'] = $this->products_model->products_list();
 		    	$data['categories'] = $this->category_model->category_list();
+		    	$data['states']		 = $this->customers_model->state_list(160);
 				$this->load->view('header');
 				$this->load->view('opportunities/add',$data);
 				$this->load->view('footer');
@@ -202,6 +203,7 @@ class Opportunities extends CI_Controller {
 		    	$data['contact_persons'] = $this->contact_persons_model->contact_persons_list();
 		    	 $data['products'] = $this->products_model->products_list();
 		    	$data['categories'] = $this->category_model->get_product_category($data['opportunity']->product_id);
+		    	$data['states']		 = $this->customers_model->state_list(160);
 		    	//echo "<pre>";
 		    	//print_r($data['opportunity']);exit;
 				$this->load->view('header');
