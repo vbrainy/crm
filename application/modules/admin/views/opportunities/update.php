@@ -671,6 +671,14 @@ function delete_meeting( meeting_id )
 					                          </div>
 					                    </div>  -->
 
+<?php
+$capacityArr = ["1MB"=>"1MB", "2MB"=>"2MB", "4MB"=>"4MB", "5MB"=>"5MB", "6MB"=>"6MB", 
+"8MB"=>"8MB", "10MB"=>"10MB", "15MB"=>"15MB", "20MB"=>"20MB", 
+"25MB"=>"25MB", "30MB"=>"30MB", "45MB"=>"45MB (DS3)", 
+"50MB"=>"50MB", "60MB"=>"60MB", "80MB"=>"80MB", "100MB"=>"100MB", 
+"1STM"=>"1 STM", "2STM"=>"2 STM", "3STM"=>"3 STM", "4STM"=>"4 STM", 
+"5STM"=>"5 STM", "1GIG"=>"1 GIG"];
+?>                                            
 <?php 
 $selCategory = strtolower($opportunity->category_name); 
 $selProduct = strtolower($opportunity->product_name); 
@@ -905,7 +913,15 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+			<div class="col-md-3">
+				<select class="form-control" name="national_leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<?php $selected = ($key == $opportunity->capacity_required) ? 'selected=selected' : '' ?>
+						<option value="<?= $key ?>" <?= $selected ?>><?= $value ?></option>
+					<?php } ?>
+				</select>
+				<!-- <input type="text" class="form-control" name="national_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -970,7 +986,15 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+			<div class="col-md-3">
+				<select class="form-control" name="inter_leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<?php $selected = ($key == $opportunity->capacity_required) ? 'selected=selected' : '' ?>
+						<option value="<?= $key ?>" <?= $selected ?>><?= $value ?></option>
+					<?php } ?>
+				</select>
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -1011,7 +1035,16 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DOD units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_dod_units" value="<?= isset($opportunity->number_of_dod_units) ? $opportunity->number_of_dod_units : '' ?>"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="pri_number_of_dod_units" value="<?= isset($opportunity->number_of_dod_units) ? $opportunity->number_of_dod_units : '' ?>"/> -->
+				<?php $DODUnits = [30=> 30, 60=>60, 90=>90, 120=>120]; ?>	
+				<select class="form-control" data-search="true" name="pri_number_of_dod_units">
+					<?php foreach ($DODUnits as $key => $value) { ?>
+						<?php $selected = ($key == $opportunity->number_of_dod_units) ? 'selected=selected' : '' ?>
+						<option value="<?= $key ?>" <?= $selected ?>><?= $value ?></option>
+					<?php } ?>
+				</select>		
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DID units</div>
@@ -1101,7 +1134,15 @@ $selProduct = strtolower($opportunity->product_name);
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/></div>
+			<div class="col-md-3">
+					<select class="form-control" name="leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<?php $selected = ($key == $opportunity->capacity_required) ? 'selected=selected' : '' ?>
+						<option value="<?= $key ?>" <?= $selected ?>><?= $value ?></option>
+					<?php } ?>
+				</select>
+				<!-- <input type="text" class="form-control" name="leased_lines_capacity_required" value="<?= isset($opportunity->capacity_required) ? $opportunity->capacity_required : '' ?>"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>

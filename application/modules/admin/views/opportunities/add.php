@@ -396,6 +396,14 @@ function list(array_list, dis)
                                                 </div>	
                                             </div>	
                                             </div>
+<?php
+$capacityArr = ["1MB"=>"1MB", "2MB"=>"2MB", "4MB"=>"4MB", "5MB"=>"5MB", "6MB"=>"6MB", 
+"8MB"=>"8MB", "10MB"=>"10MB", "15MB"=>"15MB", "20MB"=>"20MB", 
+"25MB"=>"25MB", "30MB"=>"30MB", "45MB"=>"45MB (DS3)", 
+"50MB"=>"50MB", "60MB"=>"60MB", "80MB"=>"80MB", "100MB"=>"100MB", 
+"1STM"=>"1 STM", "2STM"=>"2 STM", "3STM"=>"3 STM", "4STM"=>"4 STM", 
+"5STM"=>"5 STM", "1GIG"=>"1 GIG"];
+?>                                            
                                  <div class="row">
 					                    	 <div class="col-sm-12">                                            
 <div id="activations-pre-paid" class="prod_options">
@@ -533,7 +541,9 @@ function list(array_list, dis)
 	<div class="col-md-12">
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity per location</div>
-			<div class="col-md-3"><input type="number" class="form-control" name="dedi_int_capacity_per_location"/></div>
+			<div class="col-md-3">
+				<input type="number" class="form-control" name="dedi_int_capacity_per_location"/>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of locations</div>
@@ -623,7 +633,14 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="national_leased_lines_capacity_required"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="national_leased_lines_capacity_required"/> -->
+				<select class="form-control" name="national_leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<option value="<?= $key ?>"><?= $value ?></option>
+					<?php } ?>
+				</select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -671,11 +688,29 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">B-point Location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_b_point_location_state"/></div>
+			<div class="col-md-3">
+				<select name="inter_leased_lines_b_point_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_b_point_location_state"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="inter_leased_lines_capacity_required"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="inter_leased_lines_capacity_required"/> -->
+				<select class="form-control" name="inter_leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<option value="<?= $key ?>"><?= $value ?></option>
+					<?php } ?>
+				</select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
@@ -700,11 +735,30 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Installation location (State)</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_installation_location_state"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="pri_installation_location_state"/> -->
+				<select name="pri_installation_location_state" class="form-control" data-search="true">
+					<option value="">Select State</option>
+					<?php
+					foreach($states as $state)
+					{
+					    ?>
+    					<option value="<?php echo $state->id; ?>"><?php echo $state->name; ?></option>
+					<?php } ?>
+				    </select>
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DOD units</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="pri_number_of_dod_units"/></div>
+			<div class="col-md-3">
+				<?php $DODUnits = [30=> 30, 60=>60, 90=>90, 120=>120]; ?>	
+				<select class="form-control" data-search="true" name="pri_number_of_dod_units">
+					<?php foreach ($DODUnits as $key => $value) { ?>
+						<option value="<?= $key ?>"><?= $value ?></option>
+					<?php } ?>
+				</select>		
+				<!-- <input type="text" class="form-control" name="pri_number_of_dod_units"/> -->
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Number of DID units</div>
@@ -792,7 +846,15 @@ function list(array_list, dis)
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Capacity required</div>
-			<div class="col-md-3"><input type="text" class="form-control" name="leased_lines_capacity_required"/></div>
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" name="leased_lines_capacity_required"/> -->
+				<select class="form-control" name="leased_lines_capacity_required">
+					<?php foreach ($capacityArr as $key => $value) { ?>
+						<option value="<?= $key ?>"><?= $valu ?></option>
+					<?php } ?>
+				</select>
+				
+			</div>
 		</div>
 		<div class="row margin-top-5">
 			<div class="col-md-3">Total installation cost</div>
