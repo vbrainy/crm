@@ -603,7 +603,7 @@ function delete_meeting( meeting_id )
 					                    <div class="row">
                           				<div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Product</label>
+<label class="control-label">Product Categories</label>
 <div class="append-icon">
 										<select name="product_id" id="product_id" class="form-control" data-search="true" disabled="disabled">
                                           <!-- <option value="" selected="selected"></option> -->
@@ -621,7 +621,7 @@ function delete_meeting( meeting_id )
 
 <div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Product categories</label>
+<label class="control-label">Products</label>
 <div class="append-icon">
 <?php //echo $opportunity->product_id; print_r($categories); exit;?>
                                                  <select name="category_id" id="category_id" class="form-control" data-search="true"  disabled="disabled">

@@ -361,6 +361,10 @@ function tableDynamic(){
                     "aButtons": ["csv", "xls", "pdf", "print"]
                 };
             }
+            if($('#paginationValue').length)
+            {
+                opt.iDisplayLength = $('#paginationValue').val();
+            }
             if ($(this).hasClass('no-header')) {
                 opt.bFilter = false;
                 opt.bLengthChange = false;
@@ -369,6 +373,7 @@ function tableDynamic(){
                 opt.bInfo = false;
                 opt.bPaginate = false;
             }
+
            
            if ($(this).hasClass('filter-between_date')) {
                 $('.filter-between_date thead th').each( function () {

@@ -38,7 +38,7 @@
 	           <div class="panel">																				<div class="panel-content">
            
            		<div class="panel-content pagination2 table-responsive">
-            	
+            	<input type="hidden" id="paginationValue" value="50"/>
                   <table class="table table-hover table-dynamic ">
                     <thead>
                       <tr>

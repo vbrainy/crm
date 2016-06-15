@@ -23,7 +23,7 @@
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content">
         	<div class="row">
-            <h2 class="col-md-6"><strong>Category</strong></h2> 
+            <h2 class="col-md-6"><strong>Products</strong></h2> 
             <div style="float:right; padding-top:10px;">
                
 			  <a href="<?php echo base_url('admin/category/add/'); ?>" class="btn btn-primary btn-embossed"> Create New</a> 	
@@ -34,7 +34,7 @@
 	           <div class="panel">																				<div class="panel-content">
            
            		<div class="panel-content pagination2 table-responsive">
-            	
+            	     <input type="hidden" id="paginationValue" value="25"/>
                   <table class="table table-hover table-dynamic">
                     <thead>
                       <tr>                        

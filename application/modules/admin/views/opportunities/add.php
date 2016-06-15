@@ -361,7 +361,7 @@ function list(array_list, dis)
 					                    <div class="row">
                           				<div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Product</label>
+<label class="control-label">Product Categories</label>
 <div class="append-icon">
 										<select name="product_id" id="product_id" class="form-control" data-search="true">
                                           <option value="" selected="selected"></option>
@@ -386,7 +386,7 @@ function list(array_list, dis)
 
 <div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Product categories</label>
+<label class="control-label">Products</label>
 <div class="append-icon">
 
                                                  <select name="category_id" id="category_id" class="form-control" data-search="true">

@@ -23,7 +23,7 @@
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content">
         	<div class="row">
-            <h2 class="col-md-6"><strong>Products</strong></h2> 
+            <h2 class="col-md-6"><strong>Product Categories</strong></h2> 
             <div style="float:right; padding-top:10px;">
                <?php if (check_staff_permission('products_write')){?>
 			  <a href="<?php echo base_url('admin/products/add/'); ?>" class="btn btn-primary btn-embossed"> Create New</a> 
@@ -40,8 +40,8 @@
                     <thead>
                       <tr>                        
                         <th>Name</th>
-                        <th>Product Type</th>                        
-                        <th>Status</th> 
+                        <!-- <th>Product Type</th>                         -->
+                        <!-- <th>Status</th>  -->
                         <th>Quantity On Hand</th>
                         <th>Quantity Available</th>
                         <th><?php echo $this->lang->line('options'); ?></th>     
@@ -54,8 +54,8 @@
 	                      <tr id="product_id_<?php echo $product->id; ?>">
 	                       
 	                        <td><a href="<?php echo base_url('admin/products/view/'.$product->id); ?>"><?php echo $product->product_name; ?></a></td>
-	                        <td><?php echo $product->product_type; ?></td>
-	                        <td><?php echo $product->status; ?></td>
+	                        <!-- <td><?php echo $product->product_type; ?></td> -->
+	                        <!-- <td><?php echo $product->status; ?></td> -->
 	                        <td><?php echo $product->quantity_on_hand; ?></td>
 	                        <td><?php echo $product->quantity_available; ?></td>
 	                                              
