@@ -32,19 +32,19 @@ $(function() {
     $('#stages').change(function() {
          
          $('.stages_div').hide();
-         var stage=$(this).val();
+         var stage=$('option:selected',this).val();
           
-         if(stage == 'Lost')
+         if(stage == 'LOST')
          {
          	$('.lost_div').show();
          }
 
-         if(stage == 'Won')
+         if(stage == 'WON')
          {
          	$('.won_div').show();
          }
 
-         if(stage=='New' || stage=='Lost' || stage=='Dead')
+         /*if(stage=='New' || stage=='Lost' || stage=='Dead')
          {
 		 	 $('#probability').val(0);		 	
 		 }
@@ -68,7 +68,7 @@ $(function() {
 		 	$('#probability').val(100);	
 		 	
 		 }         
-        
+        */
     }).change(); // Trigger the event
 });
 
@@ -355,13 +355,13 @@ function delete_meeting( meeting_id )
 					                              <div class="append-icon">
 					                                 
 					                                <?php $options = array(
-									                  'New'  => 'New',
-									                  'Qualification'    => 'Qualification',
-									                  'Proposition'   => 'Proposition',
-									                  'Negotiation' => 'Negotiation',
-									                  'Won' => 'Won',
-									                  'Lost' => 'Lost',
-									                  'Dead' => 'Dead',
+									                 'Suspect 0%'  => 'Suspect 0%',
+									                  'Prospect 10%'    => 'Prospect 10%',
+									                  'Analysis 20%'   => 'Analysis 20%',
+									                  'Negotiation 50%' => 'Negotiation 50%',
+									                  'Closing 80%' => 'Closing 80%',
+									                  'WON' => 'Order 100%',
+									                  'LOST' => 'LOST',
 									                ); 
 													echo form_dropdown('stages', $options,$opportunity->stages,'class="form-control" id="stages"');?>
 					                              </div>
@@ -468,7 +468,7 @@ function delete_meeting( meeting_id )
 					                              </div>
 					                            </div>
 					                          </div>
-					                          <div class="col-sm-6">
+					                          <!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Tags</label>
 					                              <div class="append-icon">
@@ -483,7 +483,7 @@ function delete_meeting( meeting_id )
 													echo form_dropdown('tags[]', $options,explode(',',$opportunity->tags),'class="form-control" multiple');?>
 					                              </div>
 					                            </div>
-					                          </div>    	  
+					                          </div>    	   -->
                           					<!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Email</label>
@@ -567,7 +567,7 @@ function delete_meeting( meeting_id )
 					                          </div>
 					                    </div> -->
 					                    <div class="row">
-                          				<div class="col-sm-6">
+                          				<!-- <div class="col-sm-6">
 					                            <div class="form-group">
 					                              <label class="control-label">Priority</label>
 					                              <div class="append-icon">
@@ -580,7 +580,7 @@ function delete_meeting( meeting_id )
 													echo form_dropdown('priority', $options,$opportunity->priority,'Low','class="form-control"');?>	
 					                              </div>
 					                            </div>
-					                          </div>	
+					                          </div>	 -->
 					                          
 					                      <!-- <div class="col-sm-6">
 					                            <div class="form-group">

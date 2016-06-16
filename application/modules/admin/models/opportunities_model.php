@@ -371,8 +371,7 @@ class opportunities_model extends CI_Model {
                 $config['encrypt_name'] = TRUE;
                 
                 $this->load->library('upload', $config);
-                
-                if ( ! $this->upload->do_upload('purchase_order_att'))
+                if (!empty($_FILES['purchase_order_att']['name']) && ! $this->upload->do_upload('purchase_order_att'))
                 {
                     echo $this->upload->display_errors();
                 }
@@ -402,8 +401,8 @@ class opportunities_model extends CI_Model {
 	            'identified_date' => date('Y-m-d', strtotime($this->input->post('identified_date'))),
 	            'closed_date' => date('Y-m-d', strtotime($this->input->post('closed_date'))),
                 'purchase_order_att' => $img_data['file_name'],
-	            'priority' => $this->input->post('priority'),
-	            'tags' => implode(',',$this->input->post('tags')),
+	            //'priority' => $this->input->post('priority'),
+	            //'tags' => implode(',',$this->input->post('tags')),
 	            'lost_reason' =>$this->input->post('lost_reason'),	           
                 'lost_date' => date('Y-m-d', strtotime($this->input->post('lost_date'))),             
 	            'internal_notes' => $this->input->post('internal_notes'),

@@ -116,7 +116,9 @@ class Opportunities extends CI_Controller {
 */
 				if( $this->form_validation->run() == FALSE )
 		        {
-		            echo '<div class="alert"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';
+		            //echo '<div class="alert"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';
+		            $arr = ['html'=> '<div class="alert"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>'];
+		            echo json_encode($arr);
 		        }
 		        /*elseif( $this->opportunities_model->exists_email( $this->input->post('email') ) > 0)
 		        {
@@ -133,11 +135,14 @@ class Opportunities extends CI_Controller {
              			 add_notifications($this->input->post('salesperson_id'),'New Opportunities Added',$opportunity_id,'opportunities');
               	
 		                //echo 'yes_'.$opportunity_id;
-		                echo  '<div class="alert alert-success">'.$this->lang->line('create_succesful').'</div>';
+		                //echo  '<div class="alert alert-success">'.$this->lang->line('create_succesful').'</div>';
+             			$arr = ['success'=>1, 'html'=> '<div class="alert alert-success">'.$this->lang->line('create_succesful').'</div>'];
+             			echo json_encode($arr);
 		            }
 		            else
 		            {
-		                echo $this->lang->line('technical_problem');
+		                $arr = ['html'=> $this->lang->line('technical_problem')];
+		                echo json_encode($arr);
 		            }
 		        }
 			 
@@ -228,6 +233,12 @@ class Opportunities extends CI_Controller {
 		$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
 		$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
 		
+		if($this->input->post('stages') == 'WON')
+		{
+			$this->form_validation->set_rules('purchase_order_att', 'Purchase Order Attachment', 'required');
+		}
+
+
 		if( $this->form_validation->run() == FALSE )
         {
             echo '<div class="alert error"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';

@@ -9,12 +9,17 @@ $(document).ready(function() {
             type: "POST",
             data: formData,
             async: false,
+            dataType: "JSON",
             success: function (msg) {
 			$('body,html').animate({ scrollTop: 0 }, 200);
-            $("#opportunities_ajax").html(msg); 
+            $("#opportunities_ajax").html(msg.html); 
 			$("#opportunities_submitbutton").html('<button type="submit" class="btn btn-embossed btn-primary">Save</button>');
-			
-			$("form[name='add_opportunities']").find("input[type=text]").val("");
+
+					
+			if(msg.success == 1)
+			{
+				$("form[name='add_opportunities']").find("input[type=text],input[type=select],select").val("");
+			}
 			
             
         },
@@ -316,7 +321,7 @@ function list(array_list, dis)
 									                  'Analysis 20%'   => 'Analysis 20%',
 									                  'Negotiation 50%' => 'Negotiation 50%',
 									                  'Closing 80%' => 'Closing 80%',
-									                  'Order 100%' => 'Order 100%',
+									                  'WON' => 'Order 100%',
 									                  'LOST' => 'LOST',
 									                ); 
 													echo form_dropdown('stages', $options,'New','class="form-control" id="stages"');?>
@@ -850,7 +855,7 @@ $capacityArr = ["1MB"=>"1MB", "2MB"=>"2MB", "4MB"=>"4MB", "5MB"=>"5MB", "6MB"=>"
 				<!-- <input type="text" class="form-control" name="leased_lines_capacity_required"/> -->
 				<select class="form-control" name="leased_lines_capacity_required">
 					<?php foreach ($capacityArr as $key => $value) { ?>
-						<option value="<?= $key ?>"><?= $valu ?></option>
+						<option value="<?= $key ?>"><?= $value ?></option>
 					<?php } ?>
 				</select>
 				

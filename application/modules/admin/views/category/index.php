@@ -38,6 +38,7 @@
                   <table class="table table-hover table-dynamic">
                     <thead>
                       <tr>                        
+                        <th>Product</th> 
                         <th>Category</th> 
                         <th><?php echo $this->lang->line('options'); ?></th>     
                       </tr>
@@ -50,7 +51,7 @@
 	                      <tr id="category_id_<?php echo $category->id; ?>">
 	                       
 	                        <td><?php echo $category->category_name; ?></td>
-	                                              
+                          <td><?php $product = $this->products_model->get_products($category->product_id); echo $product->product_name; ?></td>
 	                        <td style="width: 12%;">
 	                        
 	                        <a href="<?php echo base_url('admin/category/update/'.$category->id); ?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 

@@ -57,7 +57,7 @@ $(function(){
 <p>We are pleased to welcome you to our new prospect management tool – airtel Bullseye. This tool is extremely simple to use and all sales managers are expected to commit to entering and monitoring all their opportunities through this tool. Essentially, you should use this tool religiously as the benefits are tremendous. </p>
 
 The tool allows you to handle the following primary tasks:
-    <ul>
+    <ul class="margin-left-15">
 <li>Create and monitor opportunities/leads</li>
 <li>Consolidate customer contact information</li>
 <li>Monitor targets and achievements</li>
