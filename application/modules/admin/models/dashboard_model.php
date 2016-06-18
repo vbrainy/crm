@@ -142,7 +142,7 @@ class Dashboard_model extends CI_Model {
 		$result = $this->db->query($query);
 		$userdata = $result->row_array();
 		$query = "";
-		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) JOIN `products` ON `products`.`id` = `opportunities`.`product_id` and `products`.`id` = $product WHERE `stages` = 'Won' AND `salesperson_id` =".userdata('id');
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) JOIN `products` ON `products`.`id` = `opportunities`.`product_id` and `products`.`id` = $product WHERE `stages` = 'WON' AND `is_confirmed`= 1 AND `salesperson_id` =".userdata('id');
 		$result = $this->db->query($query);
 		$num_rows = $result->row()->num_rows;
 		$per = 0;
@@ -151,13 +151,29 @@ class Dashboard_model extends CI_Model {
 			$per = (int) ($num_rows * 100) / $userdata[$productName];
 		}
 		//echo (int) ($numOfOpp * $userdata[$product]) / 100 . '%';exit;
-		return $per .'%';
+		return $per;
+	}
+
+	function total_opp_won_customers()
+	{
+		$query = "SELECT customer, gsm, solutions, devices, services FROM users WHERE id=". userdata('id');
+		$result = $this->db->query($query);
+		$userdata = $result->row_array();
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) JOIN `company` ON `company`.`id` = `opportunities`.`customer` WHERE `stages` = 'WON' AND `is_confirmed`= 1 AND `salesperson_id` =".userdata('id');
+		$result = $this->db->query($query);
+		$num_rows = $result->row()->num_rows;
+		$per = 0;
+		if($num_rows > 0)
+		{
+			$per = (int) ($num_rows * 100) / $userdata['customer'];
+		}
+		return $per;
 	}
 
 	//GET TOTAL NUMBER OF OPP WON BY USER
 	function total_opp_won()
 	{
-		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) WHERE `stages` = 'Won' AND `salesperson_id` =".userdata('id');
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) WHERE `stages` = 'WON' AND `is_confirmed`=1 AND `salesperson_id` =".userdata('id');
 		$result = $this->db->query($query);
 		return $result->row()->num_rows;
 	}

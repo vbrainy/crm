@@ -15,7 +15,8 @@
 			    		<select name="vertical">
 			    			<option value="">Select Vertical</option>
 			    			<?php foreach ($verticals as $key => $value) { ?>
-			    				<option value="<?= $value->id ?>"><?= $value->vertical_name ?></option>
+			    				<?php $selected = ($value->id == $vertical) ? 'selected=selected' : '' ?>
+			    				<option value="<?= $value->id ?>" <?= $selected ?>><?= $value->vertical_name ?></option>
 			    			<?php } ?>
 			    		</select>
 			    	</div>
@@ -23,7 +24,8 @@
 			    		<select name="sub_vertical">
 			    			<option value="">Select Sub-Vertical</option>
 			    			<?php foreach ($sub_verticals as $key => $value) { ?>
-			    				<option value="<?= $value->id ?>"><?= $value->subvertical_name ?></option>
+			    				<?php $selected = ($value->id == $sub_vertical) ? 'selected=selected' : '' ?>
+			    				<option value="<?= $value->id ?>" <?= $selected ?>><?= $value->subvertical_name ?></option>
 			    			<?php } ?>
 			    		</select>
 			    	</div>

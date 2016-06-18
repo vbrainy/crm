@@ -38,10 +38,10 @@ class Stats extends CI_Controller {
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 		
-			$data['vertical'] = $this->input->post('veritical');
-			$data['sub_vertical'] = $this->input->post('sub_veritical');
+			$data['vertical'] = $this->input->post('vertical');
+			$data['sub_vertical'] = $this->input->post('sub_vertical');
 			$data['customer'] = $this->input->post('customer');
-
+			
 			$data['result'] = $this->stats_model->get_value($data);
 			
 		}
