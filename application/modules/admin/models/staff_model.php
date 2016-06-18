@@ -389,7 +389,25 @@ class Staff_model extends CI_Model {
 
 		return $data[0]['user_avatar'];
 	}
-     
+    
+
+    function get_segment_by_user($staff_id)
+    {
+    	$query = "SELECT segment FROM segments s 
+					LEFT JOIN users u ON u.segment_id = s.id
+					WHERE u.id =".$staff_id;	
+    	$result = $this->db->query($query);
+    	return $result->row();
+    } 
+
+    function get_region_by_user($staff_id)
+    {
+    	$query = "SELECT region FROM regions s 
+					LEFT JOIN users u ON u.region_id = s.id
+					WHERE u.id =".$staff_id;	
+    	$result = $this->db->query($query);
+    	return $result->row();
+    } 
 }
 
 

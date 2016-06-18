@@ -146,7 +146,7 @@
 			    </div>
 			</div>
 		    </div>
-		    </div>
+		    
 
 		    <div class="text-left  m-t-20">
 			<div id="contact_person_submitbutton"><button type="submit" class="btn btn-embossed btn-primary">Create</button></div>

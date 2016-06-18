@@ -66,7 +66,7 @@
 		<li class="nav-parent">
 		<a href="#"><i class="fa fa-bar-chart"></i><span>Statistics</span> <span class="fa arrow"></span></a>
 		<ul class="children collapse">
-		    <li class="<?php echo is_active_menu('value'); ?>"><a href="<?php echo base_url('admin/stats/value'); ?>"> Value</a></li>
+		    <li class="<?php echo is_active_menu('database_query'); ?>"><a href="<?php echo base_url('admin/stats/value'); ?>"> Database Query</a></li>
 		    <!-- <li class="<?php echo is_active_menu('regions'); ?>"><a href="<?php echo base_url('admin/regions'); ?>"> Regions</a></li> -->
 		</ul>
 		</li>

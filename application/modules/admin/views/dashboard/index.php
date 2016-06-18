@@ -46,12 +46,11 @@ $(function(){
         <div class="page-content page-thin">
            <div class="row">
            	<div class=	"widget-infobox" style="padding-bottom:15px; padding-left:6px;">
-                            <div class="row"></div>
-                 
-             
-               </div>
-            </div>                
-           
+                            <div class="row">
+
+                              <div class="col-md-9">
+
+
         <h2> Welcome <?php echo userdata('first_name');?> </h2>
 
 <p>We are pleased to welcome you to our new prospect management tool – airtel Bullseye. This tool is extremely simple to use and all sales managers are expected to commit to entering and monitoring all their opportunities through this tool. Essentially, you should use this tool religiously as the benefits are tremendous. </p>
@@ -66,7 +65,7 @@ The tool allows you to handle the following primary tasks:
 
 <p>We are confident you will be a great asset to Airtel Business. Below is a summary of your current achievements.</p>
 <br/>
-<br/>
+
 <br/>
 
 <div>
@@ -180,7 +179,7 @@ The tool allows you to handle the following primary tasks:
                       <br/>
                       <br/>
          </div></div>
-			
+      
 <p>Best of luck this year! <br/>
 
 <strong>Tawa Bolarin! </strong><br/>
@@ -188,6 +187,13 @@ Director, Airtel Business</p>
 
                   
                      
+                              </div>
+                            </div>
+                 
+             
+               </div>
+            </div>                
+           
           </div>
           
      

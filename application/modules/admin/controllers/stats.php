@@ -11,8 +11,10 @@ class Stats extends CI_Controller {
 		 $this->load->model("customers_model");
 		 $this->load->model("opportunities_model");
 		 $this->load->model("stats_model");
-		 //$this->load->model("category_model");
-		 //$this->load->model("products_model");
+		 $this->load->model("category_model");
+		 $this->load->model("products_model");
+		 $this->load->model("segments_model");
+		 $this->load->model("staff_model");
 		  
          $this->load->library('form_validation');
          
@@ -30,6 +32,18 @@ class Stats extends CI_Controller {
 		$data['verticals'] = $this->vertical_model->vertical_list();
 		$data['sub_verticals'] = $this->subverticals_model->subverticals_list();
 		$data['customers'] = $this->customers_model->company_list();
+		$data['stages'] = array(
+			                  'Suspect 0%'  => 'Suspect 0%',
+			                  'Prospect 10%'    => 'Prospect 10%',
+			                  'Analysis 20%'   => 'Analysis 20%',
+			                  'Negotiation 50%' => 'Negotiation 50%',
+			                  'Closing 80%' => 'Closing 80%',
+			                  'WON' => 'Order 100%',
+			                  'LOST' => 'LOST',
+			                ); 
+		$data['products'] = $this->category_model->category_list();
+		$data['categories'] = $this->products_model->products_list();
+		$data['segments'] = $this->segments_model->segments_list();
 
 		$data['vertical'] = '';
 		$data['sub_vertical'] = '';
@@ -37,11 +51,13 @@ class Stats extends CI_Controller {
 
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-		
 			$data['vertical'] = $this->input->post('vertical');
 			$data['sub_vertical'] = $this->input->post('sub_vertical');
-			$data['customer'] = $this->input->post('customer');
-			
+			$data['stage'] = $this->input->post('stage');
+			$data['segment'] = $this->input->post('segment');
+			$data['product'] = $this->input->post('product');
+			$data['category'] = $this->input->post('category');
+
 			$data['result'] = $this->stats_model->get_value($data);
 			
 		}
