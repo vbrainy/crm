@@ -86,6 +86,10 @@ class Opportunities extends CI_Controller {
 				if(in_array($this->session->userdata['level'], array(4,5))) { 
 					$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
 				}
+				if($this->input->post('stages') == 'WON' && empty($_FILES['purchase_order_att']['name']))
+				{
+					$this->form_validation->set_rules('purchase_order_att', 'Purchase Order Attachment', 'required');
+				}
 				//$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
 				
 				$this->form_validation->set_rules('customer', 'Customer', 'required'); 

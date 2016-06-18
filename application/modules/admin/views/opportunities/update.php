@@ -451,7 +451,7 @@ function delete_meeting( meeting_id )
 									                      <div class="form-group">
 									                        <label for="field-1" class="control-label">Closing Date</label>
 									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
-									                        <input type="text" name="closed_date" id="closed_date" class="form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->closed_date; ?>">
+									                        <input type="text" name="closed_date" id="closed_date" class="form-control" placeholder="Choose a date..." id="" value="<?= (!empty($opportunity->closed_date)) ? $opportunity->closed_date : ''; ?>">
 									                         
 									                      </div>
 									                    </div>  

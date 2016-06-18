@@ -69,7 +69,7 @@
                           <!-- <td><?php echo $customer->email; ?></td>
 	                        <td><?php echo $customer->phone; ?></td> -->
                           <td><?php $vertical = $this->vertical_model->get_vertical($customer->vertical); echo $vertical->vertical_name; ?></td>
-                          <td><?php $subvertical = $this->subverticals_model->get_subverticals($customer->subverticals); echo $subverticals->subvertical_name; ?></td>
+                          <td><?php $subvertical = $this->subverticals_model->get_subverticals($customer->subverticals);  echo $subvertical->subvertical_name; ?></td>
                           <td><?php echo $customer->website; ?></td>
 	                        <td>
 	                         

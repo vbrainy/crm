@@ -179,7 +179,22 @@ class opportunities_model extends CI_Model {
                 $salesPerson = $this->input->post('salesperson_id');
             }
 
-
+                $config['upload_path'] = './uploads/opportunity';
+                $config['allowed_types'] = config('allowed_extensions');
+                $config['max_size'] = config('max_upload_file_size');
+                $config['encrypt_name'] = TRUE;
+                
+                $this->load->library('upload', $config);
+                
+                if (!empty($_FILES['purchase_order_att']['name']) && ! $this->upload->do_upload('purchase_order_att'))
+                {
+                    echo $this->upload->display_errors();
+                }
+                else
+                { 
+                     
+                    $img_data  = $this->upload->data();
+                }
 			$opportunity_details = array(
 	            'opportunity' => $this->input->post('opportunity'),
 	            'product_id' => $this->input->post('product_id'),
@@ -200,9 +215,12 @@ class opportunities_model extends CI_Model {
 	            'expected_closing' => date('Y-m-d', strtotime($this->input->post('expected_closing'))),
 	            'identified_date' => date('Y-m-d', strtotime($this->input->post('identified_date'))),
 	            'closed_date' => date('Y-m-d', strtotime($this->input->post('closed_date'))),
+                'purchase_order_att' => $img_data['file_name'],
 	            //'priority' => $this->input->post('priority'),
 	            //'tags' => $tags,
-	            //'lost_reason' =>$this->input->post('lost_reason'),	           
+	            //'lost_reason' =>$this->input->post('lost_reason'),	 
+                'lost_reason' =>$this->input->post('lost_reason'),             
+                'lost_date' => date('Y-m-d', strtotime($this->input->post('lost_date'))),                       
 	            'internal_notes' => $this->input->post('internal_notes'),
 	            //'assigned_partner_id' => $this->input->post('assigned_partner_id'), 
 	             //'sources' => $this->input->post('sources'),

@@ -15,6 +15,49 @@ $(document).ready(function() {
             $("#identified_date").datepicker("option", "maxDate", dt);
         }
 	});
+	//Stages Select
+    $('#stages').change(function() {
+         
+         $('.stages_div').hide();
+         var stage=$('option:selected',this).val();
+          
+         if(stage == 'LOST')
+         {
+         	$('.lost_div').show();
+         }
+
+         if(stage == 'WON')
+         {
+         	$('.won_div').show();
+         }
+
+         /*if(stage=='New' || stage=='Lost' || stage=='Dead')
+         {
+		 	 $('#probability').val(0);		 	
+		 }
+		 if(stage=='Qualification') 
+		 {
+		 	$('#probability').val(20);	
+		 	
+		 }
+		 if(stage=='Proposition') 
+		 {
+		 	$('#probability').val(40);	
+		 	
+		 }
+		 if(stage=='Negotiation') 
+		 {
+		 	$('#probability').val(60);	
+		 	
+		 }
+		 if(stage=='Won') 
+		 {
+		 	$('#probability').val(100);	
+		 	
+		 }         
+        */
+    }).change(); // Trigger the event
+
 
 	$("form[name='add_opportunities']").submit(function(e) {
         var formData = new FormData($(this)[0]);
@@ -190,47 +233,47 @@ function list(array_list, dis)
     });
 }
 
-    $('#stages').change(function() {
+   //  $('#stages').change(function() {
          
-         var stage=$(this).val();
+   //       var stage=$(this).val();
           
-         if(stage=='Suspect 0%' || stage=='LOST')
-         {
-		 	 $('#probability').val(0);		 	
-		 }
-		 if(stage=='Prospect 10%') 
-		 {
-		 	$('#probability').val(10);	
+   //       if(stage=='Suspect 0%' || stage=='LOST')
+   //       {
+		 // 	 $('#probability').val(0);		 	
+		 // }
+		 // if(stage=='Prospect 10%') 
+		 // {
+		 // 	$('#probability').val(10);	
 		 	
-		 }
-		 if(stage=='Analysis 30%') 
-		 {
-		 	$('#probability').val(30);	
+		 // }
+		 // if(stage=='Analysis 30%') 
+		 // {
+		 // 	$('#probability').val(30);	
 		 	
-		 }
-		 if(stage=='Negotiation 50%') 
-		 {
-		 	$('#probability').val(50);	
+		 // }
+		 // if(stage=='Negotiation 50%') 
+		 // {
+		 // 	$('#probability').val(50);	
 		 	
-		 }
-		 if(stage=='Closing 80%') 
-		 {
-		 	$('#probability').val(80);
+		 // }
+		 // if(stage=='Closing 80%') 
+		 // {
+		 // 	$('#probability').val(80);
 		 		
 		 	
-		 }
-		 if(stage=='Order 100%') 
-		 {
-		 	$('#probability').val(100);
+		 // }
+		 // if(stage=='Order 100%') 
+		 // {
+		 // 	$('#probability').val(100);
 		 
-		 }
-		 if(stage=='create_new') 
-		 {
-		 	$('#modal-create_calls').modal('show');
+		 // }
+		 // if(stage=='create_new') 
+		 // {
+		 // 	$('#modal-create_calls').modal('show');
 		 	
-		 }         
+		 // }         
         
-    }).change(); // Trigger the event
+   //  }).change(); // Trigger the event
     
  });   
     
@@ -353,6 +396,59 @@ function list(array_list, dis)
 				                            </div>
 				                          </div>   
 
+					                    </div>
+					                    <div class="row lost_div stages_div" style="display:<?= ($opportunity->stages == 'Lost') ? '' : none ?>">
+					                    	<div class="col-sm-6">
+					                            <div class="form-group">
+					                              <label class="control-label">Lost Reason</label>
+					                              <div class="append-icon">
+					                                 
+					                                <?php $options = array(
+									                  ''  => '',
+									                  'Too expensive'  => 'Too expensive',
+									                  'We don\'t have people/skills'    => 'We don\'t have people/skills',
+									                  'Not enough stock'   => 'Not enough stock',
+									                   
+									                ); 
+													echo form_dropdown('lost_reason', $options,$opportunity->lost_reason,'class="form-control"');?>
+					                              </div>
+					                            </div>
+					                          </div>   
+					                          <div class="col-md-6">
+									                      <div class="form-group">
+									                        <label for="field-1" class="control-label">Lost Date</label>
+									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
+									                        <input type="text" name="lost_date" class="date-picker form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->lost_date; ?>">
+									                         
+									                      </div>
+									                    </div>  
+					                    </div>
+
+
+					                    <div class="row won_div stages_div" style="display:<?= ($opportunity->stages == 'Won') ? '' : none ?>">
+					                    	<div class="col-sm-6">
+				                            <div class="form-group">
+				                              <label class="control-label">Purchase Order Attachment</label>
+				                              <!-- <a target="_blank" href="<?= base_url() ?>uploads/opportunity/<?= $opportunity->purchase_order_att; ?>">Attachement</a> -->
+				                              <div class="append-icon">
+				                                <div class="file">
+					                                <div class="option-group">
+					                                  <span class="file-button btn-primary">Choose File</span>
+					                                  <input type="file" class="custom-file" name="purchase_order_att" onchange="document.getElementById('uploader').value = this.value;">
+					                                  <input type="text" class="form-control" id="uploader" placeholder="no file selected" readonly="">
+					                                </div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                        </div>
+					                          <div class="col-md-6">
+									                      <div class="form-group">
+									                        <label for="field-1" class="control-label">Closing Date</label>
+									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
+									                        <input type="text" name="closed_date" id="closed_date" class="form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->closed_date; ?>">
+									                         
+									                      </div>
+									                    </div>  
 					                    </div>
 					                     
 					                    <div class="row">
