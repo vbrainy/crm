@@ -96,4 +96,9 @@ $lang['allowed_files'] = 'Allowed file extensions';
 $lang['max_upload_files'] = 'Maximum upload files';
 
 $lang['max_upload_file_size'] = 'Maximum upload file size';
+
+//Contact Persons
+$lang['job_title'] = 'Job Title';
+$lang['company'] = 'Company';
+$lang['phone'] = 'Phone';
 ?>

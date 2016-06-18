@@ -2,6 +2,30 @@
 <script>
 
 $(document).ready(function() {
+	$('#identified_date').datepicker({
+		onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() + 1);
+            $("#expected_closing").datepicker("option", "minDate", dt);
+            $("#closed_date").datepicker("option", "minDate", dt);
+        }
+	});
+	$('#expected_closing').datepicker({
+		onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() - 1);
+            $("#identified_date").datepicker("option", "maxDate", dt);
+        }
+	});
+	var dt = new Date($('#identified_date').val());
+    dt.setDate(dt.getDate() - 1);
+	$('#closed_date').datepicker({
+		onSelect: function (selected) {
+            
+            $("#identified_date").datepicker("option", "maxDate", dt);
+        }
+	});
+
 	$("form[name='update_opportunities']").submit(function(e) {
         var formData = new FormData($(this)[0]);
 
@@ -306,7 +330,7 @@ function delete_meeting( meeting_id )
 					                            <div class="form-group">
 					                              <label class="control-label">Identified Date</label>
 					                              <div class="append-icon">
-					                                <input type="text" name="identified_date" value="<?php echo $opportunity->identified_date ?>" class="date-picker form-control">
+					                                <input type="text" name="identified_date" id="identified_date" value="<?php echo $opportunity->identified_date ?>" class="form-control">
                                                       <i class="icon-calendar"></i> 
 					                              </div>
 					                            </div>
@@ -326,12 +350,13 @@ function delete_meeting( meeting_id )
 					                            <div class="form-group">
 					                              <label class="control-label">Expected Closing</label>
 					                              <div class="append-icon">
-					                                <input type="text" name="expected_closing" value="<?php echo date('m/d/Y', strtotime($opportunity->expected_closing));?>" class="date-picker form-control">
+					                                <input type="text" name="expected_closing" id="expected_closing" value="<?php echo date('m/d/Y', strtotime($opportunity->expected_closing));?>" class="form-control">
 					                             <i class="icon-calendar"></i>    
 					                              </div>
 					                            </div>
 					                          </div>
-					                          	 <div class="col-sm-6">
+                                      
+					                          	 <div class="col-sm-6" <?php if(!in_array($this->session->userdata['level'], array(4,5))) { ?> style="display:none;" <?php }  ?>>
 					                            <div class="form-group">
 					                              <label class="control-label">Salesperson</label>
 					                              <div class="append-icon">
@@ -426,7 +451,7 @@ function delete_meeting( meeting_id )
 									                      <div class="form-group">
 									                        <label for="field-1" class="control-label">Closing Date</label>
 									                        <!--<input type="text" class="date-picker form-control" name="date" id="date" placeholder="" value="">-->
-									                        <input type="text" name="closed_date" class="date-picker form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->closed_date; ?>">
+									                        <input type="text" name="closed_date" id="closed_date" class="form-control" placeholder="Choose a date..." id="" value="<?= $opportunity->closed_date; ?>">
 									                         
 									                      </div>
 									                    </div>  

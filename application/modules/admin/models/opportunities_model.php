@@ -174,6 +174,12 @@ class opportunities_model extends CI_Model {
 			}
 
 			//print_R($productOptions);    		exit;
+            $salesPerson = userdata('id');
+            if(in_array($this->session->userdata['level'], array(4,5))) {
+                $salesPerson = $this->input->post('salesperson_id');
+            }
+
+
 			$opportunity_details = array(
 	            'opportunity' => $this->input->post('opportunity'),
 	            'product_id' => $this->input->post('product_id'),
@@ -184,7 +190,7 @@ class opportunities_model extends CI_Model {
 	            'customer' => $this->input->post('customer'),	            
 	            //'email' => $this->input->post('email'),
 	            //'phone' => $this->input->post('phone'),
-	            'salesperson_id' => $this->input->post('salesperson_id'),
+	            'salesperson_id' => $salesPerson,
 	            //'segment_id' => $this->input->post('segment_id'),
 	            //'region_id' => $this->input->post('region_id'),
 	            //'vertical_id' => $this->input->post('vertical_id'),
@@ -371,6 +377,7 @@ class opportunities_model extends CI_Model {
                 $config['encrypt_name'] = TRUE;
                 
                 $this->load->library('upload', $config);
+                
                 if (!empty($_FILES['purchase_order_att']['name']) && ! $this->upload->do_upload('purchase_order_att'))
                 {
                     echo $this->upload->display_errors();
@@ -521,6 +528,11 @@ class opportunities_model extends CI_Model {
         $data = $this->dbutil->csv_from_result($result, $delimiter, $newline);
         force_download($filename, $data);
 }
+
+    function opp_confirm($opId)
+    {
+        return $this->db->update('opportunities',array('is_confirmed'=> 1),array('id' => $opId));
+    }
 }
 
 

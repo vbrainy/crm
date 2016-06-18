@@ -1,6 +1,21 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script language="javascript" type="text/javascript"> 
 $(document).ready(function() {
+	$('#identified_date').datepicker({
+		onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() + 1);
+            $("#expected_closing").datepicker("option", "minDate", dt);
+        }
+	});
+	$('#expected_closing').datepicker({
+		onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() - 1);
+            $("#identified_date").datepicker("option", "maxDate", dt);
+        }
+	});
+
 	$("form[name='add_opportunities']").submit(function(e) {
         var formData = new FormData($(this)[0]);
 
@@ -268,7 +283,7 @@ function list(array_list, dis)
 					                            <div class="form-group">
 					                              <label class="control-label">Identified Date</label>
 					                              <div class="append-icon">
-					                                <input type="text" name="identified_date" value="" class="date-picker form-control">
+					                                <input type="text" name="identified_date" id="identified_date" value="" class="form-control">
                                                       <i class="icon-calendar"></i> 
 					                              </div>
 					                            </div>
@@ -289,12 +304,12 @@ function list(array_list, dis)
 					                            <div class="form-group">
 					                              <label class="control-label">Expected Closing</label>
 					                              <div class="append-icon">
-					                                <input type="text" name="expected_closing" value="" class="date-picker form-control">
+					                                <input type="text" name="expected_closing" id="expected_closing" value="" class="form-control">
 					                             <i class="icon-calendar"></i>    
 					                              </div>
 					                            </div>
 					                          </div>
-                                     <div class="col-sm-6">
+                                     			<div class="col-sm-6" <?php if(!in_array($this->session->userdata['level'], array(4,5))) { ?> style="display:none;" <?php }  ?>>
 					                            <div class="form-group">
 					                              <label class="control-label">Salesperson</label>
 					                              <div class="append-icon">

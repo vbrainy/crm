@@ -153,6 +153,15 @@
 				</div>
 			    </div>
 			</div>
+			<div class="col-sm-6">
+			    <div class="form-group">
+				<label class="control-label">Phone</label>
+				<div class="append-icon">
+				    <input type="text" name="phone" value="<?= $contact_person->phone; ?>" class="form-control">
+				</div>
+			    </div>
+			</div>
+		    </div>
 		    </div>
 
 		    <div class="text-left  m-t-20">

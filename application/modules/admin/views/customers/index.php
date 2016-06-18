@@ -43,19 +43,34 @@
                     <thead>
                       <tr>
                       	<th>Company</th>
+                        <th>City</th>
+                        <!-- <th>State</th> -->
+                        <th>Region</th>
                         <th>Contact Person</th>
-                        <th>Phone</th>
+                        <!-- <th>Email</th>
+                        <th>Phone</th> -->
+                        <th>Vertical</th>
+                        <th>Subvertical</th>
+                        <th>Website</th>
                         <th><?php echo $this->lang->line('options'); ?></th>     
                       </tr>
                     </thead>
                     <tbody>
-                      
+                      <?php //print_r($customers); exit;?>
                       <?php if( ! empty($customers) ){?>
 					    <?php foreach( $customers as $customer){ ?>
 	                      <tr id="customer_id_<?php echo $customer->id; ?>">
 	                        <td><a href="<?php echo base_url('admin/customers/view/'.$customer->id); ?>"><?php echo $customer->name; ?></a></td>
+                          <td><?php echo $customer->city ?></td>
+                          <!-- <td><?php echo $customer->state_id ?></td> -->
+                          <td><?php $region = $this->regions_model->get_region($customer->regions); echo $region->region; ?></td>
+                          
 	                        <td><a href="<?php echo base_url('admin/contact_persons/view/'.$this->customers_model->get_contact_person($customer->main_contact_person,'id')); ?>"><?php echo $this->customers_model->get_contact_person($customer->main_contact_person,'first_name'); ?> <?php echo $this->customers_model->get_contact_person($customer->main_contact_person,'last_name'); ?></a></td> 
-	                        <td><?php echo $customer->phone; ?></td>
+                          <!-- <td><?php echo $customer->email; ?></td>
+	                        <td><?php echo $customer->phone; ?></td> -->
+                          <td><?php $vertical = $this->vertical_model->get_vertical($customer->vertical); echo $vertical->vertical_name; ?></td>
+                          <td><?php $subvertical = $this->subverticals_model->get_subverticals($customer->subverticals); echo $subverticals->subvertical_name; ?></td>
+                          <td><?php echo $customer->website; ?></td>
 	                        <td>
 	                         
 	                        

@@ -19,7 +19,29 @@
        
  }
 
+ function confirm_opportunities( opportunity_id )
+ {
+     
+    $.ajax({
+
+        type: "GET",
+        url: "<?php echo base_url('admin/opportunities/confirm_opp' ); ?>/" + opportunity_id,
+        success: function(msg)
+        {
+			if( msg == 'confirmed' )
+            {
+                //$('#opportunity_id_' + opportunity_id).fadeOut('normal');
+                $('#td_confirmed_' + opportunity_id).html('Confirmed');
+            }
+        }
+
+    });
+       
+ }
+
+
  </script>
+ <?php $level = $this->session->userdata['level']; ?>
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content">
         	<div class="row">
@@ -50,7 +72,8 @@
                         <th>Expected Revenue</th>
                         <th>Probability</th>
                         <th>Segment</th> 
-                        <th><?php echo $this->lang->line('options'); ?></th>     
+                        <th>Confirm</th>
+                        <?php if($level >= 2) { ?><th><?php echo $this->lang->line('options'); ?></th><?php } ?>
                       </tr>
                     </thead>
                      
@@ -77,7 +100,16 @@
 	                        <td><?php echo $opportunity->expected_revenue; ?> </td>
 	                        <td><?php echo $opportunity->probability; ?> </td>
 	                        <td><?php echo $this->segments_model->get_segment($opportunity->segment_id)->segment; ?>   </td>
-	                        
+	                        <?php if($level >= 2 && $opportunity->stages == "WON") { ?> 
+							<td id="td_confirmed_<?= $opportunity->id ?>">
+								<?php if($opportunity->is_confirmed == 1) { echo "Confirmed"; } else { ?>
+								<a href="javascript:void(0)" class="btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#stage-confirm<?php echo $opportunity->id; ?>">Confirm</a>
+								<?php } ?>
+							</td>	                        
+							<?php } else { ?>
+							<td>N/A</td>
+							<?php } ?>
+
 	                        <td style="width: 17%;">
 	                        
 	                        <?php 
@@ -106,6 +138,7 @@
 	                         <?php if (check_staff_permission('opportunities_delete')){?>
 	                        <a href="javascript:void(0)" class="delete btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#modal-basic<?php echo $opportunity->id; ?>"><i class="glyphicon glyphicon-trash"></i></a>
 	                        <?php }?>
+
 	                        </td> 
 	                      </tr>
 	                      <div class="modal fade" id="modal-basic<?php echo $opportunity->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
@@ -125,7 +158,23 @@
              					 </div>
            					 </div>
         				  </div>
-	                      
+	                      <div class="modal fade" id="stage-confirm<?php echo $opportunity->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+            				<div class="modal-dialog">
+              					<div class="modal-content">
+					                <div class="modal-header">
+					                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+					                  <h4 class="modal-title"><strong>Confirm</strong></h4>
+					                </div>
+					                <div class="modal-body">
+					                  Are you sure you want Approve this opportunity as closed?<br>
+					                </div>
+					                <div class="modal-footer">
+					                  <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+					                  <button type="button" onclick="confirm_opportunities(<?php echo $opportunity->id; ?>)" class="btn btn-primary btn-embossed" data-dismiss="modal">Confirm</button>
+					                </div>
+             					 </div>
+           					 </div>
+        				  </div>
                     	 <?php } ?>
 					 <?php } ?> 
                       

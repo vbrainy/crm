@@ -108,10 +108,10 @@ class Contact_persons extends CI_Controller
 	{
 	    echo '<div class="alert error"><ul>' . validation_errors('<li style="color:red">', '</li>') . '</ul></div>';
 	}
-	elseif($this->contact_persons_model->exists_email($this->input->post('email')) > 0)
+	/*elseif($this->contact_persons_model->exists_email($this->input->post('email')) > 0)
 	{
 	    echo '<div class="alert error"><ul><li style="color:red">Email already used.</li></ul></div>';
-	}
+	}*/
 	else
 	{
 

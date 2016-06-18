@@ -83,7 +83,9 @@ class Opportunities extends CI_Controller {
 				$this->form_validation->set_rules('identified_date', 'Identified Date', 'required'); 
 				$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
 				$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
-				$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
+				if(in_array($this->session->userdata['level'], array(4,5))) { 
+					$this->form_validation->set_rules('salesperson_id', 'Sales Person', 'required');  			
+				}
 				//$this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|htmlspecialchars|max_length[50]|valid_email');
 				
 				$this->form_validation->set_rules('customer', 'Customer', 'required'); 
@@ -233,12 +235,12 @@ class Opportunities extends CI_Controller {
 		$this->form_validation->set_rules('next_action', 'Next Action Date', 'required'); 
 		$this->form_validation->set_rules('expected_closing', 'Expected Closing', 'required'); 
 		
-		if($this->input->post('stages') == 'WON')
+		if($this->input->post('stages') == 'WON' && empty($_FILES['purchase_order_att']['name']))
 		{
 			$this->form_validation->set_rules('purchase_order_att', 'Purchase Order Attachment', 'required');
 		}
 
-
+		
 		if( $this->form_validation->run() == FALSE )
         {
             echo '<div class="alert error"><ul>' . validation_errors('<li style="color:red">','</li>') . '</ul></div>';
@@ -274,6 +276,20 @@ class Opportunities extends CI_Controller {
 			}
 		
 	}	
+
+	function confirm_opp($opportunity_id)
+	{
+		if($this->session->userdata['level'] >= 2)
+		{
+			if( $this->opportunities_model->opp_confirm($opportunity_id) )
+			{
+				echo 'confirmed';
+				exit;
+			}
+		}
+		echo "false";
+		exit;
+	}
 	
 	//Add Call
    	function add_call()

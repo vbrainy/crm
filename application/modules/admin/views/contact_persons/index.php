@@ -41,8 +41,10 @@
                     <thead>
                       <tr>
                         <th><?php echo $this->lang->line('name'); ?></th>
+                        <th><?php echo $this->lang->line('job_title'); ?></th>
+                        <th><?php echo $this->lang->line('company'); ?></th>
+                        <th><?php echo $this->lang->line('phone'); ?></th>
                         <th><?php echo $this->lang->line('email'); ?></th>
-                        <th><?php echo $this->lang->line('register_time'); ?></th>
                         <th><?php echo $this->lang->line('options'); ?></th>     
                       </tr>
                     </thead>
@@ -52,8 +54,10 @@
 					    <?php foreach( $contact_persons as $contact_person){ ?>
 	                      <tr id="contact_person_id_<?php echo $contact_person->id; ?>">
 	                        <td><a href="<?php echo base_url('admin/contact_persons/view/'.$contact_person->id); ?>"><?php echo $contact_person->first_name.' '.$contact_person->last_name; ?></a></td>
+                          <td><?php echo $contact_person->job_position; ?></td>
+                          <td><?php $company = $this->customers_model->get_company($contact_person->company); echo $company->name; ?></td>
+                          <td><?php echo $contact_person->phone; ?></td>
 	                        <td><?php echo $contact_person->email; ?></td>
-	                        <td><?php echo date('d F Y g:i a',$contact_person->register_time); ?></td>
 	                        <td>
 	                        
 	                        <a href="<?php echo base_url('admin/contact_persons/update/'.$contact_person->id); ?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 

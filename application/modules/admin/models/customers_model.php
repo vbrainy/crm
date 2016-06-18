@@ -241,7 +241,7 @@ class Customers_model extends CI_Model
     function company_contact_list()
     {
 	$this->db->order_by("company.name", "desc");
-	$this->db->select('company.id,company.name,company.phone,company.company_attachment,company.main_contact_person');
+	$this->db->select('company.id,company.name,company.city,company.state_id,company.regions,company.email, company.vertical, company.subverticals,company.website,company.phone,company.company_attachment,company.main_contact_person');
 	$this->db->from('company');
 
 
