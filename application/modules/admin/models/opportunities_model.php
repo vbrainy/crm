@@ -453,7 +453,7 @@ class opportunities_model extends CI_Model {
         {
             $this->db->where('salesperson_id', (int) $staff_id);   
         }
-        else if($staff_id == 2)
+        else if($level == 2)
 		{
 			$this->db->where('salesperson_id', (int) $staff_id);
             $this->db->or_where('saleperson_id', (int) userdata('supervisor'));
