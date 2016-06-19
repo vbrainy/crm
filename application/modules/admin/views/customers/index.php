@@ -78,9 +78,12 @@
 	                        <a href="<?php echo base_url('admin/customers/download/'.$customer->company_attachment);?>" class="edit btn btn-sm btn-success dlt_sm_table" title="Download"><i class="glyphicon glyphicon-download"></i></a>
 	                        <?php }?>
 	                        
+                          <?php if (check_staff_permission('customers_write')){?>
 	                        <a href="<?php echo base_url('admin/customers/update/'.$customer->id); ?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 
-	                        
+                          <?php } ?>
+	                        <?php if (check_staff_permission('customers_delete')){?>
 	                        <a href="javascript:void(0)" class="delete btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#modal-basic<?php echo $customer->id; ?>"><i class="glyphicon glyphicon-trash"></i></a></td> 
+                          <?php } ?>
 	                      </tr>
 	                      <div class="modal fade" id="modal-basic<?php echo $customer->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
             				<div class="modal-dialog">

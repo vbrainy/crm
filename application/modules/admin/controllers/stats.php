@@ -29,6 +29,12 @@ class Stats extends CI_Controller {
 
 	function value()
 	{
+		//checking permission for staff
+		if (!check_staff_permission('statistics'))	
+		{
+			redirect(base_url('admin/access_denied'), 'refresh');  
+		}
+			
 		$data['verticals'] = $this->vertical_model->vertical_list();
 		$data['sub_verticals'] = $this->subverticals_model->subverticals_list();
 		$data['customers'] = $this->customers_model->company_list();

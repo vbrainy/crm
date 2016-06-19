@@ -30,6 +30,12 @@ class Customers extends CI_Controller
 
     function index()
     {
+//checking permission for staff
+	if (!check_staff_permission('customers_read'))	
+	{
+		redirect(base_url('admin/access_denied'), 'refresh');  
+	} 
+
 	$data['customers'] = $this->customers_model->company_contact_list();
 
 	$this->load->view('header');
@@ -39,6 +45,12 @@ class Customers extends CI_Controller
 
     function add()
     {
+
+//checking permission for staff
+			if (!check_staff_permission('customers_write'))	
+			{
+				redirect(base_url('admin/access_denied'), 'refresh');  
+			} 
 	$data['contact_persons'] = $this->customers_model->contact_persons_list();
 	$data['states']		 = $this->customers_model->state_list(160);
 	$data['regions']	 = $this->regions_model->regions_list();
@@ -85,6 +97,11 @@ class Customers extends CI_Controller
 
     function view($company_id)
     {
+    	//checking permission for staff
+			if (!check_staff_permission('customers_read'))	
+			{
+				redirect(base_url('admin/access_denied'), 'refresh');  
+			} 
 	$data['total_sales'] = $this->customers_model->total_sales_collection($company_id);
 
 	$data['open_invoices'] = $this->customers_model->open_invoices_total_collection($company_id);
@@ -118,6 +135,11 @@ class Customers extends CI_Controller
 
     function update($company_id)
     {
+    	//checking permission for staff
+			if (!check_staff_permission('customers_read'))	
+			{
+				redirect(base_url('admin/access_denied'), 'refresh');  
+			} 
 	$data['customer']	 = $this->customers_model->get_company($company_id);
 	$data['contact_persons'] = $this->customers_model->contact_persons_list();
 	$data['regions']	 = $this->regions_model->regions_list();
@@ -164,6 +186,11 @@ class Customers extends CI_Controller
 
     function delete($customer_id)
     {
+    	//checking permission for staff
+			if (!check_staff_permission('customers_delete'))	
+			{
+				redirect(base_url('admin/access_denied'), 'refresh');  
+			} 
 	check_login();
 
 	if($this->customers_model->delete($customer_id))

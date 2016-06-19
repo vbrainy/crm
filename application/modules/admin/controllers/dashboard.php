@@ -30,6 +30,7 @@ class Dashboard extends CI_Controller {
     	$data['opportunities']=$this->dashboard_model->total_opportunities();
     	$data['customers']=$this->dashboard_model->total_customers();
     	$data['staff'] = $this->staff_model->get_user($this->session->userdata['id']);
+    	$data['staff_subordinates_opp_target'] = 
     	//print_r($data['staff']);exit;
         $data['staff_segment'] = $this->segments_model->get_segment($data['staff']->segment_id);
         $data['staff_region'] = $this->regions_model->get_region($data['staff']->region_id);
