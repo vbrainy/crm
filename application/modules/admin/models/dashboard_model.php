@@ -151,7 +151,7 @@ class Dashboard_model extends CI_Model {
 			$per = (int) ($num_rows * 100) / $userdata[$productName];
 		}
 		//echo (int) ($numOfOpp * $userdata[$product]) / 100 . '%';exit;
-		return $per;
+		return (int) $per;
 	}
 
 	function total_opp_won_customers()
@@ -167,13 +167,22 @@ class Dashboard_model extends CI_Model {
 		{
 			$per = (int) ($num_rows * 100) / $userdata['customer'];
 		}
-		return $per;
+		return (int) $per;
 	}
 
 	//GET TOTAL NUMBER OF OPP WON BY USER
 	function total_opp_won()
 	{
-		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) WHERE `stages` = 'WON' AND `is_confirmed`=1 AND `salesperson_id` =".userdata('id');
+		$subordinates = $this->staff_model->get_subordinates(userdata('id'));
+		$users = "";
+		foreach ($subordinates as $key => $value) {
+			$users .= $value['id'];
+			if(isset($subordinates[$key+1]))
+			{
+				$users .= ",";
+			}
+		}
+		$query = "SELECT count(opportunities.id) as num_rows FROM (`opportunities`) WHERE `stages` = 'WON' AND `is_confirmed`=1 AND `salesperson_id` IN (".$users .")";
 		$result = $this->db->query($query);
 		return $result->row()->num_rows;
 	}

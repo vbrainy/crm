@@ -408,6 +408,25 @@ class Staff_model extends CI_Model {
     	$result = $this->db->query($query);
     	return $result->row();
     } 
+
+    //GET USER'S SUBORDINATES
+    function get_subordinates($staff_id)
+    {
+    	$query = "SELECT id FROM users 
+    			WHERE id=".$staff_id ." OR supervisor_id=".$staff_id;
+		$result = $this->db->query($query);
+		return $result->result_array();
+    }
+
+    //GET USER AND USER'S SUBORDINATES FIELD
+    function get_opp_target($staff_id, $field='')
+    {
+    	$query = "SELECT SUM($field) as ".$field." FROM users
+    			WHERE id=".$staff_id." OR supervisor_id=".$staff_id;
+		$result = $this->db->query($query);
+		return $result->row()->$field;
+    }
+
 }
 
 
