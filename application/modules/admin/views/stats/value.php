@@ -136,7 +136,7 @@ function getProductCategories(product_id){
 	                        <td><?php echo $value['total_one_time_fee']; ?></td>
 	                        <td><?php echo $value['total_rec_fee']; ?></td>
 	                        <td><?php echo $this->staff_model->get_segment_by_user($value['salesperson_id'])->segment; ?></td>
-	                        <td><?php echo $value['stages']; ?></td>
+	                        <td><?php echo $this->staff_model->get_region_by_user($value['salesperson_id'])->region; ?></td>
 	                        <td><?php echo $value['next_action_title']; ?></td>
 	                        <td><?php echo $value['next_action']; ?></td>
 	                                              
