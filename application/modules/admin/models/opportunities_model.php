@@ -461,8 +461,8 @@ class opportunities_model extends CI_Model {
 		
 		$this->db->order_by("id", "desc");		
         $this->db->from('opportunities');
-        $this->db->get()->result();
-        echo $this->db->last_query();exit;
+        //$this->db->get()->result();
+        //echo $this->db->last_query();exit;
         return $this->db->get()->result();
 	} 
 	
