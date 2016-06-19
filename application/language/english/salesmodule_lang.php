@@ -101,4 +101,5 @@ $lang['max_upload_file_size'] = 'Maximum upload file size';
 $lang['job_title'] = 'Job Title';
 $lang['company'] = 'Company';
 $lang['phone'] = 'Phone';
+$lang['user_role'] = "User Role";
 ?>

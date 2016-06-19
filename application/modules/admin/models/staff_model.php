@@ -20,7 +20,8 @@ class Staff_model extends CI_Model {
 	{
 		$this->db->order_by("users.id", "desc");
 		//$this->db->where('users.id !=',1); 
-        $this->db->select('users.id, users.first_name,users.last_name, users.email,users.register_time');
+        $this->db->select('users.id, users.first_name,users.last_name, users.email,users.register_time, user_roles.role');
+        $this->db->join('user_roles', 'user_roles.id = users.roles');
         $this->db->from('users');
         
         

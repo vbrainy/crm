@@ -53,7 +53,7 @@
                       <tr>
                         <th><?php echo $this->lang->line('name'); ?></th>
                         <th><?php echo $this->lang->line('email'); ?></th>
-                        <th><?php echo $this->lang->line('register_time'); ?></th>
+                        <th><?php echo $this->lang->line('user_role'); ?></th>
                         <th><?php echo $this->lang->line('options'); ?></th>     
                       </tr>
                     </thead>
@@ -64,7 +64,7 @@
 	                      <tr id="staff_id_<?php echo $staff->id; ?>">
 	                        <td><?php echo $staff->first_name.' '.$staff->last_name; ?></td>
 	                        <td><?php echo $staff->email; ?></td>
-	                        <td><?php echo date('d F Y g:i a',$staff->register_time); ?></td>
+	                        <td><?php echo $staff->role; //echo date('d F Y g:i a',$staff->register_time); ?></td>
 	                        <td>
 	                        <?php if (check_staff_permission('staff_write')){?>
 	                        <a href="<?php if(userdata('id')==$staff->id){echo base_url('admin/account_settings/');}else{ echo base_url('admin/staff/update/'.$staff->id);}?>" class="edit btn btn-sm btn-default dlt_sm_table"><i class="icon-note"></i></a> 

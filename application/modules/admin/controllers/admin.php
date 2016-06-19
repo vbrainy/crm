@@ -115,6 +115,7 @@ class Admin extends MX_Controller {
                                       "username"   => $userdata->email,
                                       "userhash"   => md5( $userdata->password.$this->config->item('password_hash')),
                                       'role_id' => $userdata->roles,
+                                      'role_name' => $roleData['role'],
                                       'level' => $roleData['level'],
                                       'supervisor'=> $userdata->supervisor_id
                                   );

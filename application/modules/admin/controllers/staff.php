@@ -31,7 +31,7 @@ class Staff extends CI_Controller {
 			}   
 		
 		   		$data['staffs'] = $this->staff_model->staff_list();
-		     
+		     //print_r($data);exit;
 				$this->load->view('header');
 				$this->load->view('staff/staff_list',$data);
 				$this->load->view('footer');
