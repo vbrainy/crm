@@ -34,6 +34,10 @@
 
 
 
+	    <?php
+	    if(check_staff_permission('customers_read'))
+	    {
+		?>
 
             <li class=" nav-parent <?php echo is_active_menu('customers'); ?><?php echo is_active_menu('contact_persons'); ?>">
 		<a href="#"><i class="icon-user"></i><span>Customers</span> <span class="fa arrow"></span></a>
@@ -44,7 +48,7 @@
 		    <li class="<?php echo is_active_menu('contact_persons'); ?>"><a href="<?php echo base_url('admin/contact_persons'); ?>">Contact Persons</a></li>
 		</ul>
             </li>
-
+        <?php } ?>
 	    <?php
 	    if(check_staff_permission('products_read'))
 	    {
