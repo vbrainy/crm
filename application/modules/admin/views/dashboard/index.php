@@ -179,6 +179,7 @@ The tool allows you to handle the following primary tasks:
                       <br/>
                       <br/>
          </div></div>
+         <div class="clear:both"></div>
       
 <p>Best of luck this year! <br/>
 
