@@ -105,15 +105,13 @@
 	                        <td><?php echo $opportunity->next_action_title; ?> </td>
 	                        <!-- <td><?php echo $opportunity->expected_revenue; ?> </td>
 	                        <td><?php echo $opportunity->probability; ?> </td> -->
-	                        <?php if($level >= 2 && $opportunity->stages == "WON") { ?> 
 							<td id="td_confirmed_<?= $opportunity->id ?>">
+	                        <?php if($level >= 2 && $opportunity->stages == "WON") { ?> 
 								<?php if($opportunity->is_confirmed == 1) { echo "Confirmed"; } else { ?>
 								<a href="javascript:void(0)" class="btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#stage-confirm<?php echo $opportunity->id; ?>">Confirm</a>
 								<?php } ?>
+							<?php } else { echo "N/A"; } ?>
 							</td>	                        
-							<?php } else { ?>
-							<td>N/A</td>
-							<?php } ?>
 
 	                        <td style="width: 17%;">
 	                        

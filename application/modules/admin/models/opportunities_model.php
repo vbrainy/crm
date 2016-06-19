@@ -448,22 +448,25 @@ class opportunities_model extends CI_Model {
 	function opportunities_list($staff_id)
 	{
         $level = $this->session->userdata['level'];
-        
+        $where = ""; 
+        $query = "";
         if($level == 1)
         {
-            $this->db->where('salesperson_id', (int) $staff_id);   
+            //$this->db->where('salesperson_id', (int) $staff_id);   
+            $where = " WHERE salesperson_id=".$staff_id;
         }
         else if($level == 2)
 		{
-			$this->db->where('salesperson_id', (int) $staff_id);
-            $this->db->or_where('saleperson_id', (int) userdata('supervisor'));
+			//$this->db->where('salesperson_id', (int) $staff_id);
+            //$this->db->or_where('salesperson_id', (int) $this->session->userdata['supervisor']);
+            $where = " WHERE salesperson_id=".$staff_id." OR salesperson_id=".$this->session->userdata['supervisor']; 
 		}
-		
-		$this->db->order_by("id", "desc");		
-        $this->db->from('opportunities');
-        //$this->db->get()->result();
-        //echo $this->db->last_query();exit;
-        return $this->db->get()->result();
+		//$this->db->order_by("id", "desc");		
+        //$this->db->from('opportunities');
+        $query = "SELECT * FROM opportunities".$where." GROUP BY id DESC";
+        
+        $result = $this->db->query($query);
+        return $result->result();
 	} 
 	
     function get_opportunities( $opportunity_id )

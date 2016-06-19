@@ -39,7 +39,10 @@ class Opportunities extends CI_Controller {
 			{
 				redirect(base_url('admin/access_denied'), 'refresh');  
 			} 
+			//error_reporting(E_ALL);
+			//ini_set("display_errors", 1);
 	    	$data['opportunities'] = $this->opportunities_model->opportunities_list(userdata('id'));
+	    	//echo "<pre>";
 			//print_r($data);		    exit;
 			$this->load->view('header');
 			$this->load->view('opportunities/index',$data);
