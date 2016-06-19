@@ -62,7 +62,6 @@
                   <table class="table table-hover table-dynamic">
                     <thead>
                       <tr>
-                        <!--<th>Creation Date</th>-->
                         <th>Opportunity</th>
                         <th>Customer</th>
                         <th>Product</th>
@@ -71,7 +70,7 @@
                         <th>Region</th> 
                         <th>Next Action Date</th>
                         <th>Next Action</th>
-                        <?php if($level >= 2) { ?><th>Confirm</th><?php } ?>
+                        <?php if($level >= 2 && $opportunity->stages == "WON") { ?><th>Confirm</th><?php } ?>
                         <th><?php echo $this->lang->line('options'); ?></th>
                       </tr>
                     </thead>
@@ -85,10 +84,8 @@
 	                        /*<td><?php echo date('d F Y g:i a',$opportunity->register_time); ?></td>*/
 	                        ?>
 	                        <td>
-	                        	
 	                        	<!-- <a href="<?php echo base_url('admin/opportunities/view/'.$opportunity->id); ?>"></a> -->
 	                        	<?php echo $opportunity->opportunity; ?>
-	                        	
 	                        </td>	                        
 	                        <td><?php echo customer_name($opportunity->customer)->name; ?>   </td>
 	                        <td><?php $product = $this->category_model->get_category($opportunity->category_id); echo $product->category_name; ?></td>
@@ -97,8 +94,6 @@
 	                        <td><?php echo $this->staff_model->get_region_by_user($opportunity->salesperson_id)->region; ?>   </td>
 	                        <td><?php echo date('m/d/Y', strtotime($opportunity->next_action));?>  </td>
 	                        <td><?php echo $opportunity->next_action_title; ?> </td>
-	                        <!-- <td><?php echo $opportunity->expected_revenue; ?> </td>
-	                        <td><?php echo $opportunity->probability; ?> </td> -->
 	                        <?php  if($level >= 2 && $opportunity->stages == "WON") { ?> 
 							<td id="td_confirmed_<?= $opportunity->id ?>">
 								<?php if($opportunity->is_confirmed == 1) { echo "Confirmed"; } else { ?>
