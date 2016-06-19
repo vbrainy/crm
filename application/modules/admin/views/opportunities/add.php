@@ -76,7 +76,8 @@ $(document).ready(function() {
 					
 			if(msg.success == 1)
 			{
-				$("form[name='add_opportunities']").find("input[type=text],input[type=select],select").val("");
+				//$("form[name='add_opportunities']").find("input[type=text],,input[type=select],select,textarea").val("");
+				$("#add_opportunities").trigger("reset");
 			}
 			
             
