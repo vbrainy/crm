@@ -45,9 +45,12 @@ class Stats extends CI_Controller {
 		$data['categories'] = $this->products_model->products_list();
 		$data['segments'] = $this->segments_model->segments_list();
 
-		$data['vertical'] = '';
-		$data['sub_vertical'] = '';
-		$data['customer'] = '';
+		$data['vertical'] = 'all';
+		$data['sub_vertical'] = 'all';
+		$data['stage'] = 'all';
+		$data['segment'] = 'all';
+		$data['product'] = 'all';
+		$data['category'] = 'all';
 
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
@@ -57,10 +60,8 @@ class Stats extends CI_Controller {
 			$data['segment'] = $this->input->post('segment');
 			$data['product'] = $this->input->post('product');
 			$data['category'] = $this->input->post('category');
-
-			$data['result'] = $this->stats_model->get_value($data);
-			
 		}
+		$data['result'] = $this->stats_model->get_value($data);
 		//echo "<pre>";
 		//print_r($data);exit;
 

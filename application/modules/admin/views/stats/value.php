@@ -1,3 +1,25 @@
+ <script type="text/javascript">
+$(document).ready(function(){
+//If parent option is changed
+$("#product_id").change(function() {
+		$('#category_id').html('');
+        var parent = $(this).val(); //get option value from parent 
+        getProductCategories(parent);
+	});
+});
+function getProductCategories(product_id){
+	var url = "<?php echo base_url() ?>"+'admin/category/get_prod_cat';
+
+	$.ajax({
+		url: url, 
+		method: 'post',
+		data: {'product_id': product_id},
+		success: function(result){
+			$('#category_id').html(result);
+    }});
+}
+
+ </script>
  <!-- BEGIN PAGE CONTENT -->
         <div class="page-content">
         	<div class="row">
@@ -39,8 +61,7 @@
 			    		<select name="stage" style="width: 150px;">
 			    			<option value="all">All</option>
 
-			    			<?php foreach ($stages as $key => $value) { echo $value;?>
-
+			    			<?php foreach ($stages as $key => $value) { ?>
 			    				<?php $selected = ($key == $stage) ? 'selected=selected' : '' ?>
 			    				<option value="<?= $key ?>" <?= $selected ?>><?= $value ?></option>
 			    			<?php } ?>
@@ -56,7 +77,7 @@
 			    		</select>
 			    	</div>
 			    	<div class="col-md-2">
-			    		<select name="category" style="width: 150px;">
+			    		<select name="category" id="product_id1" style="width: 150px;">
 			    			<option value="all">All</option>
 			    			<?php foreach ($categories as $key => $value) { ?>
 			    				<?php $selected = ($value->id == $category) ? 'selected=selected' : '' ?>
@@ -65,7 +86,7 @@
 			    		</select>
 			    	</div>
 			    	<div class="col-md-2">
-			    		<select name="product" style="width: 150px;">
+			    		<select name="product" id="category_id1" style="width: 150px;">
 			    			<option value="all">All</option>
 			    			<?php foreach ($products as $key => $value) { ?>
 			    				<?php $selected = ($value->id == $product) ? 'selected=selected' : '' ?>
