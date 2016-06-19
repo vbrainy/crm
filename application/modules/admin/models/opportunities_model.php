@@ -464,7 +464,7 @@ class opportunities_model extends CI_Model {
 		//$this->db->order_by("id", "desc");		
         //$this->db->from('opportunities');
         $query = "SELECT * FROM opportunities".$where." GROUP BY id DESC";
-        
+        //echo $query;exit;
         $result = $this->db->query($query);
         return $result->result();
 	} 

@@ -69,13 +69,10 @@
                         <th>Stages</th>
                         <th>Segment</th> 
                         <th>Region</th> 
-                        <!--<th>Assigned Partner</th>-->
                         <th>Next Action Date</th>
                         <th>Next Action</th>
-                        <!-- <th>Expected Revenue</th>
-                        <th>Probability</th> -->
-                        <th>Confirm</th>
-                        <?php if($level >= 2) { ?><th><?php echo $this->lang->line('options'); ?></th><?php } ?>
+                        <?php if($level >= 2) { ?><th>Confirm</th><?php } ?>
+                        <th><?php echo $this->lang->line('options'); ?></th>
                       </tr>
                     </thead>
                      
@@ -98,20 +95,17 @@
 	                        <td><?php echo $opportunity->stages; ?> </td>
 	                        <td><?php echo $this->staff_model->get_segment_by_user($opportunity->salesperson_id)->segment; ?>   </td>
 	                        <td><?php echo $this->staff_model->get_region_by_user($opportunity->salesperson_id)->region; ?>   </td>
-	                        <?php
-	                        /*<td><?php echo customer_name($opportunity->assigned_partner_id)->name; ?></td>*/
-	                        ?>                      <td><?php echo date('m/d/Y', strtotime($opportunity->next_action));?>   </td>
-	                        
+	                        <td><?php echo date('m/d/Y', strtotime($opportunity->next_action));?>  </td>
 	                        <td><?php echo $opportunity->next_action_title; ?> </td>
 	                        <!-- <td><?php echo $opportunity->expected_revenue; ?> </td>
 	                        <td><?php echo $opportunity->probability; ?> </td> -->
+	                        <?php  if($level >= 2 && $opportunity->stages == "WON") { ?> 
 							<td id="td_confirmed_<?= $opportunity->id ?>">
-	                        <?php if($level >= 2 && $opportunity->stages == "WON") { ?> 
 								<?php if($opportunity->is_confirmed == 1) { echo "Confirmed"; } else { ?>
 								<a href="javascript:void(0)" class="btn btn-sm btn-danger dlt_sm_table" data-toggle="modal" data-target="#stage-confirm<?php echo $opportunity->id; ?>">Confirm</a>
 								<?php } ?>
-							<?php } else { echo "N/A"; } ?>
 							</td>	                        
+							<?php }?>
 
 	                        <td style="width: 17%;">
 	                        
